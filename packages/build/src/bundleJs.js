@@ -9,13 +9,13 @@ import { root } from './root.js'
  * @type {import('rollup').RollupOptions}
  */
 const options = {
-  input: join(root, 'packages/iframe-inspector/src/iframeInspectorMain.ts'),
+  input: join(root, 'packages/iframe-inspector/src/iframeInspectorWorkerMain.ts'),
   preserveEntrySignatures: 'strict',
   treeshake: {
     propertyReadSideEffects: false,
   },
   output: {
-    file: join(root, '.tmp/dist/dist/iframeInspectorMain.js'),
+    file: join(root, '.tmp/dist/dist/iframeInspectorWorkerMain.js'),
     format: 'es',
     freeze: false,
     generatedCode: {
