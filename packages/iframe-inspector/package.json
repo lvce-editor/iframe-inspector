@@ -1,0 +1,53 @@
+{
+  "name": "@lvce-editor/iframe-inspector",
+  "version": "0.0.0-dev",
+  "description": "Iframe Inspector",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lvce-editor/iframe-inspector.git"
+  },
+  "license": "MIT",
+  "author": "Lvce Editor",
+  "type": "module",
+  "main": "src/iframeInspectorWorkerMain.ts",
+  "scripts": {
+    "test": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
+    "test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "injectGlobals": false,
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "useESM": true
+        }
+      ]
+    },
+    "testMatch": [
+      "**/test/**"
+    ],
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@lvce-editor/i18n": "^1.1.0",
+    "@lvce-editor/rpc": "^1.23.0",
+    "@lvce-editor/rpc-registry": "^1.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6"
+  }
+}
