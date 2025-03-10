@@ -4,5 +4,6 @@ import * as Diff from '../Diff/Diff.ts'
 
 export const doRender = (oldState: IframeInspectorState, newState: IframeInspectorState): readonly any[] => {
   const diffResult = Diff.diff(oldState, newState)
-  return ApplyRender.applyRender(oldState, newState, diffResult)
+  const commands = ApplyRender.applyRender(oldState, newState, diffResult)
+  return commands
 }
