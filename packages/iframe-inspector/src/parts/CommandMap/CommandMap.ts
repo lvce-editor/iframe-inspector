@@ -3,6 +3,7 @@ import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render from '../Render/Render.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
+import * as SelectIndex from '../SelectIndex/SelectIndex.ts'
 
 export const commandMap = {
   'IframeInspector.getCommandIds': GetCommandIds.getCommandIds,
@@ -10,4 +11,5 @@ export const commandMap = {
   'IframeInspector.loadContent': LoadContent.loadContent,
   'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,
   'IframeInspector.render': Render.doRender,
+  'IframeInspector.selectIndex': SelectIndex.selectIndex,
 }
