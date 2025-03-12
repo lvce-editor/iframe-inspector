@@ -3,7 +3,7 @@ import type { IframeInspectorState } from '../IframeInspectorState/IframeInspect
 const states = Object.create(null)
 
 export const get = (
-  uid: number,
+  uid: string | number,
 ): {
   oldState: IframeInspectorState
   newState: IframeInspectorState
@@ -11,7 +11,11 @@ export const get = (
   return states[uid]
 }
 
-export const set = (uid: number, oldState: IframeInspectorState, newState: IframeInspectorState): void => {
+export const getKeys = (): readonly string[] => {
+  return Object.keys(states)
+}
+
+export const set = (uid: string | number, oldState: IframeInspectorState, newState: IframeInspectorState): void => {
   states[uid] = {
     oldState,
     newState,
