@@ -9,5 +9,5 @@ export const loadContent = async (uid: number): Promise<void> => {
     messageVersion: 1,
   }
   IframeInspectorViewStates.set(uid, newState, updated)
-  await RegisterInterceptor.registerInterceptor(uid)
+  await RegisterInterceptor.registerInterceptor()
 }
