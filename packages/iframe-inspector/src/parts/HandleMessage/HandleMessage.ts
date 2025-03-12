@@ -1,13 +1,7 @@
-import type { IframeInspectorState } from '../IframeInspectorState/IframeInspectorState.ts'
-import * as IframeInspectorViewStates from '../IframeInspectorViewStates/IframeInspectorViewStates.ts'
+import * as MessageState from '../MessageState/MessageState.ts'
 
 // TODO remove event listener on dispose
 export const handleMessage = (uid: number, data: any): void => {
-  const { newState } = IframeInspectorViewStates.get(uid)
-  const updatedState: IframeInspectorState = {
-    ...newState,
-    messages: [...newState.messages, data],
-  }
-  IframeInspectorViewStates.set(uid, newState, updatedState)
+  MessageState.addMessage(data)
   // TODO if view is visible, rerender
 }
