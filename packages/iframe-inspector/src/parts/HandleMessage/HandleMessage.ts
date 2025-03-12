@@ -4,7 +4,9 @@ import * as MessageState from '../MessageState/MessageState.ts'
 
 // TODO remove event listener on dispose
 export const handleMessage = (uid: number, data: any): void => {
-  MessageState.addMessage(data)
+  const actual = data.params[0]
+  const message = typeof actual === 'string' ? { method: actual } : actual
+  MessageState.addMessage(message)
   const { newState } = IframeInspectorViewStates.get(uid)
   const updatedState: IframeInspectorState = {
     ...newState,
