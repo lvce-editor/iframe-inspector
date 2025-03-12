@@ -11,13 +11,19 @@ export const getMessageVirtualDom = (message: Message): readonly VirtualDomNode[
     {
       type: VirtualDomElements.Div,
       className: ClassNames.IframeInspectorMessage,
-      childCount: 1,
+      childCount: 2,
     },
     {
-      type: VirtualDomElements.Div,
-      className: 'InspectorMessagePreview',
+      type: VirtualDomElements.Pre,
+      className: 'InspectorMessageData',
       childCount: 1,
     },
     text(preview),
+    {
+      type: VirtualDomElements.Div,
+      className: 'InspectorMessageLength',
+      childCount: 1,
+    },
+    text(String(preview.length)),
   ]
 }
