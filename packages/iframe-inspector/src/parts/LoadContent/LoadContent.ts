@@ -1,7 +1,6 @@
 import type { IframeInspectorState } from '../IframeInspectorState/IframeInspectorState.ts'
-import * as HandleMessage from '../HandleMessage/HandleMessage.ts'
 import * as IframeInspectorViewStates from '../IframeInspectorViewStates/IframeInspectorViewStates.ts'
-import * as Interceptor from '../Interceptor/Interceptor.ts'
+import * as RegisterInterceptor from '../RegisterInterceptor/RegisterInterceptor.ts'
 
 export const loadContent = async (uid: number): Promise<void> => {
   const { newState } = IframeInspectorViewStates.get(uid)
@@ -16,5 +15,5 @@ export const loadContent = async (uid: number): Promise<void> => {
     ],
   }
   IframeInspectorViewStates.set(uid, newState, updated)
-  await Interceptor.register(uid, HandleMessage.handleMessage)
+  await RegisterInterceptor.registerInterceptor(uid)
 }
