@@ -6,6 +6,7 @@ export const create = (uid: number): void => {
     messages: [],
     uid,
     messageVersion: 0,
+    selectedIndex: -1,
   }
   IframeInspectorViewStates.set(uid, state, state)
 }
