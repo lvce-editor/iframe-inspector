@@ -1,7 +1,9 @@
 import type { IframeInspectorState } from '../IframeInspectorState/IframeInspectorState.ts'
 import * as GetIframeInspectorVirtualDom from '../GetIframeInspectorVirtualDom/GetIframeInspectorVirtualDom.ts'
+import * as MessageState from '../MessageState/MessageState.ts'
 
 export const renderMessage = (oldState: IframeInspectorState, newState: IframeInspectorState): readonly any[] => {
-  const dom = GetIframeInspectorVirtualDom.getIframeInspectorVirtualDom(newState.messages)
+  const messages = MessageState.getMessages()
+  const dom = GetIframeInspectorVirtualDom.getIframeInspectorVirtualDom(messages)
   return ['Viewlet.setDom2', dom]
 }
