@@ -1,16 +1,14 @@
 import * as ParentRpc from '../ParentRpc/ParentRpc.ts'
 
-// TODO remove event listener on dispose
-const handleMessage = (event: any): void => {
-  // TODO
-  // console.log('got event', event.data)
-}
-
-export const register = async (id: number): Promise<void> => {
+export const register = async (id: number, handleMessage: (id: number, data: any) => void): Promise<void> => {
   const { port1, port2 } = new MessageChannel()
   await ParentRpc.invokeAndTransfer('WebView.registerInterceptor', id, port1)
   // TODO create rpc with port2
-  port2.addEventListener('message', handleMessage)
+  // TODO remove event listener on dispose
+  const wrappedHandleMessage = (event: any): void => {
+    handleMessage(id, event.data)
+  }
+  port2.addEventListener('message', wrappedHandleMessage)
   port2.start()
 }
 
