@@ -7,11 +7,14 @@ export const handleMessage = (uid: number, data: any): void => {
   const actual = data.params[0]
   const message = typeof actual === 'string' ? { method: actual } : actual
   MessageState.addMessage(message)
-  const { newState } = IframeInspectorViewStates.get(uid)
-  const updatedState: IframeInspectorState = {
-    ...newState,
-    messageVersion: newState.messageVersion + 1,
+  const keys = IframeInspectorViewStates.getKeys()
+  for (const key of keys) {
+    const { newState } = IframeInspectorViewStates.get(key)
+    const updatedState: IframeInspectorState = {
+      ...newState,
+      messageVersion: newState.messageVersion + 1,
+    }
+    IframeInspectorViewStates.set(key, newState, updatedState)
   }
-  IframeInspectorViewStates.set(uid, newState, updatedState)
   // TODO if view is visible, rerender
 }
