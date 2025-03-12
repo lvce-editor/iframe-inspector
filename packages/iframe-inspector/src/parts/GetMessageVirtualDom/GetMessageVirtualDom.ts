@@ -9,8 +9,19 @@ export const getMessageVirtualDom = (message: Message): readonly VirtualDomNode[
     {
       type: VirtualDomElements.Div,
       className: ClassNames.IframeInspectorMessage,
+      childCount: 2,
+    },
+    {
+      type: VirtualDomElements.Div,
+      className: 'InspectorMessageMethod',
       childCount: 1,
     },
     text(message.method),
+    {
+      type: VirtualDomElements.Div,
+      className: 'InspectorMessageParams',
+      childCount: 1,
+    },
+    text(JSON.stringify(message.params)),
   ]
 }
