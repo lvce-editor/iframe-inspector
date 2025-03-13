@@ -13,3 +13,7 @@ export const addMessage = (message: any): void => {
 export const getMessages = (): readonly any[] => {
   return state.messages
 }
+
+export const reset = (): void => {
+  state.messages = []
+}
