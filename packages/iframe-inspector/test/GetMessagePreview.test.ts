@@ -12,7 +12,7 @@ test('getMessagePreview - long message', () => {
     params: ['very long string '.repeat(20)],
   }
   expect(GetMessagePreview.getMessagePreview(message)).toBe(
-    '{"method":"test","params":["very long string very long string very long string very long string very long st...',
+    '{"method":"test","params":["very long string very long string very long string very long string very...',
   )
 })
 
