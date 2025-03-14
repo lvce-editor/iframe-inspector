@@ -14,6 +14,9 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     headerHeight: 20, // TODO make this configurable
     itemHeight: 25, // TODO make this configurable
     messagesHeight: Math.floor(height * 0.6), // Add this - initially 60% height
+    isResizing: false,
+    resizeStartY: 0,
+    resizeStartHeight: 0,
   }
   IframeInspectorViewStates.set(uid, state, state)
 }
