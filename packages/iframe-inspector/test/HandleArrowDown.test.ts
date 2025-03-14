@@ -18,6 +18,9 @@ beforeEach(() => {
     headerHeight: 0,
     itemHeight: 0,
     messagesHeight: 0,
+    isResizing: false,
+    resizeStartY: 0,
+    resizeStartHeight: 0,
   }
 
   IframeInspectorViewStates.set(1, state, state)
