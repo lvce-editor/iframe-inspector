@@ -1,6 +1,7 @@
 import * as Create from '../Create/Create.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as HandleClick from '../HandleClick/HandleClick.ts'
+import * as HandleResizer from '../HandleResizer/HandleResizer.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render from '../Render/Render.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
@@ -14,4 +15,7 @@ export const commandMap = {
   'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,
   'IframeInspector.render': Render.doRender,
   'IframeInspector.selectIndex': SelectIndex.selectIndex,
+  'IframeInspector.handleResizerMouseDown': HandleResizer.handleResizerMouseDown,
+  'IframeInspector.handleResizerMouseMove': HandleResizer.handleResizerMouseMove,
+  'IframeInspector.handleResizerMouseUp': HandleResizer.handleResizerMouseUp,
 }
