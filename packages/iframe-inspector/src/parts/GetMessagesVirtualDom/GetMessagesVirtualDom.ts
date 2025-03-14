@@ -9,6 +9,7 @@ export const getMessagesVirtualDom = (messages: readonly Message[]): readonly Vi
       type: VirtualDomElements.Div,
       className: 'IframeInspectorMessages',
       childCount: messages.length,
+      onClick: 'handleClick',
     },
     ...messages.flatMap(GetMessageVirtualDom.getMessageVirtualDom),
   ]

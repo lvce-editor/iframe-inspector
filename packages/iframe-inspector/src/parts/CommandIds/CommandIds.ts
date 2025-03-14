@@ -1,1 +1,1 @@
-export const commandIds = ['handleClickClose', 'handleClickOk', 'handleClickCopy', 'handleFocusIn', 'focusNext', 'focusPrevious']
+export const commandIds = ['handleClick']
