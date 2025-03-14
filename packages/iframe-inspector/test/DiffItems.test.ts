@@ -13,12 +13,22 @@ test('isEqual - same version', () => {
     messages: [],
     uid: 1,
     selectedIndex: -1,
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    headerHeight: 0,
   }
   const newState: IframeInspectorState = {
     messageVersion: 1,
     messages: [],
     uid: 1,
     selectedIndex: -1,
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    headerHeight: 0,
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(true)
 })
@@ -29,12 +39,22 @@ test('isEqual - different version', () => {
     messages: [],
     uid: 1,
     selectedIndex: -1,
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    headerHeight: 0,
   }
   const newState: IframeInspectorState = {
     messageVersion: 2,
     messages: [],
     uid: 1,
     selectedIndex: -1,
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    headerHeight: 0,
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(false)
 })
