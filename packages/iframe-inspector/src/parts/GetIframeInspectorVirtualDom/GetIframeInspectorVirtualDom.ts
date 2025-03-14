@@ -1,4 +1,4 @@
-import type { MessageViewModel } from '../CreateMessageViewModel/CreateMessageViewModel.ts'
+import type { MessageViewModel } from '../MessageViewModel/MessageViewModel.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as GetHeaderVirtualDom from '../GetHeaderVirtualDom/GetHeaderVirtualDom.ts'
