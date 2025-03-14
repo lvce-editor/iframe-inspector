@@ -1,4 +1,4 @@
-import type { Message } from '../Message/Message.ts'
+import type { MessageViewModel } from '../CreateMessageViewModel/CreateMessageViewModel.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as GetHeaderVirtualDom from '../GetHeaderVirtualDom/GetHeaderVirtualDom.ts'
@@ -7,7 +7,7 @@ import * as GetSelectedContentVirtualDom from '../GetSelectedContentVirtualDom/G
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
-export const getIframeInspectorVirtualDom = (messages: readonly Message[], selectedIndex: number): readonly VirtualDomNode[] => {
+export const getIframeInspectorVirtualDom = (messages: readonly MessageViewModel[], selectedIndex: number): readonly VirtualDomNode[] => {
   return [
     {
       type: VirtualDomElements.Div,
