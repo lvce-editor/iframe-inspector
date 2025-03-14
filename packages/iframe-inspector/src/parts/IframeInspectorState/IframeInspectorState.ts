@@ -11,4 +11,5 @@ export interface IframeInspectorState {
   readonly width: number
   readonly height: number
   readonly itemHeight: number
+  readonly messagesHeight: number
 }
