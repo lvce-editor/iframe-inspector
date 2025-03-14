@@ -12,10 +12,16 @@ export const getIframeInspectorVirtualDom = (messages: readonly MessageViewModel
     {
       type: VirtualDomElements.Div,
       className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.IFrameInspector),
-      childCount: 3,
+      childCount: 4,
     },
     ...GetHeaderVirtualDom.getHeaderVirtualDom(),
     ...GetMessagesVirtualDom.getMessagesVirtualDom(messages),
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.IframeInspectorResizer,
+      childCount: 0,
+      onMouseDown: 'handleResizerMouseDown',
+    },
     ...GetSelectedContentVirtualDom.getSelectedContentVirtualDom(messages, selectedIndex),
   ]
 }
