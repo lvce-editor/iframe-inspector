@@ -11,7 +11,8 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     y,
     width,
     height,
-    headerHeight: 20,
+    headerHeight: 20, // TODO make this configurable
+    itemHeight: 25, // TODO make this configurable
   }
   IframeInspectorViewStates.set(uid, state, state)
 }
