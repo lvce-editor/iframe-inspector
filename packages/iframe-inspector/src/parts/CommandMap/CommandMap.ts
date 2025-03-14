@@ -5,6 +5,7 @@ import * as HandleArrowUp from '../HandleArrowUp/HandleArrowUp.ts'
 import * as HandleClick from '../HandleClick/HandleClick.ts'
 import * as HandleEnd from '../HandleEnd/HandleEnd.ts'
 import * as HandleHome from '../HandleHome/HandleHome.ts'
+import * as HandleResizer from '../HandleResizer/HandleResizer.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render from '../Render/Render.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
@@ -22,4 +23,7 @@ export const commandMap = {
   'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,
   'IframeInspector.render': Render.doRender,
   'IframeInspector.selectIndex': SelectIndex.selectIndex,
+  'IframeInspector.handleResizerMouseDown': HandleResizer.handleResizerMouseDown,
+  'IframeInspector.handleResizerMouseMove': HandleResizer.handleResizerMouseMove,
+  'IframeInspector.handleResizerMouseUp': HandleResizer.handleResizerMouseUp,
 }
