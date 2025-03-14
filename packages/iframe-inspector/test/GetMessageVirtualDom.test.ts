@@ -53,7 +53,7 @@ test('getMessageVirtualDom - selected', () => {
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
       type: VirtualDomElements.Div,
-      className: 'IframeInspectorMessage Selected',
+      className: 'IframeInspectorMessage IframeInspectorMessageSelected',
       childCount: 2,
     },
     {
