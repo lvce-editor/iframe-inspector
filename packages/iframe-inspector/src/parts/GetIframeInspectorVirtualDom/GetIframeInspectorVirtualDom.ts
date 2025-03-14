@@ -20,7 +20,9 @@ export const getIframeInspectorVirtualDom = (messages: readonly MessageViewModel
       type: VirtualDomElements.Div,
       className: ClassNames.IframeInspectorResizer,
       childCount: 0,
-      onMouseDown: 'handleResizerMouseDown',
+      onPointerDown: 'handleResizerMouseDown',
+      onPointerMove: 'handleResizerMouseMove',
+      onPointerUp: 'handleResizerMouseUp',
     },
     ...GetSelectedContentVirtualDom.getSelectedContentVirtualDom(messages, selectedIndex),
   ]
