@@ -9,7 +9,10 @@ export const getMessageVirtualDom = (message: MessageViewModel): readonly Virtua
   return [
     {
       type: VirtualDomElements.Div,
-      className: MergeClassNames.mergeClassNames(ClassNames.IframeInspectorMessage, message.isSelected ? ClassNames.Selected : ''),
+      className: MergeClassNames.mergeClassNames(
+        ClassNames.IframeInspectorMessage,
+        message.isSelected ? ClassNames.IframeInspectorMessageSelected : '',
+      ),
       childCount: 2,
     },
     {
