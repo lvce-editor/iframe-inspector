@@ -1,1 +1,1 @@
-export const commandIds = ['handleClick']
+export const commandIds = ['handleClick', 'handleArrowDown', 'handleArrowUp', 'handleHome', 'handleEnd']
