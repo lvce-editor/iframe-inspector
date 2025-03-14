@@ -1,5 +1,6 @@
 import type { Message } from '../Message/Message.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
+import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
@@ -8,7 +9,7 @@ export const getSelectedContentVirtualDom = (messages: readonly Message[], selec
     return [
       {
         type: VirtualDomElements.Div,
-        className: 'IframeInspectorSelectedContent',
+        className: ClassNames.IframeInspectorSelectedContent,
         childCount: 1,
       },
       text('no message selected'),
@@ -19,12 +20,12 @@ export const getSelectedContentVirtualDom = (messages: readonly Message[], selec
   return [
     {
       type: VirtualDomElements.Div,
-      className: 'IframeInspectorSelectedContent',
+      className: ClassNames.IframeInspectorSelectedContent,
       childCount: 1,
     },
     {
       type: VirtualDomElements.Pre,
-      className: 'IframeInspectorSelectedContentPre',
+      className: ClassNames.IframeInspectorSelectedContentPre,
       childCount: 1,
     },
     text(stringified),
