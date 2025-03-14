@@ -9,6 +9,11 @@ beforeEach(() => {
     uid: 1,
     messageVersion: 0,
     selectedIndex: -1,
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    headerHeight: 0,
   }
   IframeInspectorViewStates.set(1, state, state)
 })
