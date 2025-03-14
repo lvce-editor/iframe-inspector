@@ -18,7 +18,7 @@ test('createMessageViewModel - single message not selected', () => {
       params: [],
       isSelected: false,
       messagePreview: '{"id":1,"method":"test","params":[]}',
-      messagePreviewLength: 36,
+      messagePreviewLength: '36',
     },
   ])
 })
@@ -36,7 +36,7 @@ test('createMessageViewModel - single message selected', () => {
       params: [],
       isSelected: true,
       messagePreview: '{"id":1,"method":"test","params":[]}',
-      messagePreviewLength: 36,
+      messagePreviewLength: '36',
     },
   ])
 })
@@ -61,7 +61,7 @@ test('createMessageViewModel - multiple messages', () => {
       params: [],
       isSelected: false,
       messagePreview: '{"id":1,"method":"test1","params":[]}',
-      messagePreviewLength: 37,
+      messagePreviewLength: '37',
     },
     {
       id: 2,
@@ -69,7 +69,7 @@ test('createMessageViewModel - multiple messages', () => {
       params: [],
       isSelected: true,
       messagePreview: '{"id":2,"method":"test2","params":[]}',
-      messagePreviewLength: 37,
+      messagePreviewLength: '37',
     },
   ])
 })

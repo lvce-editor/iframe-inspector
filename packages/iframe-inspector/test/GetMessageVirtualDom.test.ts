@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals'
-import type { MessageViewModel } from '../src/parts/CreateMessageViewModel/CreateMessageViewModel.ts'
+import type { MessageViewModel } from '../src/parts/MessageViewModel/MessageViewModel.ts'
 import * as GetMessageVirtualDom from '../src/parts/GetMessageVirtualDom/GetMessageVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
@@ -10,7 +10,7 @@ test('getMessageVirtualDom - not selected', () => {
     params: [],
     isSelected: false,
     messagePreview: '{"id":1,"method":"test","params":[]}',
-    messagePreviewLength: 36,
+    messagePreviewLength: '36',
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -48,7 +48,7 @@ test('getMessageVirtualDom - selected', () => {
     params: [],
     isSelected: true,
     messagePreview: '{"id":1,"method":"test","params":[]}',
-    messagePreviewLength: 36,
+    messagePreviewLength: '36',
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -86,7 +86,7 @@ test('getMessageVirtualDom - long message', () => {
     params: ['a'.repeat(200)],
     isSelected: false,
     messagePreview: '{"id":1,"method":"test","params":["' + 'a'.repeat(65) + '...',
-    messagePreviewLength: 103,
+    messagePreviewLength: '103',
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
