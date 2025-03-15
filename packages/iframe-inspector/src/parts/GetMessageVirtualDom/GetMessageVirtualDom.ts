@@ -5,14 +5,16 @@ import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const getClassName = (isSelected: boolean): string => {
+  return MergeClassNames.mergeClassNames(ClassNames.IframeInspectorMessage, isSelected ? ClassNames.IframeInspectorMessageSelected : '')
+}
+
 export const getMessageVirtualDom = (message: MessageViewModel): readonly VirtualDomNode[] => {
+  const { isSelected, messagePreview, messagePreviewLength } = message
   return [
     {
       type: VirtualDomElements.Div,
-      className: MergeClassNames.mergeClassNames(
-        ClassNames.IframeInspectorMessage,
-        message.isSelected ? ClassNames.IframeInspectorMessageSelected : '',
-      ),
+      className: getClassName(isSelected),
       childCount: 2,
     },
     {
@@ -20,12 +22,12 @@ export const getMessageVirtualDom = (message: MessageViewModel): readonly Virtua
       className: ClassNames.InspectorMessageData,
       childCount: 1,
     },
-    text(message.messagePreview),
+    text(messagePreview),
     {
       type: VirtualDomElements.Div,
       className: ClassNames.InspectorMessageLength,
       childCount: 1,
     },
-    text(String(message.messagePreviewLength)),
+    text(messagePreviewLength),
   ]
 }
