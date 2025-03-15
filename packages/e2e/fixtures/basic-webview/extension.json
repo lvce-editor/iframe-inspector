@@ -25,6 +25,10 @@
         {
           "type": "script",
           "path": "media/index.js"
+        },
+        {
+          "type": "css",
+          "path": "media/index.css"
         }
       ]
     }
