@@ -23,6 +23,7 @@ test('isEqual - same height', () => {
     isResizing: false,
     resizeStartY: 0,
     resizeStartHeight: 0,
+    expandedPaths: [],
   }
   const newState: IframeInspectorState = {
     messageVersion: 1,
@@ -39,6 +40,7 @@ test('isEqual - same height', () => {
     isResizing: false,
     resizeStartY: 0,
     resizeStartHeight: 0,
+    expandedPaths: [],
   }
   expect(DiffHeights.isEqual(oldState, newState)).toBe(true)
 })
@@ -59,6 +61,7 @@ test('isEqual - different height', () => {
     isResizing: false,
     resizeStartY: 0,
     resizeStartHeight: 0,
+    expandedPaths: [],
   }
   const newState: IframeInspectorState = {
     messageVersion: 1,
@@ -75,6 +78,7 @@ test('isEqual - different height', () => {
     isResizing: false,
     resizeStartY: 0,
     resizeStartHeight: 0,
+    expandedPaths: [],
   }
   expect(DiffHeights.isEqual(oldState, newState)).toBe(false)
 })
