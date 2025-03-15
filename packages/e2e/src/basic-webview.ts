@@ -24,7 +24,7 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   await Command.execute('Main.closeAllEditors')
   await Command.execute('Developer.openIframeInspector')
 
-  const messages = Locator('.IframeInspectorMessage')
+  const messages = Locator('.TableRow')
   await expect(messages).toHaveCount(5)
 
   const firstMessage = messages.nth(0)
