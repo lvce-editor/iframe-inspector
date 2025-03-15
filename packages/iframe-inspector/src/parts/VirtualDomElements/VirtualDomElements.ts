@@ -8,3 +8,4 @@ export const THead = 14
 export const Tr = 15
 export const Li = 48
 export const Ol = 49
+export const Pre = 51
