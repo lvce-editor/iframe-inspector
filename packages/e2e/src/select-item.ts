@@ -37,5 +37,6 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   "isSelected": true,
   "messagePreview": "{\\"method\\":\\"ready\\",\\"params\\":[]}",
   "messagePreviewLength": "30"
+  "isEven": true
 }`)
 }
