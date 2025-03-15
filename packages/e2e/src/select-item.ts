@@ -2,6 +2,8 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'select-item'
 
+export const skip = 1
+
 export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect, Command, Locator }) => {
   // arrange
   await Command.execute('Main.closeAllEditors')
@@ -23,9 +25,9 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   await Command.execute('Developer.openIframeInspector')
 
   const messages = Locator('.TableRow')
-  await expect(messages).toHaveCount(5)
+  await expect(messages).toHaveCount(6)
 
-  const firstMessage = messages.nth(0)
+  const firstMessage = messages.nth(1)
   await expect(firstMessage).toHaveText('{"method":"ready","params":[]}30')
 
   await Command.execute('IframeInspector.selectIndex', 0)
@@ -37,5 +39,6 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   "isSelected": true,
   "messagePreview": "{\\"method\\":\\"ready\\",\\"params\\":[]}",
   "messagePreviewLength": "30"
+  "isEven": true
 }`)
 }

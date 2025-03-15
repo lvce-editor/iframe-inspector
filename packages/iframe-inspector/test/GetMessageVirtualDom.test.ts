@@ -11,11 +11,12 @@ test('getMessageVirtualDom - not selected', () => {
     isSelected: false,
     messagePreview: '{"id":1,"method":"test","params":[]}',
     messagePreviewLength: '36',
+    isEven: false,
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
       type: VirtualDomElements.Tr,
-      className: 'TableRow',
+      className: 'TableRow TableRowOdd',
       childCount: 2,
     },
     {
@@ -49,11 +50,12 @@ test('getMessageVirtualDom - selected', () => {
     isSelected: true,
     messagePreview: '{"id":1,"method":"test","params":[]}',
     messagePreviewLength: '36',
+    isEven: false,
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
       type: VirtualDomElements.Tr,
-      className: 'TableRow TableRowSelected',
+      className: 'TableRow TableRowSelected TableRowOdd',
       childCount: 2,
     },
     {
@@ -87,11 +89,12 @@ test('getMessageVirtualDom - long message', () => {
     isSelected: false,
     messagePreview: '{"id":1,"method":"test","params":["' + 'a'.repeat(65) + '...',
     messagePreviewLength: '103',
+    isEven: false,
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
       type: VirtualDomElements.Tr,
-      className: 'TableRow',
+      className: 'TableRow TableRowOdd',
       childCount: 2,
     },
     {

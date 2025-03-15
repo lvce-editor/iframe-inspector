@@ -19,6 +19,7 @@ test('createMessageViewModel - single message not selected', () => {
       isSelected: false,
       messagePreview: '{"id":1,"method":"test","params":[]}',
       messagePreviewLength: '36',
+      isEven: true,
     },
   ])
 })
@@ -32,6 +33,7 @@ test('createMessageViewModel - single message selected', () => {
   expect(CreateMessageViewModel.createMessageViewModel([message], 0)).toEqual([
     {
       id: 1,
+      isEven: true,
       method: 'test',
       params: [],
       isSelected: true,
@@ -62,6 +64,7 @@ test('createMessageViewModel - multiple messages', () => {
       isSelected: false,
       messagePreview: '{"id":1,"method":"test1","params":[]}',
       messagePreviewLength: '37',
+      isEven: true,
     },
     {
       id: 2,
@@ -70,6 +73,7 @@ test('createMessageViewModel - multiple messages', () => {
       isSelected: true,
       messagePreview: '{"id":2,"method":"test2","params":[]}',
       messagePreviewLength: '37',
+      isEven: false,
     },
   ])
 })
