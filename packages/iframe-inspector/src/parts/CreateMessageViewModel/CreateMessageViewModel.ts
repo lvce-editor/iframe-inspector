@@ -10,6 +10,7 @@ export const createMessageViewModel = (messages: readonly Message[], selectedInd
       isSelected: index === selectedIndex,
       messagePreview: preview,
       messagePreviewLength: String(preview.length),
+      isEven: index % 2 === 0,
     }
   })
 }
