@@ -1,15 +1,18 @@
 import type { MessageViewModel } from '../MessageViewModel/MessageViewModel.ts'
+import type { SelectedMessageViewModel } from '../SelectedMessageViewModel/SelectedMessageViewModel.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as GetResizerVirtualDom from '../GetResizerVirtualDom/GetResizerVirtualDom.ts'
 import * as GetSelectedContentVirtualDom from '../GetSelectedContentVirtualDom/GetSelectedContentVirtualDom.ts'
-import * as GetSelectedMessageString from '../GetSelectedMessageString/GetSelectedMessageString.ts'
 import * as GetTableWrapperVirtualDom from '../GetTableWrapperVirtualDom/GetTableWrapperVirtualDom.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
-export const getIframeInspectorVirtualDom = (messages: readonly MessageViewModel[], selectedIndex: number): readonly VirtualDomNode[] => {
-  const selectedMessageString = GetSelectedMessageString.getSelectedMessageString(messages, selectedIndex)
+export const getIframeInspectorVirtualDom = (
+  messages: readonly MessageViewModel[],
+  selectedModel: SelectedMessageViewModel,
+  selectedIndex: number,
+): readonly VirtualDomNode[] => {
   return [
     {
       type: VirtualDomElements.Div,
@@ -18,6 +21,6 @@ export const getIframeInspectorVirtualDom = (messages: readonly MessageViewModel
     },
     ...GetTableWrapperVirtualDom.getTableWrapperVirtualDom(messages),
     ...GetResizerVirtualDom.getResizerVirtualDom(),
-    ...GetSelectedContentVirtualDom.getSelectedContentVirtualDom(selectedMessageString, selectedIndex),
+    ...GetSelectedContentVirtualDom.getSelectedContentVirtualDom(selectedModel, selectedIndex),
   ]
 }
