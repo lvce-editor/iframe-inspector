@@ -21,5 +21,9 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleResizerMouseUp'],
       preventDefault: true,
     },
+    {
+      name: 'handleSelectedContentClick',
+      params: ['handleSelectedContentClick', 'event.clientX', 'event.clientY'],
+    },
   ]
 }

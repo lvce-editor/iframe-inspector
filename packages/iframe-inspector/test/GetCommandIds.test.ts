@@ -12,5 +12,6 @@ test('getCommandIds', () => {
     'handleResizerMouseMove',
     'handleResizerMouseUp',
     'selectIndex',
+    'handleSelectedContentClick',
   ])
 })
