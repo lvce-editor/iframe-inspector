@@ -7,7 +7,17 @@ import * as GetTableWrapperVirtualDom from '../GetTableWrapperVirtualDom/GetTabl
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
+const getSelectedString = (messages: readonly MessageViewModel[], selectedIndex: number): string => {
+  if (selectedIndex === -1) {
+    return ''
+  }
+  const selectedMessage = messages[selectedIndex]
+  const stringified = JSON.stringify(selectedMessage, null, 2)
+  return stringified
+}
+
 export const getIframeInspectorVirtualDom = (messages: readonly MessageViewModel[], selectedIndex: number): readonly VirtualDomNode[] => {
+  const selectedMessageString = getSelectedString(messages, selectedIndex)
   return [
     {
       type: VirtualDomElements.Div,
@@ -16,6 +26,6 @@ export const getIframeInspectorVirtualDom = (messages: readonly MessageViewModel
     },
     ...GetTableWrapperVirtualDom.getTableWrapperVirtualDom(messages),
     ...GetResizerVirtualDom.getResizerVirtualDom(),
-    ...GetSelectedContentVirtualDom.getSelectedContentVirtualDom(messages, selectedIndex),
+    ...GetSelectedContentVirtualDom.getSelectedContentVirtualDom(selectedMessageString, selectedIndex),
   ]
 }

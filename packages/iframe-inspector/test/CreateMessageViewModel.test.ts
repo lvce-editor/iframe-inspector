@@ -13,13 +13,15 @@ test('createMessageViewModel - single message not selected', () => {
   }
   expect(CreateMessageViewModel.createMessageViewModel([message], -1)).toEqual([
     {
-      id: 1,
-      method: 'test',
-      params: [],
       isSelected: false,
       messagePreview: '{"id":1,"method":"test","params":[]}',
       messagePreviewLength: '36',
       isEven: true,
+      messageRaw: {
+        id: 1,
+        method: 'test',
+        params: [],
+      },
     },
   ])
 })
@@ -32,13 +34,15 @@ test('createMessageViewModel - single message selected', () => {
   }
   expect(CreateMessageViewModel.createMessageViewModel([message], 0)).toEqual([
     {
-      id: 1,
       isEven: true,
-      method: 'test',
-      params: [],
       isSelected: true,
       messagePreview: '{"id":1,"method":"test","params":[]}',
       messagePreviewLength: '36',
+      messageRaw: {
+        id: 1,
+        method: 'test',
+        params: [],
+      },
     },
   ])
 })
@@ -58,22 +62,26 @@ test('createMessageViewModel - multiple messages', () => {
   ]
   expect(CreateMessageViewModel.createMessageViewModel(messages, 1)).toEqual([
     {
-      id: 1,
-      method: 'test1',
-      params: [],
       isSelected: false,
       messagePreview: '{"id":1,"method":"test1","params":[]}',
       messagePreviewLength: '37',
       isEven: true,
+      messageRaw: {
+        id: 1,
+        method: 'test1',
+        params: [],
+      },
     },
     {
-      id: 2,
-      method: 'test2',
-      params: [],
       isSelected: true,
       messagePreview: '{"id":2,"method":"test2","params":[]}',
       messagePreviewLength: '37',
       isEven: false,
+      messageRaw: {
+        id: 2,
+        method: 'test2',
+        params: [],
+      },
     },
   ])
 })

@@ -7,9 +7,9 @@ export const createMessageViewModel = (messages: readonly Message[], selectedInd
   return messages.map((message, index) => {
     const preview = GetMessagePreview.getMessagePreview(message, maxLength)
     return {
-      ...message,
       isSelected: index === selectedIndex,
       messagePreview: preview,
+      messageRaw: message,
       messagePreviewLength: String(preview.length),
       isEven: index % 2 === 0,
     }
