@@ -19,6 +19,7 @@ beforeEach(() => {
     isResizing: false,
     resizeStartY: 0,
     resizeStartHeight: 0,
+    expandedPaths: [],
   }
   IframeInspectorViewStates.set(1, state, state)
 })
