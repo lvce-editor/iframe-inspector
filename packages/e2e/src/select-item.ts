@@ -25,7 +25,7 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   const messages = Locator('.TableRow')
   await expect(messages).toHaveCount(6)
 
-  const firstMessage = messages.nth(0)
+  const firstMessage = messages.nth(1)
   await expect(firstMessage).toHaveText('{"method":"ready","params":[]}30')
 
   await Command.execute('IframeInspector.selectIndex', 0)
