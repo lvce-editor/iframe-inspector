@@ -1,0 +1,46 @@
+import { beforeEach, expect, test } from '@jest/globals'
+import type { IframeInspectorState } from '../src/parts/IframeInspectorState/IframeInspectorState.ts'
+import * as IframeInspectorViewStates from '../src/parts/IframeInspectorViewStates/IframeInspectorViewStates.ts'
+import * as SelectContentIndex from '../src/parts/SelectContentIndex/SelectContentIndex.ts'
+
+beforeEach(() => {
+  const state: IframeInspectorState = {
+    messages: [],
+    uid: 1,
+    messageVersion: 0,
+    selectedIndex: 0,
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    headerHeight: 0,
+    itemHeight: 0,
+    messagesHeight: 0,
+    isResizing: false,
+    resizeStartY: 0,
+    resizeStartHeight: 0,
+    expandedPaths: [],
+    selectedContentItemHeight: 20,
+  }
+  IframeInspectorViewStates.set(1, state, state)
+})
+
+test('selectContentIndex - expand path', () => {
+  SelectContentIndex.selectContentIndex(1, 'params.0')
+  const { newState } = IframeInspectorViewStates.get(1)
+  expect(newState.expandedPaths).toEqual(['params.0'])
+})
+
+test('selectContentIndex - collapse path', () => {
+  SelectContentIndex.selectContentIndex(1, 'params.0')
+  SelectContentIndex.selectContentIndex(1, 'params.0')
+  const { newState } = IframeInspectorViewStates.get(1)
+  expect(newState.expandedPaths).toEqual([])
+})
+
+test('selectContentIndex - multiple paths', () => {
+  SelectContentIndex.selectContentIndex(1, 'method')
+  SelectContentIndex.selectContentIndex(1, 'params.0')
+  const { newState } = IframeInspectorViewStates.get(1)
+  expect(newState.expandedPaths).toEqual(['method', 'params.0'])
+})
