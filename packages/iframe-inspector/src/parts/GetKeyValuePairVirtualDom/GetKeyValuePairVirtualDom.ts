@@ -9,7 +9,7 @@ export const getKeyValuePairVirtualDom = (pair: SelectedMessageKeyValuePair): re
     {
       type: VirtualDomElements.Li,
       className: ClassNames.IframeInspectorSelectedContentItem,
-      childCount: 2,
+      childCount: 3,
     },
     {
       type: VirtualDomElements.Span,
@@ -17,6 +17,7 @@ export const getKeyValuePairVirtualDom = (pair: SelectedMessageKeyValuePair): re
       childCount: 1,
     },
     text(pair.key),
+    text(': '),
     {
       type: VirtualDomElements.Span,
       className: ClassNames.IframeInspectorSelectedContentValue,
