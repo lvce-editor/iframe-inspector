@@ -1,10 +1,9 @@
-import type { Message } from '../Message/Message.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
-export const getSelectedContentVirtualDom = (messages: readonly Message[], selectedIndex: number): readonly VirtualDomNode[] => {
+export const getSelectedContentVirtualDom = (selectedMessageString: string, selectedIndex: number): readonly VirtualDomNode[] => {
   if (selectedIndex === -1) {
     return [
       {
@@ -15,8 +14,6 @@ export const getSelectedContentVirtualDom = (messages: readonly Message[], selec
       text('no message selected'),
     ]
   }
-  const selectedMessage = messages[selectedIndex]
-  const stringified = JSON.stringify(selectedMessage, null, 2)
   return [
     {
       type: VirtualDomElements.Div,
@@ -28,6 +25,6 @@ export const getSelectedContentVirtualDom = (messages: readonly Message[], selec
       className: ClassNames.IframeInspectorSelectedContentPre,
       childCount: 1,
     },
-    text(stringified),
+    text(selectedMessageString),
   ]
 }

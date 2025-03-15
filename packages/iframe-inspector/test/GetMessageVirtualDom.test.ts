@@ -5,13 +5,11 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 
 test('getMessageVirtualDom - not selected', () => {
   const message: MessageViewModel = {
-    id: 1,
-    method: 'test',
-    params: [],
     isSelected: false,
     messagePreview: '{"id":1,"method":"test","params":[]}',
     messagePreviewLength: '36',
     isEven: false,
+    messageRaw: {},
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -44,13 +42,11 @@ test('getMessageVirtualDom - not selected', () => {
 
 test('getMessageVirtualDom - selected', () => {
   const message: MessageViewModel = {
-    id: 1,
-    method: 'test',
-    params: [],
     isSelected: true,
     messagePreview: '{"id":1,"method":"test","params":[]}',
     messagePreviewLength: '36',
     isEven: false,
+    messageRaw: {},
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -83,13 +79,11 @@ test('getMessageVirtualDom - selected', () => {
 
 test('getMessageVirtualDom - long message', () => {
   const message: MessageViewModel = {
-    id: 1,
-    method: 'test',
-    params: ['a'.repeat(200)],
     isSelected: false,
     messagePreview: '{"id":1,"method":"test","params":["' + 'a'.repeat(65) + '...',
     messagePreviewLength: '103',
     isEven: false,
+    messageRaw: {},
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
