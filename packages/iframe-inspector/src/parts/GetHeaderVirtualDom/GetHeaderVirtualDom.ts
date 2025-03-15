@@ -7,22 +7,23 @@ export const getHeaderVirtualDom = (): readonly VirtualDomNode[] => {
   return [
     {
       type: VirtualDomElements.THead,
-      className: ClassNames.IframeInspectorHeader,
+      className: ClassNames.TableHead,
       childCount: 1,
     },
     {
       type: VirtualDomElements.Tr,
+      className: ClassNames.TableRow,
       childCount: 2,
     },
     {
       type: VirtualDomElements.Th,
-      className: ClassNames.IframeInspectorHeaderData,
+      className: ClassNames.TableCell,
       childCount: 1,
     },
     text('Data'),
     {
       type: VirtualDomElements.Th,
-      className: ClassNames.IframeInspectorHeaderLength,
+      className: ClassNames.TableCell,
       childCount: 1,
     },
     text('Length'),

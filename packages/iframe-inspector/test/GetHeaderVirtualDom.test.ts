@@ -6,16 +6,17 @@ test('getHeaderVirtualDom', () => {
   expect(GetHeaderVirtualDom.getHeaderVirtualDom()).toEqual([
     {
       type: VirtualDomElements.THead,
-      className: 'IframeInspectorHeader',
+      className: 'TableHead',
       childCount: 1,
     },
     {
       type: VirtualDomElements.Tr,
+      className: 'TableRow',
       childCount: 2,
     },
     {
       type: VirtualDomElements.Th,
-      className: 'IframeInspectorHeaderData',
+      className: 'TableCell',
       childCount: 1,
     },
     {
@@ -25,7 +26,7 @@ test('getHeaderVirtualDom', () => {
     },
     {
       type: VirtualDomElements.Th,
-      className: 'IframeInspectorHeaderLength',
+      className: 'TableCell',
       childCount: 1,
     },
     {
