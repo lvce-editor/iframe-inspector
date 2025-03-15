@@ -1,6 +1,6 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
 
-export const name = 'basic-webview'
+export const name = 'select-item'
 
 export const skip = 1
 
@@ -8,7 +8,7 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   // arrange
   await Command.execute('Main.closeAllEditors')
   await Command.execute('Developer.openIframeInspector')
-  await Extension.addWebExtension(new URL(`../fixtures/${name}`, import.meta.url).toString())
+  await Extension.addWebExtension(new URL(`../fixtures/basic-webview`, import.meta.url).toString())
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(`${tmpDir}/test.xyz`, `a`)
 
@@ -29,4 +29,6 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
 
   const firstMessage = messages.nth(0)
   await expect(firstMessage).toHaveText('{"method":"ready","params":[]}30')
+
+  await Command.execute('IframeInspector.selectIndex', 0)
 }

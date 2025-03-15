@@ -7,4 +7,5 @@ export const commandIds = [
   'handleResizerMouseDown',
   'handleResizerMouseMove',
   'handleResizerMouseUp',
+  'selectIndex',
 ]
