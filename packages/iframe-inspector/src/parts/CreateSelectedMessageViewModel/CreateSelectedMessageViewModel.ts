@@ -1,12 +1,14 @@
+import type { Message } from '../Message/Message.ts'
 import type { SelectedMessageViewModel } from '../SelectedMessageViewModel/SelectedMessageViewModel.ts'
 
-export const createSelectedMessageViewModel = (selectedMessage: any): SelectedMessageViewModel => {
-  if (!selectedMessage) {
+export const createSelectedMessageViewModel = (messages: readonly Message[], selectedIndex: number): SelectedMessageViewModel => {
+  if (selectedIndex === -1) {
     return {
       pairs: [],
     }
   }
-  const entries = Object.entries(selectedMessage)
+  const message = messages[selectedIndex]
+  const entries = Object.entries(message)
   const pairs: SelectedMessageViewModel['pairs'] = entries.map(([key, value]: readonly [string, any]) => {
     return {
       key,
