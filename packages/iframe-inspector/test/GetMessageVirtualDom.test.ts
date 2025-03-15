@@ -14,12 +14,12 @@ test('getMessageVirtualDom - not selected', () => {
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Tr,
       className: 'IframeInspectorMessage',
       childCount: 2,
     },
     {
-      type: VirtualDomElements.Pre,
+      type: VirtualDomElements.Td,
       className: 'InspectorMessageData',
       childCount: 1,
     },
@@ -29,7 +29,7 @@ test('getMessageVirtualDom - not selected', () => {
       childCount: 0,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Td,
       className: 'InspectorMessageLength',
       childCount: 1,
     },
@@ -52,12 +52,12 @@ test('getMessageVirtualDom - selected', () => {
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Tr,
       className: 'IframeInspectorMessage IframeInspectorMessageSelected',
       childCount: 2,
     },
     {
-      type: VirtualDomElements.Pre,
+      type: VirtualDomElements.Td,
       className: 'InspectorMessageData',
       childCount: 1,
     },
@@ -67,7 +67,7 @@ test('getMessageVirtualDom - selected', () => {
       childCount: 0,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Td,
       className: 'InspectorMessageLength',
       childCount: 1,
     },
@@ -90,12 +90,12 @@ test('getMessageVirtualDom - long message', () => {
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Tr,
       className: 'IframeInspectorMessage',
       childCount: 2,
     },
     {
-      type: VirtualDomElements.Pre,
+      type: VirtualDomElements.Td,
       className: 'InspectorMessageData',
       childCount: 1,
     },
@@ -105,7 +105,7 @@ test('getMessageVirtualDom - long message', () => {
       childCount: 0,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Td,
       className: 'InspectorMessageLength',
       childCount: 1,
     },
