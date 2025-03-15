@@ -1,5 +1,6 @@
-export const getMessagePreview = (message: any): string => {
-  const maxLength = 100
+import type { Message } from '../Message/Message.ts'
+
+export const getMessagePreview = (message: Message, maxLength: number): string => {
   const stringified = JSON.stringify(message)
   if (stringified.length < maxLength) {
     return stringified
