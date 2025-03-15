@@ -81,7 +81,7 @@ test('isEqual - different version', () => {
     isResizing: false,
     resizeStartY: 0,
     resizeStartHeight: 0,
-    expandedPaths: [],
+    expandedPaths: oldState.expandedPaths,
     selectedContentItemHeight: 20,
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(false)
