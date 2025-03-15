@@ -2,8 +2,6 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'select-item'
 
-export const skip = 1
-
 export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect, Command, Locator }) => {
   // arrange
   await Command.execute('Main.closeAllEditors')
@@ -35,10 +33,6 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   const content = Locator('.IframeInspectorSelectedContentPre')
   await expect(content).toHaveText(`{
   "method": "ready",
-  "params": [],
-  "isSelected": true,
-  "messagePreview": "{\\"method\\":\\"ready\\",\\"params\\":[]}",
-  "messagePreviewLength": "30"
-  "isEven": true
+  "params": []
 }`)
 }

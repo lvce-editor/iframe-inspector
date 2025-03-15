@@ -5,6 +5,7 @@ export const getSelectedMessageString = (messages: readonly MessageViewModel[], 
     return ''
   }
   const selectedMessage = messages[selectedIndex]
-  const stringified = JSON.stringify(selectedMessage, null, 2)
+  const messageRaw = selectedMessage.messageRaw
+  const stringified = JSON.stringify(messageRaw, null, 2)
   return stringified
 }
