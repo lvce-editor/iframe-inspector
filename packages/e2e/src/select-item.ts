@@ -30,9 +30,6 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
 
   await Command.execute('IframeInspector.selectIndex', 0)
 
-  const content = Locator('.IframeInspectorSelectedContentPre')
-  await expect(content).toHaveText(`{
-  "method": "ready",
-  "params": []
-}`)
+  const content = Locator('.IframeInspectorSelectedContent')
+  await expect(content).toHaveText(`method: "ready"params: []`)
 }
