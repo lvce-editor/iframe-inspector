@@ -11,5 +11,6 @@ test('getCommandIds', () => {
     'handleResizerMouseDown',
     'handleResizerMouseMove',
     'handleResizerMouseUp',
+    'selectIndex',
   ])
 })
