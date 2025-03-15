@@ -13,7 +13,7 @@ export const getRemoteUrl = (path) => {
 
 const nodeModulesPath = join(root, 'packages', 'server', 'node_modules')
 
-const textSearchWorkerPath = join(root, '.tmp', 'dist', 'dist', 'textSearchWorkerMain.js')
+const workerPath = join(root, '.tmp', 'dist', 'dist', 'iframeInspectorWorkerMain.js')
 
 const serverStaticPath = join(nodeModulesPath, '@lvce-editor', 'static-server', 'static')
 
@@ -27,7 +27,7 @@ const commitHash = dirents.find(isCommitHash) || ''
 const rendererWorkerMainPath = join(serverStaticPath, commitHash, 'packages', 'renderer-worker', 'dist', 'rendererWorkerMain.js')
 
 const content = await readFile(rendererWorkerMainPath, 'utf-8')
-const remoteUrl = getRemoteUrl(textSearchWorkerPath)
+const remoteUrl = getRemoteUrl(workerPath)
 if (!content.includes('// const iframeInspectorWorkerUrl = ')) {
   const occurrence = `const iframeInspectorWorkerUrl = \`\${assetDir}/packages/iframe-inspector/dist/iframeInspectorWorkerMain.js\``
   const replacement = `// const iframeInspectorWorkerUrl = \`\${assetDir}/packages/iframe-inspector/dist/iframeInspectorWorkerMain.js\`
