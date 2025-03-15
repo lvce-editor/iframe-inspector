@@ -11,7 +11,6 @@ const commands = {
 const main = async () => {
   console.log(import.meta.url)
   const uri = new URL('../../node_modules/@lvce-editor/extension-host-sub-worker/dist/extensionHostSubWorkerMainApi.js', import.meta.url).toString()
-  console.log({ uri })
   const { listen, commandMap } = await import(uri)
   await listen({ ...commandMap, ...commands })
 }
