@@ -6,4 +6,5 @@ export const Text = 12
 export const Th = 13
 export const THead = 14
 export const Tr = 15
-export const Pre = 51
+export const Li = 48
+export const Ol = 49
