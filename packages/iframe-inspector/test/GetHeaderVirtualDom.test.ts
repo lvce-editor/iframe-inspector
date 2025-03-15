@@ -5,12 +5,16 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 test('getHeaderVirtualDom', () => {
   expect(GetHeaderVirtualDom.getHeaderVirtualDom()).toEqual([
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.THead,
       className: 'IframeInspectorHeader',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Tr,
       childCount: 2,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Th,
       className: 'IframeInspectorHeaderData',
       childCount: 1,
     },
@@ -20,7 +24,7 @@ test('getHeaderVirtualDom', () => {
       childCount: 0,
     },
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.Th,
       className: 'IframeInspectorHeaderLength',
       childCount: 1,
     },
