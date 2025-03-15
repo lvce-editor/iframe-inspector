@@ -1,4 +1,4 @@
-export interface SelectedMessageKeyValuePair {
+interface SelectedMessageKeyValuePair {
   readonly key: string
   readonly value: any
   readonly stringifiedValue: string
