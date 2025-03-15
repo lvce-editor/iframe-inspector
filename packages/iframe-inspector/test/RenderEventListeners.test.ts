@@ -22,5 +22,9 @@ test('renderEventListeners', () => {
       params: ['handleResizerMouseUp'],
       preventDefault: true,
     },
+    {
+      name: 'handleSelectedContentClick',
+      params: ['handleSelectedContentClick', 'event.clientX', 'event.clientY'],
+    },
   ])
 })
