@@ -21,6 +21,7 @@ beforeEach(() => {
     resizeStartY: 0,
     resizeStartHeight: 0,
     expandedPaths: [],
+    selectedContentItemHeight: 20,
   }
 
   IframeInspectorViewStates.set(1, state, state)
