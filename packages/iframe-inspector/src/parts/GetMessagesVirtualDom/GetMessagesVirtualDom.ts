@@ -6,7 +6,7 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 export const getMessagesVirtualDom = (messages: readonly MessageViewModel[]): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.Div,
+      type: VirtualDomElements.TBody,
       className: 'IframeInspectorMessages',
       childCount: messages.length,
       onClick: 'handleClick',
