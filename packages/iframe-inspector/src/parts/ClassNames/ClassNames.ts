@@ -7,6 +7,7 @@ export const IframeInspectorSelectedContentList = 'IframeInspectorSelectedConten
 export const IframeInspectorSelectedContentPre = 'IframeInspectorSelectedContentPre'
 export const IframeInspectorSelectedContentValue = 'IframeInspectorSelectedContentValue'
 export const IframeInspectorTable = 'IframeInspectorTable'
+export const IframeInspectorExpandIcon = 'IframeInspectorExpandIcon'
 export const Table = 'Table'
 export const TableBody = 'TableBody'
 export const TableCell = 'TableCell'
