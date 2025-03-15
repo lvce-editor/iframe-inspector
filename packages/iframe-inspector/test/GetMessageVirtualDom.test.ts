@@ -15,12 +15,12 @@ test('getMessageVirtualDom - not selected', () => {
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
       type: VirtualDomElements.Tr,
-      className: 'IframeInspectorMessage',
+      className: 'TableRow',
       childCount: 2,
     },
     {
       type: VirtualDomElements.Td,
-      className: 'InspectorMessageData',
+      className: 'TableCell',
       childCount: 1,
     },
     {
@@ -30,7 +30,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Td,
-      className: 'InspectorMessageLength',
+      className: 'TableCell',
       childCount: 1,
     },
     {
@@ -53,12 +53,12 @@ test('getMessageVirtualDom - selected', () => {
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
       type: VirtualDomElements.Tr,
-      className: 'IframeInspectorMessage IframeInspectorMessageSelected',
+      className: 'TableRow TableRowSelected',
       childCount: 2,
     },
     {
       type: VirtualDomElements.Td,
-      className: 'InspectorMessageData',
+      className: 'TableCell',
       childCount: 1,
     },
     {
@@ -68,7 +68,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Td,
-      className: 'InspectorMessageLength',
+      className: 'TableCell',
       childCount: 1,
     },
     {
@@ -91,12 +91,12 @@ test('getMessageVirtualDom - long message', () => {
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
       type: VirtualDomElements.Tr,
-      className: 'IframeInspectorMessage',
+      className: 'TableRow',
       childCount: 2,
     },
     {
       type: VirtualDomElements.Td,
-      className: 'InspectorMessageData',
+      className: 'TableCell',
       childCount: 1,
     },
     {
@@ -106,7 +106,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Td,
-      className: 'InspectorMessageLength',
+      className: 'TableCell',
       childCount: 1,
     },
     {

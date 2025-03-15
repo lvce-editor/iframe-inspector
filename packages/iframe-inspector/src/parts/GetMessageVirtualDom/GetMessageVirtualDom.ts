@@ -15,13 +15,13 @@ export const getMessageVirtualDom = (message: MessageViewModel): readonly Virtua
     },
     {
       type: VirtualDomElements.Td,
-      className: ClassNames.InspectorMessageData,
+      className: ClassNames.TableCell,
       childCount: 1,
     },
     text(messagePreview),
     {
       type: VirtualDomElements.Td,
-      className: ClassNames.InspectorMessageLength,
+      className: ClassNames.TableCell,
       childCount: 1,
     },
     text(messagePreviewLength),
