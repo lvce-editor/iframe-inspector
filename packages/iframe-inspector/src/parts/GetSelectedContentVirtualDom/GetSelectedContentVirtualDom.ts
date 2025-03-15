@@ -28,6 +28,7 @@ export const getSelectedContentVirtualDom = (viewModel: SelectedMessageViewModel
       type: VirtualDomElements.Ol,
       className: ClassNames.IframeInspectorSelectedContentList,
       childCount: viewModel.pairs.length,
+      onClick: 'handleSelectedContentClick',
     },
     ...viewModel.pairs.flatMap(GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom),
   ]
