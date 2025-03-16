@@ -20,7 +20,6 @@ export const getKeyValuePairVirtualDom = (pair: SelectedMessageKeyValuePair): re
         type: VirtualDomElements.Span,
         className: ClassNames.IframeInspectorExpandIcon,
         childCount: 1,
-        onClick: ['toggleExpand', pair.path],
       },
       text(pair.isExpanded ? '▼' : '▶'),
     )
