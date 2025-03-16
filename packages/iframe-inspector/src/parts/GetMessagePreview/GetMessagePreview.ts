@@ -1,7 +1,4 @@
-import type { Message } from '../Message/Message.ts'
-
-export const getMessagePreview = (message: Message, maxLength: number): string => {
-  const stringified = JSON.stringify(message)
+export const getMessagePreview = (stringified: string, maxLength: number): string => {
   if (stringified.length < maxLength) {
     return stringified
   }
