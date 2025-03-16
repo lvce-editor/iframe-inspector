@@ -4,4 +4,5 @@ export interface MessageViewModel {
   readonly messagePreviewLength: string
   readonly isEven: boolean
   readonly messageRaw: any
+  readonly messageTokens: readonly string[]
 }

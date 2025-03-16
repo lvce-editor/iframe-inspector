@@ -10,6 +10,7 @@ test('getMessageVirtualDom - not selected', () => {
     messagePreviewLength: '36',
     isEven: false,
     messageRaw: {},
+    messageTokens: [],
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -47,6 +48,7 @@ test('getMessageVirtualDom - selected', () => {
     messagePreviewLength: '36',
     isEven: false,
     messageRaw: {},
+    messageTokens: [],
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -84,6 +86,7 @@ test('getMessageVirtualDom - long message', () => {
     messagePreviewLength: '103',
     isEven: false,
     messageRaw: {},
+    messageTokens: [],
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
