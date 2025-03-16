@@ -1,6 +1,7 @@
 import { expect, test } from '@jest/globals'
 import type { MessageViewModel } from '../src/parts/MessageViewModel/MessageViewModel.ts'
 import * as GetMessageVirtualDom from '../src/parts/GetMessageVirtualDom/GetMessageVirtualDom.ts'
+import * as TokenType from '../src/parts/TokenType/TokenType.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
 test('getMessageVirtualDom - not selected', () => {
@@ -11,33 +12,33 @@ test('getMessageVirtualDom - not selected', () => {
     isEven: false,
     messageRaw: {},
     messageTokens: [
-      'punctuation',
+      TokenType.Punctuation,
       '{',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"id"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'number',
+      TokenType.Numeric,
       '1',
-      'punctuation',
+      TokenType.Punctuation,
       ',',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"method"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"test"',
-      'punctuation',
+      TokenType.Punctuation,
       ',',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"params"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'punctuation',
+      TokenType.Punctuation,
       '[',
-      'punctuation',
+      TokenType.Punctuation,
       ']',
-      'punctuation',
+      TokenType.Punctuation,
       '}',
     ],
   }
@@ -54,7 +55,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -64,7 +65,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -74,7 +75,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -84,7 +85,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token number',
+      className: `Token ${TokenType.Numeric}`,
       childCount: 1,
     },
     {
@@ -94,7 +95,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -104,7 +105,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -114,7 +115,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -124,7 +125,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -134,7 +135,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -144,7 +145,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -154,7 +155,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -164,7 +165,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -174,7 +175,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -184,7 +185,7 @@ test('getMessageVirtualDom - not selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -213,33 +214,33 @@ test('getMessageVirtualDom - selected', () => {
     isEven: false,
     messageRaw: {},
     messageTokens: [
-      'punctuation',
+      TokenType.Punctuation,
       '{',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"id"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'number',
+      TokenType.Numeric,
       '1',
-      'punctuation',
+      TokenType.Punctuation,
       ',',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"method"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"test"',
-      'punctuation',
+      TokenType.Punctuation,
       ',',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"params"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'punctuation',
+      TokenType.Punctuation,
       '[',
-      'punctuation',
+      TokenType.Punctuation,
       ']',
-      'punctuation',
+      TokenType.Punctuation,
       '}',
     ],
   }
@@ -256,7 +257,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -266,7 +267,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -276,7 +277,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -286,7 +287,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token number',
+      className: `Token ${TokenType.Numeric}`,
       childCount: 1,
     },
     {
@@ -296,7 +297,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -306,7 +307,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -316,7 +317,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -326,7 +327,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -336,7 +337,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -346,7 +347,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -356,7 +357,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -366,7 +367,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -376,7 +377,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -386,7 +387,7 @@ test('getMessageVirtualDom - selected', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -416,31 +417,31 @@ test('getMessageVirtualDom - long message', () => {
     isEven: false,
     messageRaw: {},
     messageTokens: [
-      'punctuation',
+      TokenType.Punctuation,
       '{',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"id"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'number',
+      TokenType.Numeric,
       '1',
-      'punctuation',
+      TokenType.Punctuation,
       ',',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"method"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"test"',
-      'punctuation',
+      TokenType.Punctuation,
       ',',
-      'string',
+      TokenType.JsonPropertyValueString,
       '"params"',
-      'punctuation',
+      TokenType.Punctuation,
       ':',
-      'punctuation',
+      TokenType.Punctuation,
       '[',
-      'string',
+      TokenType.JsonPropertyValueString,
       `"${longString}...`,
     ],
   }
@@ -457,7 +458,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -467,7 +468,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -477,7 +478,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -487,7 +488,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token number',
+      className: `Token ${TokenType.Numeric}`,
       childCount: 1,
     },
     {
@@ -497,7 +498,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -507,7 +508,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -517,7 +518,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -527,7 +528,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -537,7 +538,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -547,7 +548,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {
@@ -557,7 +558,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -567,7 +568,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token punctuation',
+      className: `Token ${TokenType.Punctuation}`,
       childCount: 1,
     },
     {
@@ -577,7 +578,7 @@ test('getMessageVirtualDom - long message', () => {
     },
     {
       type: VirtualDomElements.Span,
-      className: 'Token string',
+      className: `Token ${TokenType.JsonPropertyValueString}`,
       childCount: 1,
     },
     {

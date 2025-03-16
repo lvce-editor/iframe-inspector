@@ -1,3 +1,5 @@
+import * as TokenType from '../TokenType/TokenType.ts'
+
 const WHITESPACE_REGEX = /\s/
 const NUMBER_START_REGEX = /[0-9-]/
 const NUMBER_CONTINUE_REGEX = /[0-9.]/
@@ -28,7 +30,7 @@ export const tokenizeJson = (input: string): readonly string[] => {
       if (i < input.length) {
         value += input[i]
       }
-      tokens.push('string')
+      tokens.push(TokenType.JsonPropertyValueString)
       tokens.push(value)
       i++
       continue
@@ -42,7 +44,7 @@ export const tokenizeJson = (input: string): readonly string[] => {
         value += input[i]
         i++
       }
-      tokens.push('number')
+      tokens.push(TokenType.Numeric)
       tokens.push(value)
       continue
     }
@@ -51,15 +53,15 @@ export const tokenizeJson = (input: string): readonly string[] => {
     if (BOOLEAN_NULL_START_REGEX.test(char)) {
       const rest = input.slice(i)
       if (rest.startsWith('true')) {
-        tokens.push('boolean')
+        tokens.push(TokenType.LanguageConstantBoolean)
         tokens.push('true')
         i += 4
       } else if (rest.startsWith('false')) {
-        tokens.push('boolean')
+        tokens.push(TokenType.LanguageConstantBoolean)
         tokens.push('false')
         i += 5
       } else if (rest.startsWith('null')) {
-        tokens.push('null')
+        tokens.push(TokenType.LanguageConstant)
         tokens.push('null')
         i += 4
       } else {
@@ -70,7 +72,7 @@ export const tokenizeJson = (input: string): readonly string[] => {
 
     // Handle punctuation
     if (PUNCTUATION_REGEX.test(char)) {
-      tokens.push('punctuation')
+      tokens.push(TokenType.Punctuation)
       tokens.push(char)
       i++
       continue
