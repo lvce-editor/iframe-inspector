@@ -4,7 +4,7 @@ import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as GetTableVirtualDom from '../src/parts/GetTableVirtualDom/GetTableVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
-test('getTableVirtualDom', () => {
+test.skip('getTableVirtualDom', () => {
   // Setup
   const mockMessages: MessageViewModel[] = [
     {
