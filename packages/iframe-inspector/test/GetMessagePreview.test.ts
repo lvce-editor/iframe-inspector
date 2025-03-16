@@ -3,15 +3,15 @@ import * as GetMessagePreview from '../src/parts/GetMessagePreview/GetMessagePre
 
 test('getMessagePreview - short message', () => {
   const maxLength = 100
-  const message = { method: 'test', params: [1, 2, 3] } as any
+  const message = JSON.stringify({ method: 'test', params: [1, 2, 3] })
   expect(GetMessagePreview.getMessagePreview(message, maxLength)).toBe('{"method":"test","params":[1,2,3]}')
 })
 
 test('getMessagePreview - long message', () => {
-  const message = {
+  const message = JSON.stringify({
     method: 'test',
     params: ['very long string '.repeat(20)],
-  } as any
+  })
   const maxLength = 100
   expect(GetMessagePreview.getMessagePreview(message, maxLength)).toBe(
     '{"method":"test","params":["very long string very long string very long string very long string very...',
@@ -20,6 +20,6 @@ test('getMessagePreview - long message', () => {
 
 test('getMessagePreview - empty object', () => {
   const maxLength = 100
-  const message = {} as any
+  const message = JSON.stringify({})
   expect(GetMessagePreview.getMessagePreview(message, maxLength)).toBe('{}')
 })
