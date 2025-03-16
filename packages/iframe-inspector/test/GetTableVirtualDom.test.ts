@@ -13,6 +13,7 @@ test('getTableVirtualDom', () => {
       messagePreviewLength: '10',
       isEven: true,
       messageRaw: { data: 'test1' },
+      messageTokens: [],
     },
     {
       isSelected: true,
@@ -20,6 +21,7 @@ test('getTableVirtualDom', () => {
       messagePreviewLength: '20',
       isEven: false,
       messageRaw: { data: 'test2' },
+      messageTokens: [],
     },
   ]
 
