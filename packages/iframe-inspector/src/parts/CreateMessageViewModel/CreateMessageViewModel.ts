@@ -5,7 +5,8 @@ import * as GetMessagePreview from '../GetMessagePreview/GetMessagePreview.ts'
 export const createMessageViewModel = (messages: readonly Message[], selectedIndex: number): readonly MessageViewModel[] => {
   const maxLength = 100
   return messages.map((message, index) => {
-    const preview = GetMessagePreview.getMessagePreview(message, maxLength)
+    const stringified = JSON.stringify(message)
+    const preview = GetMessagePreview.getMessagePreview(stringified, maxLength)
     return {
       isSelected: index === selectedIndex,
       messagePreview: preview,
