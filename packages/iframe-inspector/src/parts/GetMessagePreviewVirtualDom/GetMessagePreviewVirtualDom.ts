@@ -8,7 +8,7 @@ export const getMessagePreviewVirtualDom = (messagePreview: string, messageToken
     {
       type: VirtualDomElements.Td,
       className: ClassNames.TableCell,
-      childCount: messageTokens.length,
+      childCount: messageTokens.length / 2,
     },
   ]
 

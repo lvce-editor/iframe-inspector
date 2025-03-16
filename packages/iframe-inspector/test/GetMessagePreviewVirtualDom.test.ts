@@ -9,7 +9,7 @@ test('getMessagePreviewVirtualDom - with tokens', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
-      childCount: 10,
+      childCount: 5,
     },
     {
       type: VirtualDomElements.Span,

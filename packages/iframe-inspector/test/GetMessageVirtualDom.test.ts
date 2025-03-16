@@ -50,7 +50,7 @@ test('getMessageVirtualDom - not selected', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
-      childCount: 28,
+      childCount: 14,
     },
     {
       type: VirtualDomElements.Span,
@@ -252,7 +252,7 @@ test('getMessageVirtualDom - selected', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
-      childCount: 28,
+      childCount: 14,
     },
     {
       type: VirtualDomElements.Span,
@@ -453,7 +453,7 @@ test('getMessageVirtualDom - long message', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
-      childCount: 26,
+      childCount: 13,
     },
     {
       type: VirtualDomElements.Span,
