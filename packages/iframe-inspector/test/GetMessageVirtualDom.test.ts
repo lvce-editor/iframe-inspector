@@ -199,6 +199,11 @@ test('getMessageVirtualDom - not selected', () => {
       childCount: 1,
     },
     {
+      childCount: 1,
+      className: 'Token Numeric',
+      type: 8,
+    },
+    {
       type: VirtualDomElements.Text,
       text: '36',
       childCount: 0,
@@ -401,6 +406,11 @@ test('getMessageVirtualDom - selected', () => {
       childCount: 1,
     },
     {
+      childCount: 1,
+      className: 'Token Numeric',
+      type: 8,
+    },
+    {
       type: VirtualDomElements.Text,
       text: '36',
       childCount: 0,
@@ -590,6 +600,12 @@ test('getMessageVirtualDom - long message', () => {
       type: VirtualDomElements.Td,
       className: 'TableCell',
       childCount: 1,
+    },
+
+    {
+      childCount: 1,
+      className: 'Token Numeric',
+      type: 8,
     },
     {
       type: VirtualDomElements.Text,
