@@ -1,7 +1,7 @@
-export const getMessagePreview = (stringified: string, maxLength: number): string => {
-  if (stringified.length < maxLength) {
-    return stringified
+export const getMessagePreview = (input: string, maxLength: number): string => {
+  if (input.length < maxLength) {
+    return input
   }
-  const part = stringified.slice(0, maxLength)
+  const part = input.slice(0, maxLength)
   return part + '...'
 }
