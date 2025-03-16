@@ -10,7 +10,36 @@ test('getMessageVirtualDom - not selected', () => {
     messagePreviewLength: '36',
     isEven: false,
     messageRaw: {},
-    messageTokens: [],
+    messageTokens: [
+      'punctuation',
+      '{',
+      'string',
+      '"id"',
+      'punctuation',
+      ':',
+      'number',
+      '1',
+      'punctuation',
+      ',',
+      'string',
+      '"method"',
+      'punctuation',
+      ':',
+      'string',
+      '"test"',
+      'punctuation',
+      ',',
+      'string',
+      '"params"',
+      'punctuation',
+      ':',
+      'punctuation',
+      '[',
+      'punctuation',
+      ']',
+      'punctuation',
+      '}',
+    ],
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -21,11 +50,146 @@ test('getMessageVirtualDom - not selected', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
+      childCount: 14,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
       childCount: 1,
     },
     {
       type: VirtualDomElements.Text,
-      text: '{"id":1,"method":"test","params":[]}',
+      text: '{',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"id"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token number',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '1',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ',',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"method"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"test"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ',',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"params"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '[',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ']',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '}',
       childCount: 0,
     },
     {
@@ -48,7 +212,36 @@ test('getMessageVirtualDom - selected', () => {
     messagePreviewLength: '36',
     isEven: false,
     messageRaw: {},
-    messageTokens: [],
+    messageTokens: [
+      'punctuation',
+      '{',
+      'string',
+      '"id"',
+      'punctuation',
+      ':',
+      'number',
+      '1',
+      'punctuation',
+      ',',
+      'string',
+      '"method"',
+      'punctuation',
+      ':',
+      'string',
+      '"test"',
+      'punctuation',
+      ',',
+      'string',
+      '"params"',
+      'punctuation',
+      ':',
+      'punctuation',
+      '[',
+      'punctuation',
+      ']',
+      'punctuation',
+      '}',
+    ],
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -59,11 +252,146 @@ test('getMessageVirtualDom - selected', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
+      childCount: 14,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
       childCount: 1,
     },
     {
       type: VirtualDomElements.Text,
-      text: '{"id":1,"method":"test","params":[]}',
+      text: '{',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"id"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token number',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '1',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ',',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"method"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"test"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ',',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"params"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '[',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ']',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '}',
       childCount: 0,
     },
     {
@@ -80,13 +408,41 @@ test('getMessageVirtualDom - selected', () => {
 })
 
 test('getMessageVirtualDom - long message', () => {
+  const longString = 'a'.repeat(65)
   const message: MessageViewModel = {
     isSelected: false,
-    messagePreview: '{"id":1,"method":"test","params":["' + 'a'.repeat(65) + '...',
+    messagePreview: `{"id":1,"method":"test","params":["${longString}...`,
     messagePreviewLength: '103',
     isEven: false,
     messageRaw: {},
-    messageTokens: [],
+    messageTokens: [
+      'punctuation',
+      '{',
+      'string',
+      '"id"',
+      'punctuation',
+      ':',
+      'number',
+      '1',
+      'punctuation',
+      ',',
+      'string',
+      '"method"',
+      'punctuation',
+      ':',
+      'string',
+      '"test"',
+      'punctuation',
+      ',',
+      'string',
+      '"params"',
+      'punctuation',
+      ':',
+      'punctuation',
+      '[',
+      'string',
+      `"${longString}...`,
+    ],
   }
   expect(GetMessageVirtualDom.getMessageVirtualDom(message)).toEqual([
     {
@@ -97,11 +453,136 @@ test('getMessageVirtualDom - long message', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
+      childCount: 13,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
       childCount: 1,
     },
     {
       type: VirtualDomElements.Text,
-      text: '{"id":1,"method":"test","params":["' + 'a'.repeat(65) + '...',
+      text: '{',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"id"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token number',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '1',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ',',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"method"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"test"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ',',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '"params"',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: ':',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token punctuation',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: '[',
+      childCount: 0,
+    },
+    {
+      type: VirtualDomElements.Span,
+      className: 'Token string',
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Text,
+      text: `"${longString}...`,
       childCount: 0,
     },
     {
