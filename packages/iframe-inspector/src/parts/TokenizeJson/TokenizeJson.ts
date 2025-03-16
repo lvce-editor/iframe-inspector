@@ -1,3 +1,9 @@
+const WHITESPACE_REGEX = /\s/
+const NUMBER_START_REGEX = /[0-9-]/
+const NUMBER_CONTINUE_REGEX = /[0-9.]/
+const BOOLEAN_NULL_START_REGEX = /[tfn]/
+const PUNCTUATION_REGEX = /[{}[\],:]/
+
 export const tokenizeJson = (input: string): readonly string[] => {
   const tokens: string[] = []
   let i = 0
@@ -6,7 +12,7 @@ export const tokenizeJson = (input: string): readonly string[] => {
     const char = input[i]
 
     // Skip whitespace
-    if (/\s/.test(char)) {
+    if (WHITESPACE_REGEX.test(char)) {
       i++
       continue
     }
@@ -29,10 +35,10 @@ export const tokenizeJson = (input: string): readonly string[] => {
     }
 
     // Handle numbers
-    if (/[0-9-]/.test(char)) {
+    if (NUMBER_START_REGEX.test(char)) {
       let value = char
       i++
-      while (i < input.length && /[0-9.]/.test(input[i])) {
+      while (i < input.length && NUMBER_CONTINUE_REGEX.test(input[i])) {
         value += input[i]
         i++
       }
@@ -42,7 +48,7 @@ export const tokenizeJson = (input: string): readonly string[] => {
     }
 
     // Handle booleans and null
-    if (/[tfn]/.test(char)) {
+    if (BOOLEAN_NULL_START_REGEX.test(char)) {
       const rest = input.slice(i)
       if (rest.startsWith('true')) {
         tokens.push('boolean')
@@ -63,7 +69,7 @@ export const tokenizeJson = (input: string): readonly string[] => {
     }
 
     // Handle punctuation
-    if (/[{}[\],:]/.test(char)) {
+    if (PUNCTUATION_REGEX.test(char)) {
       tokens.push('punctuation')
       tokens.push(char)
       i++
