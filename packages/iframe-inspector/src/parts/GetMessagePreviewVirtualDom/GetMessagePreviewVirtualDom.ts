@@ -2,7 +2,6 @@ import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as GetTokenVirtualDom from '../GetTokenVirtualDom/GetTokenVirtualDom.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
-import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const getMessagePreviewVirtualDom = (messagePreview: string, messageTokens: readonly string[]): readonly VirtualDomNode[] => {
   const allNodes: VirtualDomNode[] = [
