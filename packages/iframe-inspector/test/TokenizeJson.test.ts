@@ -220,7 +220,7 @@ test.skip('array with mixed values', () => {
 })
 
 test.skip('handles escaped characters in strings', () => {
-  const tokens = tokenizeJson('{"escaped": "\\"quotes\\" and \\n newline"}')
+  const tokens = tokenizeJson(String.raw`{"escaped": "\"quotes\" and \n newline"}`)
   expect(tokens).toEqual([
     TokenType.Punctuation,
     '{',
@@ -237,7 +237,7 @@ test.skip('handles escaped characters in strings', () => {
     TokenType.String,
     '\\',
     TokenType.JsonPropertyValueString,
-    '"quotes\\" and \\n newline',
+    String.raw`"quotes\" and \n newline`,
     TokenType.Punctuation,
     '"',
     TokenType.Punctuation,
