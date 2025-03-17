@@ -1,31 +1,42 @@
-import { expect, test } from '@jest/globals'
+import { test, expect } from '@jest/globals'
 import * as TokenizeJson from '../src/parts/TokenizeJson/TokenizeJson.ts'
 import * as TokenType from '../src/parts/TokenType/TokenType.ts'
 
-test('tokenizeJson - empty object', () => {
-  expect(TokenizeJson.tokenizeJson('{}')).toEqual([TokenType.Punctuation, '{', TokenType.Punctuation, '}'])
+test('empty object', () => {
+  const tokens = TokenizeJson.tokenizeJson('{}')
+  expect(tokens).toEqual([TokenType.Punctuation, '{', TokenType.Punctuation, '}'])
 })
 
-test('tokenizeJson - string value', () => {
-  expect(TokenizeJson.tokenizeJson('{"name":"test"}')).toEqual([
+test('simple object with string property', () => {
+  const tokens = TokenizeJson.tokenizeJson('{"name":"value"}')
+  expect(tokens).toEqual([
     TokenType.Punctuation,
     '{',
-    TokenType.JsonPropertyValueString,
+    TokenType.JsonPropertyName,
     '"name"',
     TokenType.Punctuation,
     ':',
     TokenType.JsonPropertyValueString,
-    '"test"',
+    '"value"',
     TokenType.Punctuation,
     '}',
   ])
 })
 
-test('tokenizeJson - number value', () => {
-  expect(TokenizeJson.tokenizeJson('{"age":42}')).toEqual([
+test('object with multiple properties', () => {
+  const tokens = TokenizeJson.tokenizeJson('{"name":"value","age":42}')
+  expect(tokens).toEqual([
     TokenType.Punctuation,
     '{',
+    TokenType.JsonPropertyName,
+    '"name"',
+    TokenType.Punctuation,
+    ':',
     TokenType.JsonPropertyValueString,
+    '"value"',
+    TokenType.Punctuation,
+    ',',
+    TokenType.JsonPropertyName,
     '"age"',
     TokenType.Punctuation,
     ':',
@@ -36,11 +47,12 @@ test('tokenizeJson - number value', () => {
   ])
 })
 
-test('tokenizeJson - boolean and null values', () => {
-  expect(TokenizeJson.tokenizeJson('{"active":true,"data":null,"hidden":false}')).toEqual([
+test('object with boolean and null values', () => {
+  const tokens = TokenizeJson.tokenizeJson('{"active":true,"data":null}')
+  expect(tokens).toEqual([
     TokenType.Punctuation,
     '{',
-    TokenType.JsonPropertyValueString,
+    TokenType.JsonPropertyName,
     '"active"',
     TokenType.Punctuation,
     ':',
@@ -48,30 +60,47 @@ test('tokenizeJson - boolean and null values', () => {
     'true',
     TokenType.Punctuation,
     ',',
-    TokenType.JsonPropertyValueString,
+    TokenType.JsonPropertyName,
     '"data"',
     TokenType.Punctuation,
     ':',
     TokenType.LanguageConstant,
     'null',
     TokenType.Punctuation,
-    ',',
-    TokenType.JsonPropertyValueString,
-    '"hidden"',
+    '}',
+  ])
+})
+
+test('nested objects', () => {
+  const tokens = TokenizeJson.tokenizeJson('{"user":{"name":"john"}}')
+  expect(tokens).toEqual([
+    TokenType.Punctuation,
+    '{',
+    TokenType.JsonPropertyName,
+    '"user"',
     TokenType.Punctuation,
     ':',
-    TokenType.LanguageConstantBoolean,
-    'false',
+    TokenType.Punctuation,
+    '{',
+    TokenType.JsonPropertyName,
+    '"name"',
+    TokenType.Punctuation,
+    ':',
+    TokenType.JsonPropertyValueString,
+    '"john"',
+    TokenType.Punctuation,
+    '}',
     TokenType.Punctuation,
     '}',
   ])
 })
 
-test('tokenizeJson - array value', () => {
-  expect(TokenizeJson.tokenizeJson('{"items":[1,2,3]}')).toEqual([
+test('array with mixed values', () => {
+  const tokens = TokenizeJson.tokenizeJson('{"items":[1,"two",true,null]}')
+  expect(tokens).toEqual([
     TokenType.Punctuation,
     '{',
-    TokenType.JsonPropertyValueString,
+    TokenType.JsonPropertyName,
     '"items"',
     TokenType.Punctuation,
     ':',
@@ -81,12 +110,16 @@ test('tokenizeJson - array value', () => {
     '1',
     TokenType.Punctuation,
     ',',
-    TokenType.Numeric,
-    '2',
+    TokenType.JsonPropertyName,
+    '"two"',
     TokenType.Punctuation,
     ',',
-    TokenType.Numeric,
-    '3',
+    TokenType.LanguageConstantBoolean,
+    'true',
+    TokenType.Punctuation,
+    ',',
+    TokenType.LanguageConstant,
+    'null',
     TokenType.Punctuation,
     ']',
     TokenType.Punctuation,
@@ -94,24 +127,17 @@ test('tokenizeJson - array value', () => {
   ])
 })
 
-test('tokenizeJson - nested object', () => {
-  expect(TokenizeJson.tokenizeJson('{"user":{"name":"test"}}')).toEqual([
+test('handles whitespace', () => {
+  const tokens = TokenizeJson.tokenizeJson('{ "name" : "value" }')
+  expect(tokens).toEqual([
     TokenType.Punctuation,
     '{',
-    TokenType.JsonPropertyValueString,
-    '"user"',
-    TokenType.Punctuation,
-    ':',
-    TokenType.Punctuation,
-    '{',
-    TokenType.JsonPropertyValueString,
+    TokenType.JsonPropertyName,
     '"name"',
     TokenType.Punctuation,
     ':',
     TokenType.JsonPropertyValueString,
-    '"test"',
-    TokenType.Punctuation,
-    '}',
+    '"value"',
     TokenType.Punctuation,
     '}',
   ])

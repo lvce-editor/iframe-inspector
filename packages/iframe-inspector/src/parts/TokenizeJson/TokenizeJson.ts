@@ -6,9 +6,22 @@ const NUMBER_CONTINUE_REGEX = /[0-9.]/
 const BOOLEAN_NULL_START_REGEX = /[tfn]/
 const PUNCTUATION_REGEX = /[{}[\],:]/
 
+/**
+ * @enum {string}
+ */
+const State = {
+  Initial: 'Initial',
+  InObject: 'InObject',
+  ExpectPropertyName: 'ExpectPropertyName',
+  ExpectColon: 'ExpectColon',
+  ExpectValue: 'ExpectValue',
+}
+
 export const tokenizeJson = (input: string): readonly string[] => {
   const tokens: string[] = []
   let i = 0
+  let state = State.Initial
+  const stack: any[] = []
 
   while (i < input.length) {
     const char = input[i]
@@ -30,7 +43,17 @@ export const tokenizeJson = (input: string): readonly string[] => {
       if (i < input.length) {
         value += input[i]
       }
-      tokens.push(TokenType.JsonPropertyValueString)
+
+      if (state === State.ExpectPropertyName) {
+        tokens.push(TokenType.JsonPropertyName)
+        state = State.ExpectColon
+      } else if (state === State.ExpectValue) {
+        tokens.push(TokenType.JsonPropertyValueString)
+        state = State.InObject
+      } else {
+        tokens.push(TokenType.String)
+      }
+
       tokens.push(value)
       i++
       continue
@@ -46,6 +69,9 @@ export const tokenizeJson = (input: string): readonly string[] => {
       }
       tokens.push(TokenType.Numeric)
       tokens.push(value)
+      if (state === State.ExpectValue) {
+        state = State.InObject
+      }
       continue
     }
 
@@ -67,11 +93,42 @@ export const tokenizeJson = (input: string): readonly string[] => {
       } else {
         i++
       }
+      if (state === State.ExpectValue) {
+        state = State.InObject
+      }
       continue
     }
 
     // Handle punctuation
     if (PUNCTUATION_REGEX.test(char)) {
+      switch (char) {
+      case '{': {
+        stack.push(state)
+        state = State.ExpectPropertyName
+      
+      break;
+      }
+      case '}': {
+        state = stack.pop() || State.Initial
+      
+      break;
+      }
+      case ':': {
+        if (state === State.ExpectColon) {
+          state = State.ExpectValue
+        }
+      
+      break;
+      }
+      case ',': {
+        if (state === State.InObject) {
+          state = State.ExpectPropertyName
+        }
+      
+      break;
+      }
+      // No default
+      }
       tokens.push(TokenType.Punctuation)
       tokens.push(char)
       i++

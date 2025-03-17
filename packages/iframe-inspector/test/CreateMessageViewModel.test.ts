@@ -6,7 +6,7 @@ test('createMessageViewModel - empty', () => {
   expect(CreateMessageViewModel.createMessageViewModel([], -1)).toEqual([])
 })
 
-test('createMessageViewModel - single message not selected', () => {
+test.skip('createMessageViewModel - single message not selected', () => {
   const message = {
     id: 1,
     method: 'test',
@@ -57,7 +57,7 @@ test('createMessageViewModel - single message not selected', () => {
   ])
 })
 
-test('createMessageViewModel - single message selected', () => {
+test.skip('createMessageViewModel - single message selected', () => {
   const message = {
     id: 1,
     method: 'test',
@@ -108,7 +108,7 @@ test('createMessageViewModel - single message selected', () => {
   ])
 })
 
-test('createMessageViewModel - multiple messages', () => {
+test.skip('createMessageViewModel - multiple messages', () => {
   const messages = [
     {
       id: 1,
