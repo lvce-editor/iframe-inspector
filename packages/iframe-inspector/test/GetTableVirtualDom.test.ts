@@ -25,7 +25,8 @@ test.skip('getTableVirtualDom', () => {
     },
   ]
 
-  expect(GetTableVirtualDom.getTableVirtualDom(mockMessages)).toEqual([
+  const columnWidths = ['auto', '50px']
+  expect(GetTableVirtualDom.getTableVirtualDom(mockMessages, columnWidths)).toEqual([
     {
       type: VirtualDomElements.Table,
       className: ClassNames.Table,

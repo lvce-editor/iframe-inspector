@@ -8,6 +8,6 @@ export const renderMessage = (oldState: IframeInspectorState, newState: IframeIn
   const messages = MessageState.getMessages()
   const viewModels = CreateMessageViewModel.createMessageViewModel(messages, newState.selectedIndex)
   const selectedModel = CreateSelectedMessageViewModel.createSelectedMessageViewModel(messages, newState.selectedIndex, newState.expandedPaths)
-  const dom = GetIframeInspectorVirtualDom.getIframeInspectorVirtualDom(viewModels, selectedModel, newState.selectedIndex)
+  const dom = GetIframeInspectorVirtualDom.getIframeInspectorVirtualDom(viewModels, selectedModel, newState.selectedIndex, newState.columnWidths)
   return ['Viewlet.setDom2', dom]
 }
