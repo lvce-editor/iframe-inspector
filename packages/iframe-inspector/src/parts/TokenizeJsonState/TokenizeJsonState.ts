@@ -4,7 +4,6 @@ export const InsideString = 3
 export const AfterPropertyName = 4
 export const AfterPropertyNameAfterColon = 5
 export const AfterPropertyValue = 6
-export const JsonPropertyKey = 7
 export const InsideLineComment = 8
 export const InsidePropertyNameString = 9
 export const InsideBlockComment = 10
