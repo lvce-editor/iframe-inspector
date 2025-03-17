@@ -110,7 +110,7 @@ test('array with mixed values', () => {
     '1',
     TokenType.Punctuation,
     ',',
-    TokenType.JsonPropertyName,
+    TokenType.String,
     '"two"',
     TokenType.Punctuation,
     ',',
@@ -138,6 +138,49 @@ test('handles whitespace', () => {
     ':',
     TokenType.JsonPropertyValueString,
     '"value"',
+    TokenType.Punctuation,
+    '}',
+  ])
+})
+
+test('empty array', () => {
+  const tokens = TokenizeJson.tokenizeJson('[]')
+  expect(tokens).toEqual([TokenType.Punctuation, '[', TokenType.Punctuation, ']'])
+})
+
+test('object with empty array property', () => {
+  const tokens = TokenizeJson.tokenizeJson('{"params":[]}')
+  expect(tokens).toEqual([
+    TokenType.Punctuation,
+    '{',
+    TokenType.JsonPropertyName,
+    '"params"',
+    TokenType.Punctuation,
+    ':',
+    TokenType.Punctuation,
+    '[',
+    TokenType.Punctuation,
+    ']',
+    TokenType.Punctuation,
+    '}',
+  ])
+})
+
+test('object with array containing number', () => {
+  const tokens = TokenizeJson.tokenizeJson('{"params":[124]}')
+  expect(tokens).toEqual([
+    TokenType.Punctuation,
+    '{',
+    TokenType.JsonPropertyName,
+    '"params"',
+    TokenType.Punctuation,
+    ':',
+    TokenType.Punctuation,
+    '[',
+    TokenType.Numeric,
+    '124',
+    TokenType.Punctuation,
+    ']',
     TokenType.Punctuation,
     '}',
   ])
