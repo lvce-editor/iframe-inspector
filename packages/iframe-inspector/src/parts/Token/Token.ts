@@ -1,4 +1,4 @@
 export interface Token {
-  readonly tokenType: string
+  readonly tokenType: number
   readonly tokenText: string
 }

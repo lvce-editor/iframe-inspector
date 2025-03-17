@@ -5,6 +5,5 @@ import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const getTokenVirtualDom = (token: Token): readonly VirtualDomNode[] => {
   const { tokenType, tokenText } = token
-  // @ts-ignore
-  return [TokenParentNodes[tokenType], text(tokenText)]
+  return [TokenParentNodes.tokenParentNodes[tokenType], text(tokenText)]
 }
