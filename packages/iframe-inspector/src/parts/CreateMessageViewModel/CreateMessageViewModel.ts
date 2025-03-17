@@ -9,8 +9,6 @@ export const createMessageViewModel = (message: Message, maxLength: number, inde
   const tokens = TokenizeJson.tokenizeJson(preview)
   return {
     isSelected: index === selectedIndex,
-    messagePreview: preview,
-    messageRaw: message,
     messagePreviewLength: String(preview.length),
     isEven: index % 2 === 0,
     messageTokens: tokens,
