@@ -9,18 +9,14 @@ test.skip('getTableVirtualDom', () => {
   const mockMessages: MessageViewModel[] = [
     {
       isSelected: false,
-      messagePreview: 'Message 1',
       messagePreviewLength: '10',
       isEven: true,
-      messageRaw: { data: 'test1' },
       messageTokens: [],
     },
     {
       isSelected: true,
-      messagePreview: 'Message 2',
       messagePreviewLength: '20',
       isEven: false,
-      messageRaw: { data: 'test2' },
       messageTokens: [],
     },
   ]

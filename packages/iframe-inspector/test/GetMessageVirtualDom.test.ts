@@ -7,10 +7,8 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 test('getMessageVirtualDom - not selected', () => {
   const message: MessageViewModel = {
     isSelected: false,
-    messagePreview: '{"id":1,"method":"test","params":[]}',
     messagePreviewLength: '36',
     isEven: false,
-    messageRaw: {},
     messageTokens: [
       { tokenType: TokenType.Punctuation, tokenText: '{' },
       { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
@@ -200,10 +198,8 @@ test('getMessageVirtualDom - not selected', () => {
 test('getMessageVirtualDom - selected', () => {
   const message: MessageViewModel = {
     isSelected: true,
-    messagePreview: '{"id":1,"method":"test","params":[]}',
     messagePreviewLength: '36',
     isEven: false,
-    messageRaw: {},
     messageTokens: [
       { tokenType: TokenType.Punctuation, tokenText: '{' },
       { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
@@ -394,10 +390,8 @@ test('getMessageVirtualDom - long message', () => {
   const longString = 'a'.repeat(65)
   const message: MessageViewModel = {
     isSelected: false,
-    messagePreview: `{"id":1,"method":"test","params":["${longString}...`,
     messagePreviewLength: '103',
     isEven: false,
-    messageRaw: {},
     messageTokens: [
       { tokenType: TokenType.Punctuation, tokenText: '{' },
       { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
