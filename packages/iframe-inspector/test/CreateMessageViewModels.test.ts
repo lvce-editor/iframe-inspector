@@ -1,9 +1,9 @@
 import { expect, test } from '@jest/globals'
-import * as CreateMessageViewModel from '../src/parts/CreateMessageViewModel/CreateMessageViewModel.ts'
+import * as CreateMessageViewModels from '../src/parts/CreateMessageViewModels/CreateMessageViewModels.ts'
 import * as TokenType from '../src/parts/TokenType/TokenType.ts'
 
 test('createMessageViewModel - empty', () => {
-  expect(CreateMessageViewModel.createMessageViewModel([], -1, 100)).toEqual([])
+  expect(CreateMessageViewModels.createMessageViewModels([], -1, 100)).toEqual([])
 })
 
 test.skip('createMessageViewModel - single message not selected', () => {
@@ -12,7 +12,7 @@ test.skip('createMessageViewModel - single message not selected', () => {
     method: 'test',
     params: [],
   }
-  expect(CreateMessageViewModel.createMessageViewModel([message], -1, 100)).toEqual([
+  expect(CreateMessageViewModels.createMessageViewModels([message], -1, 100)).toEqual([
     {
       isSelected: false,
       messagePreview: '{"id":1,"method":"test","params":[]}',
@@ -63,7 +63,7 @@ test.skip('createMessageViewModel - single message selected', () => {
     method: 'test',
     params: [],
   }
-  expect(CreateMessageViewModel.createMessageViewModel([message], 0, 100)).toEqual([
+  expect(CreateMessageViewModels.createMessageViewModels([message], 0, 100)).toEqual([
     {
       isEven: true,
       isSelected: true,
@@ -121,7 +121,7 @@ test.skip('createMessageViewModel - multiple messages', () => {
       params: [],
     },
   ]
-  expect(CreateMessageViewModel.createMessageViewModel(messages, 1, 100)).toEqual([
+  expect(CreateMessageViewModels.createMessageViewModels(messages, 1, 100)).toEqual([
     {
       isSelected: false,
       messagePreview: '{"id":1,"method":"test1","params":[]}',
