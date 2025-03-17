@@ -1,3 +1,4 @@
+import * as State from '../TokenizeJsonState/TokenizeJsonState.ts'
 import * as TokenType from '../TokenType/TokenType.ts'
 
 const WHITESPACE_REGEX = /\s/
@@ -5,19 +6,6 @@ const NUMBER_START_REGEX = /[0-9-]/
 const NUMBER_CONTINUE_REGEX = /[0-9.]/
 const BOOLEAN_NULL_START_REGEX = /[tfn]/
 const PUNCTUATION_REGEX = /[{}[\],:]/
-
-/**
- * @enum {string}
- */
-const State = {
-  Initial: 'Initial',
-  InObject: 'InObject',
-  ExpectPropertyName: 'ExpectPropertyName',
-  ExpectColon: 'ExpectColon',
-  ExpectValue: 'ExpectValue',
-  InArray: 'InArray',
-  ExpectArrayValue: 'ExpectArrayValue',
-}
 
 export const tokenizeJson = (input: string): readonly string[] => {
   const tokens: string[] = []
@@ -46,17 +34,28 @@ export const tokenizeJson = (input: string): readonly string[] => {
         value += input[i]
       }
 
-      if (state === State.ExpectPropertyName) {
+      switch (state) {
+      case State.ExpectPropertyName: {
         tokens.push(TokenType.JsonPropertyName)
         state = State.ExpectColon
-      } else if (state === State.ExpectValue) {
+      
+      break;
+      }
+      case State.ExpectValue: {
         tokens.push(TokenType.JsonPropertyValueString)
         state = State.InObject
-      } else if (state === State.ExpectArrayValue) {
+      
+      break;
+      }
+      case State.ExpectArrayValue: {
         tokens.push(TokenType.String)
         state = State.InArray
-      } else {
+      
+      break;
+      }
+      default: {
         tokens.push(TokenType.String)
+      }
       }
 
       tokens.push(value)
