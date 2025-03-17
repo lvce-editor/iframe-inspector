@@ -11,15 +11,11 @@ const RE_STRING_DOUBLE_QUOTE_CONTENT = /^[^"\\]+/
 const RE_LANGUAGE_CONSTANT = /^(?:true|false|null)/
 const RE_SQUARE_OPEN = /^\[/
 const RE_SQUARE_CLOSE = /^]/
-const RE_LINE_COMMENT = /^\/\/.*/
 const RE_ANYTHING = /^.+/s
 const RE_NUMERIC = /^((0(x|X)[0-9a-fA-F]*)|(-?([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)\b/
 const RE_TEXT = /^[^\s{}[\]]+/
 const RE_STRING_ESCAPE = /^\\.?/
 const RE_WORD = /^\w+/
-const RE_BLOCK_COMMENT_START = /^\/\*/
-const RE_BLOCK_COMMENT_CONTENT = /^.+?(?=\*\/)/
-const RE_BLOCK_COMMENT_END = /^\*\//
 const RE_ANYTHING_UNTIL_END = /^.+/s
 
 export const tokenizeJson = (input: string): readonly string[] => {
@@ -27,14 +23,10 @@ export const tokenizeJson = (input: string): readonly string[] => {
   let index = 0
   let token
   let state = State.TopLevelContent
-  let __r = 0
   const tokens: string[] = []
   const stack: number[] = []
 
   while (index < input.length) {
-    if (__r++ > 100_000_000_000) {
-      throw new Error('endless loop')
-    }
     const part = input.slice(index)
     switch (state) {
       case State.TopLevelContent:
@@ -65,16 +57,9 @@ export const tokenizeJson = (input: string): readonly string[] => {
           token = TokenType.Punctuation
           state = State.InsideString
           stack.push(State.TopLevelContent)
-        } else if ((next = part.match(RE_LINE_COMMENT))) {
-          token = TokenType.Comment
-          state = State.InsideLineComment
         } else if ((next = part.match(RE_CURLY_CLOSE))) {
           token = TokenType.CurlyClose
           state = stack.pop() || State.TopLevelContent
-        } else if ((next = part.match(RE_BLOCK_COMMENT_START))) {
-          token = TokenType.Comment
-          state = State.InsideBlockComment
-          stack.push(State.TopLevelContent)
         } else if ((next = part.match(RE_ANYTHING))) {
           token = TokenType.Text
           state = State.TopLevelContent
@@ -96,16 +81,9 @@ export const tokenizeJson = (input: string): readonly string[] => {
           if (!state) {
             throw new Error('imbalanced json')
           }
-        } else if ((next = part.match(RE_LINE_COMMENT))) {
-          token = TokenType.Comment
-          state = State.AfterCurlyOpen
         } else if ((next = part.match(RE_WORD))) {
           token = TokenType.Text
           state = State.AfterPropertyName
-        } else if ((next = part.match(RE_BLOCK_COMMENT_START))) {
-          token = TokenType.Comment
-          state = State.InsideBlockComment
-          stack.push(State.AfterCurlyOpen)
         } else if ((next = part.match(RE_ANYTHING))) {
           token = TokenType.Text
           state = State.AfterCurlyOpen
@@ -200,13 +178,6 @@ export const tokenizeJson = (input: string): readonly string[] => {
         } else if ((next = part.match(RE_COMMA))) {
           token = TokenType.Punctuation
           state = State.AfterCurlyOpen
-        } else if ((next = part.match(RE_LINE_COMMENT))) {
-          token = TokenType.Comment
-          state = State.AfterPropertyValue
-        } else if ((next = part.match(RE_BLOCK_COMMENT_START))) {
-          token = TokenType.Comment
-          state = State.InsideBlockComment
-          stack.push(State.AfterPropertyValue)
         } else if ((next = part.match(RE_COLON))) {
           token = TokenType.Punctuation
           state = State.AfterPropertyNameAfterColon
@@ -226,13 +197,7 @@ export const tokenizeJson = (input: string): readonly string[] => {
         }
         break
       case State.InsideBlockComment:
-        if ((next = part.match(RE_BLOCK_COMMENT_END))) {
-          token = TokenType.Comment
-          state = stack.pop() || State.TopLevelContent
-        } else if ((next = part.match(RE_BLOCK_COMMENT_CONTENT))) {
-          token = TokenType.Comment
-          state = State.InsideBlockComment
-        } else if ((next = part.match(RE_ANYTHING_UNTIL_END))) {
+        if ((next = part.match(RE_ANYTHING_UNTIL_END))) {
           token = TokenType.Comment
           state = State.InsideBlockComment
         } else {
