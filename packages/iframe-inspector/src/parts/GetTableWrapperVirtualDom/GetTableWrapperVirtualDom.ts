@@ -10,6 +10,6 @@ const parentNode: VirtualDomNode = {
   childCount: 1,
 }
 
-export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[]): readonly VirtualDomNode[] => {
-  return [parentNode, ...GetTableVirtualDom.getTableVirtualDom(messages)]
+export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[], columnWidths: readonly string[]): readonly VirtualDomNode[] => {
+  return [parentNode, ...GetTableVirtualDom.getTableVirtualDom(messages, columnWidths)]
 }

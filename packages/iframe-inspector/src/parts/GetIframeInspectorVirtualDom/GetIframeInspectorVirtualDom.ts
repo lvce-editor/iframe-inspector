@@ -12,6 +12,7 @@ export const getIframeInspectorVirtualDom = (
   messages: readonly MessageViewModel[],
   selectedModel: SelectedMessageViewModel,
   selectedIndex: number,
+  columnWidths: readonly string[],
 ): readonly VirtualDomNode[] => {
   return [
     {
@@ -19,7 +20,7 @@ export const getIframeInspectorVirtualDom = (
       className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.IFrameInspector),
       childCount: 3,
     },
-    ...GetTableWrapperVirtualDom.getTableWrapperVirtualDom(messages),
+    ...GetTableWrapperVirtualDom.getTableWrapperVirtualDom(messages, columnWidths),
     ...GetResizerVirtualDom.getResizerVirtualDom(),
     ...GetSelectedContentVirtualDom.getSelectedContentVirtualDom(selectedModel, selectedIndex),
   ]
