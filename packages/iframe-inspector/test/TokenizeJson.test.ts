@@ -7,7 +7,7 @@ test('empty object', () => {
   expect(tokens).toEqual([TokenType.Punctuation, '{', TokenType.Punctuation, '}'])
 })
 
-test.skip('simple object with string value', () => {
+test('simple object with string value', () => {
   const tokens = tokenizeJson('{"key": "value"}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -20,6 +20,8 @@ test.skip('simple object with string value', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -31,7 +33,7 @@ test.skip('simple object with string value', () => {
   ])
 })
 
-test.skip('object with multiple properties', () => {
+test('object with multiple properties', () => {
   const tokens = tokenizeJson('{"key1": "value1", "key2": "value2"}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -44,6 +46,8 @@ test.skip('object with multiple properties', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -52,6 +56,8 @@ test.skip('object with multiple properties', () => {
     '"',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyName,
@@ -60,6 +66,8 @@ test.skip('object with multiple properties', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -71,7 +79,7 @@ test.skip('object with multiple properties', () => {
   ])
 })
 
-test.skip('object with numeric values', () => {
+test('object with numeric values', () => {
   const tokens = tokenizeJson('{"number": 42, "float": 3.14}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -84,10 +92,14 @@ test.skip('object with numeric values', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '42',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyName,
@@ -96,6 +108,8 @@ test.skip('object with numeric values', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '3.14',
     TokenType.Punctuation,
@@ -103,7 +117,7 @@ test.skip('object with numeric values', () => {
   ])
 })
 
-test.skip('object with boolean and null values', () => {
+test('object with boolean and null values', () => {
   const tokens = tokenizeJson('{"bool": true, "null": null}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -116,10 +130,14 @@ test.skip('object with boolean and null values', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.LanguageConstant,
     'true',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyName,
@@ -128,6 +146,8 @@ test.skip('object with boolean and null values', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.LanguageConstant,
     'null',
     TokenType.Punctuation,
@@ -135,7 +155,7 @@ test.skip('object with boolean and null values', () => {
   ])
 })
 
-test.skip('nested objects', () => {
+test('nested objects', () => {
   const tokens = tokenizeJson('{"outer": {"inner": "value"}}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -148,6 +168,8 @@ test.skip('nested objects', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '{',
     TokenType.Punctuation,
@@ -158,6 +180,8 @@ test.skip('nested objects', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -171,7 +195,7 @@ test.skip('nested objects', () => {
   ])
 })
 
-test.skip('array with mixed values', () => {
+test('array with mixed values', () => {
   const tokens = tokenizeJson('["string", 42, true, null, {"key": "value"}]')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -184,18 +208,26 @@ test.skip('array with mixed values', () => {
     '"',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '42',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.LanguageConstant,
     'true',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.LanguageConstant,
     'null',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '{',
     TokenType.Punctuation,
@@ -206,6 +238,8 @@ test.skip('array with mixed values', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -232,6 +266,8 @@ test.skip('handles escaped characters in strings', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.String,
@@ -264,14 +300,14 @@ test.skip('handles line comments', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
     'value',
     TokenType.Punctuation,
     '"',
-    TokenType.Whitespace,
-    '\n',
     TokenType.Punctuation,
     '}',
   ])
@@ -296,14 +332,14 @@ test.skip('handles block comments', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
     'value',
     TokenType.Punctuation,
     '"',
-    TokenType.Whitespace,
-    '\n',
     TokenType.Punctuation,
     '}',
   ])
@@ -346,7 +382,7 @@ test('handles empty array', () => {
   expect(tokens).toEqual([TokenType.Punctuation, '[', TokenType.Punctuation, ']'])
 })
 
-test.skip('handles nested arrays', () => {
+test('handles nested arrays', () => {
   const tokens = tokenizeJson('[[1, 2], [3, 4]]')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -357,18 +393,24 @@ test.skip('handles nested arrays', () => {
     '1',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '2',
     TokenType.Punctuation,
     ']',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '[',
     TokenType.Numeric,
     '3',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '4',
     TokenType.Punctuation,
@@ -378,7 +420,7 @@ test.skip('handles nested arrays', () => {
   ])
 })
 
-test.skip('handles negative numbers', () => {
+test('handles negative numbers', () => {
   const tokens = tokenizeJson('{"negative": -42, "negativeFloat": -3.14}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -391,10 +433,14 @@ test.skip('handles negative numbers', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '-42',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyName,
@@ -403,6 +449,8 @@ test.skip('handles negative numbers', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '-3.14',
     TokenType.Punctuation,
@@ -410,7 +458,7 @@ test.skip('handles negative numbers', () => {
   ])
 })
 
-test.skip('handles scientific notation', () => {
+test('handles scientific notation', () => {
   const tokens = tokenizeJson('{"scientific": 1.23e+4, "negativeScientific": -1.23e-4}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -423,10 +471,14 @@ test.skip('handles scientific notation', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '1.23e+4',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyName,
@@ -435,6 +487,8 @@ test.skip('handles scientific notation', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Numeric,
     '-1.23e-4',
     TokenType.Punctuation,
@@ -442,7 +496,7 @@ test.skip('handles scientific notation', () => {
   ])
 })
 
-test.skip('handles unicode characters in strings', () => {
+test('handles unicode characters in strings', () => {
   const tokens = tokenizeJson('{"unicode": "Hello \u0041\u0042\u0043"}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -455,6 +509,8 @@ test.skip('handles unicode characters in strings', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -479,6 +535,8 @@ test.skip('handles empty strings', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -487,6 +545,8 @@ test.skip('handles empty strings', () => {
     '"',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyName,
@@ -495,6 +555,8 @@ test.skip('handles empty strings', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -506,7 +568,7 @@ test.skip('handles empty strings', () => {
   ])
 })
 
-test.skip('handles special characters in property names', () => {
+test('handles special characters in property names', () => {
   const tokens = tokenizeJson('{"$id": "123", "user-name": "john", "user.name": "doe"}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -519,6 +581,8 @@ test.skip('handles special characters in property names', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -527,6 +591,8 @@ test.skip('handles special characters in property names', () => {
     '"',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyName,
@@ -535,6 +601,8 @@ test.skip('handles special characters in property names', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -543,6 +611,8 @@ test.skip('handles special characters in property names', () => {
     '"',
     TokenType.Punctuation,
     ',',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyName,
@@ -551,6 +621,8 @@ test.skip('handles special characters in property names', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
@@ -562,7 +634,7 @@ test.skip('handles special characters in property names', () => {
   ])
 })
 
-test.skip('handles deeply nested structures', () => {
+test('handles deeply nested structures', () => {
   const tokens = tokenizeJson('{"level1": {"level2": {"level3": {"value": "deep"}}}}')
   expect(tokens).toEqual([
     TokenType.Punctuation,
@@ -575,6 +647,8 @@ test.skip('handles deeply nested structures', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '{',
     TokenType.Punctuation,
@@ -585,6 +659,8 @@ test.skip('handles deeply nested structures', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '{',
     TokenType.Punctuation,
@@ -595,6 +671,8 @@ test.skip('handles deeply nested structures', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '{',
     TokenType.Punctuation,
@@ -605,6 +683,8 @@ test.skip('handles deeply nested structures', () => {
     '"',
     TokenType.Punctuation,
     ':',
+    TokenType.Whitespace,
+    ' ',
     TokenType.Punctuation,
     '"',
     TokenType.JsonPropertyValueString,
