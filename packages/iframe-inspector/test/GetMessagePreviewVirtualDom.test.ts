@@ -1,24 +1,25 @@
 import { expect, test } from '@jest/globals'
 import type { Token } from '../src/parts/Token/Token.ts'
 import { getMessagePreviewVirtualDom } from '../src/parts/GetMessagePreviewVirtualDom/GetMessagePreviewVirtualDom.ts'
+import * as TokenType from '../src/parts/TokenType/TokenType.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
-test('getMessagePreviewVirtualDom - not selected', () => {
+test('getMessageVirtualDom - not selected', () => {
   const messageTokens: readonly Token[] = [
-    { tokenType: 'Punctuation', tokenText: '{' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"id"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'Numeric', tokenText: '1' },
-    { tokenType: 'Punctuation', tokenText: ',' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"method"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"test"' },
-    { tokenType: 'Punctuation', tokenText: ',' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"params"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'Punctuation', tokenText: '[' },
-    { tokenType: 'Punctuation', tokenText: ']' },
-    { tokenType: 'Punctuation', tokenText: '}' },
+    { tokenType: TokenType.Punctuation, tokenText: '{' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.Numeric, tokenText: '1' },
+    { tokenType: TokenType.Punctuation, tokenText: ',' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"method"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"test"' },
+    { tokenType: TokenType.Punctuation, tokenText: ',' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"params"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.Punctuation, tokenText: '[' },
+    { tokenType: TokenType.Punctuation, tokenText: ']' },
+    { tokenType: TokenType.Punctuation, tokenText: '}' },
   ]
   expect(getMessagePreviewVirtualDom(messageTokens)).toEqual([
     {
@@ -169,22 +170,22 @@ test('getMessagePreviewVirtualDom - not selected', () => {
   ])
 })
 
-test('getMessagePreviewVirtualDom - selected', () => {
+test('getMessageVirtualDom - selected', () => {
   const messageTokens: readonly Token[] = [
-    { tokenType: 'Punctuation', tokenText: '{' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"id"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'Numeric', tokenText: '1' },
-    { tokenType: 'Punctuation', tokenText: ',' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"method"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"test"' },
-    { tokenType: 'Punctuation', tokenText: ',' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"params"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'Punctuation', tokenText: '[' },
-    { tokenType: 'Punctuation', tokenText: ']' },
-    { tokenType: 'Punctuation', tokenText: '}' },
+    { tokenType: TokenType.Punctuation, tokenText: '{' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.Numeric, tokenText: '1' },
+    { tokenType: TokenType.Punctuation, tokenText: ',' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"method"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"test"' },
+    { tokenType: TokenType.Punctuation, tokenText: ',' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"params"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.Punctuation, tokenText: '[' },
+    { tokenType: TokenType.Punctuation, tokenText: ']' },
+    { tokenType: TokenType.Punctuation, tokenText: '}' },
   ]
   expect(getMessagePreviewVirtualDom(messageTokens)).toEqual([
     {
@@ -335,22 +336,22 @@ test('getMessagePreviewVirtualDom - selected', () => {
   ])
 })
 
-test('getMessagePreviewVirtualDom - long message', () => {
+test('getMessageVirtualDom - long message', () => {
   const longString = 'a'.repeat(65)
   const messageTokens: readonly Token[] = [
-    { tokenType: 'Punctuation', tokenText: '{' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"id"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'Numeric', tokenText: '1' },
-    { tokenType: 'Punctuation', tokenText: ',' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"method"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"test"' },
-    { tokenType: 'Punctuation', tokenText: ',' },
-    { tokenType: 'JsonPropertyValueString', tokenText: '"params"' },
-    { tokenType: 'Punctuation', tokenText: ':' },
-    { tokenType: 'Punctuation', tokenText: '[' },
-    { tokenType: 'JsonPropertyValueString', tokenText: `"${longString}...` },
+    { tokenType: TokenType.Punctuation, tokenText: '{' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.Numeric, tokenText: '1' },
+    { tokenType: TokenType.Punctuation, tokenText: ',' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"method"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"test"' },
+    { tokenType: TokenType.Punctuation, tokenText: ',' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: '"params"' },
+    { tokenType: TokenType.Punctuation, tokenText: ':' },
+    { tokenType: TokenType.Punctuation, tokenText: '[' },
+    { tokenType: TokenType.JsonPropertyValueString, tokenText: `"${longString}...` },
   ]
   expect(getMessagePreviewVirtualDom(messageTokens)).toEqual([
     {
