@@ -16,7 +16,7 @@ export const handleSelectedContentClick = (uid: number, eventX: number, eventY: 
   const messages = MessageState.getMessages()
   const selectedModel = CreateSelectedMessageViewModel.createSelectedMessageViewModel(messages, newState.selectedIndex, newState.expandedPaths)
   if (index >= 0 && index < selectedModel.pairs.length) {
-    const {path} = selectedModel.pairs[index]
+    const { path } = selectedModel.pairs[index]
     SelectContentIndex.selectContentIndex(uid, path)
   }
 }
