@@ -17,4 +17,5 @@ export interface IframeInspectorState {
   readonly resizeStartHeight: number
   readonly expandedPaths: readonly string[]
   readonly selectedContentItemHeight: number
+  readonly columnWidths: readonly string[]
 }

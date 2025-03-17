@@ -3,6 +3,7 @@ import type { IframeInspectorState } from '../src/parts/IframeInspectorState/Ifr
 import * as HandleArrowUp from '../src/parts/HandleArrowUp/HandleArrowUp.ts'
 import * as IframeInspectorViewStates from '../src/parts/IframeInspectorViewStates/IframeInspectorViewStates.ts'
 import * as MessageState from '../src/parts/MessageState/MessageState.ts'
+
 beforeEach(() => {
   MessageState.reset()
   const state: IframeInspectorState = {
@@ -22,6 +23,7 @@ beforeEach(() => {
     resizeStartHeight: 0,
     expandedPaths: [],
     selectedContentItemHeight: 20,
+    columnWidths: [],
   }
 
   IframeInspectorViewStates.set(1, state, state)
