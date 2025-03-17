@@ -6,6 +6,7 @@ test('renderEventListeners', () => {
     {
       name: 'handleClick',
       params: ['handleClick', 'event.clientX', 'event.clientY'],
+      preventDefault: true,
     },
     {
       name: 'handleResizerMouseDown',
@@ -25,6 +26,7 @@ test('renderEventListeners', () => {
     {
       name: 'handleSelectedContentClick',
       params: ['handleSelectedContentClick', 'event.clientX', 'event.clientY'],
+      preventDefault: true,
     },
   ])
 })

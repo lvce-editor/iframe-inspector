@@ -10,7 +10,7 @@ export const getMessagesVirtualDom = (messages: readonly MessageViewModel[]): re
       type: VirtualDomElements.TBody,
       className: ClassNames.TableBody,
       childCount: messages.length,
-      onClick: 'handleClick',
+      onPointerDown: 'handleClick',
     },
     ...messages.flatMap(GetMessageVirtualDom.getMessageVirtualDom),
   ]
