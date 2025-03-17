@@ -25,6 +25,7 @@ test('isEqual - same version', () => {
     resizeStartHeight: 0,
     expandedPaths: [],
     selectedContentItemHeight: 20,
+    columnWidths: [],
   }
   const newState: IframeInspectorState = {
     messageVersion: 1,
@@ -43,6 +44,7 @@ test('isEqual - same version', () => {
     resizeStartHeight: 0,
     expandedPaths: oldState.expandedPaths,
     selectedContentItemHeight: 20,
+    columnWidths: [],
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(true)
 })
@@ -65,6 +67,7 @@ test('isEqual - different version', () => {
     resizeStartHeight: 0,
     expandedPaths: [],
     selectedContentItemHeight: 20,
+    columnWidths: [],
   }
   const newState: IframeInspectorState = {
     messageVersion: 2,
@@ -83,6 +86,7 @@ test('isEqual - different version', () => {
     resizeStartHeight: 0,
     expandedPaths: oldState.expandedPaths,
     selectedContentItemHeight: 20,
+    columnWidths: [],
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(false)
 })
