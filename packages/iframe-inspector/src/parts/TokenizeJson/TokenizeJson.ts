@@ -1,3 +1,4 @@
+import * as State from '../TokenizeJsonState/TokenizeJsonState.ts'
 import * as TokenType from '../TokenType/TokenType.ts'
 
 const WHITESPACE_REGEX = /\s/
@@ -5,17 +6,6 @@ const NUMBER_START_REGEX = /[0-9-]/
 const NUMBER_CONTINUE_REGEX = /[0-9.]/
 const BOOLEAN_NULL_START_REGEX = /[tfn]/
 const PUNCTUATION_REGEX = /[{}[\],:]/
-
-/**
- * @enum {string}
- */
-const State = {
-  Initial: 'Initial',
-  InObject: 'InObject',
-  ExpectPropertyName: 'ExpectPropertyName',
-  ExpectColon: 'ExpectColon',
-  ExpectValue: 'ExpectValue',
-}
 
 export const tokenizeJson = (input: string): readonly string[] => {
   const tokens: string[] = []
@@ -44,14 +34,28 @@ export const tokenizeJson = (input: string): readonly string[] => {
         value += input[i]
       }
 
-      if (state === State.ExpectPropertyName) {
+      switch (state) {
+      case State.ExpectPropertyName: {
         tokens.push(TokenType.JsonPropertyName)
         state = State.ExpectColon
-      } else if (state === State.ExpectValue) {
+      
+      break;
+      }
+      case State.ExpectValue: {
         tokens.push(TokenType.JsonPropertyValueString)
         state = State.InObject
-      } else {
+      
+      break;
+      }
+      case State.ExpectArrayValue: {
         tokens.push(TokenType.String)
+        state = State.InArray
+      
+      break;
+      }
+      default: {
+        tokens.push(TokenType.String)
+      }
       }
 
       tokens.push(value)
@@ -71,6 +75,8 @@ export const tokenizeJson = (input: string): readonly string[] => {
       tokens.push(value)
       if (state === State.ExpectValue) {
         state = State.InObject
+      } else if (state === State.ExpectArrayValue) {
+        state = State.InArray
       }
       continue
     }
@@ -102,32 +108,39 @@ export const tokenizeJson = (input: string): readonly string[] => {
     // Handle punctuation
     if (PUNCTUATION_REGEX.test(char)) {
       switch (char) {
-      case '{': {
-        stack.push(state)
-        state = State.ExpectPropertyName
-      
-      break;
-      }
-      case '}': {
-        state = stack.pop() || State.Initial
-      
-      break;
-      }
-      case ':': {
-        if (state === State.ExpectColon) {
-          state = State.ExpectValue
-        }
-      
-      break;
-      }
-      case ',': {
-        if (state === State.InObject) {
+        case '{': {
+          stack.push(state)
           state = State.ExpectPropertyName
+          break
         }
-      
-      break;
-      }
-      // No default
+        case '}': {
+          state = stack.pop() || State.Initial
+          break
+        }
+        case '[': {
+          stack.push(state)
+          state = State.ExpectArrayValue
+          break
+        }
+        case ']': {
+          state = stack.pop() || State.Initial
+          break
+        }
+        case ':': {
+          if (state === State.ExpectColon) {
+            state = State.ExpectValue
+          }
+          break
+        }
+        case ',': {
+          if (state === State.InObject) {
+            state = State.ExpectPropertyName
+          } else if (state === State.InArray) {
+            state = State.ExpectArrayValue
+          }
+          break
+        }
+        // No default
       }
       tokens.push(TokenType.Punctuation)
       tokens.push(char)
@@ -137,6 +150,12 @@ export const tokenizeJson = (input: string): readonly string[] => {
 
     // Skip unknown characters
     i++
+  }
+
+  if (state === State.ExpectValue) {
+    state = State.InObject
+  } else if (state === State.ExpectArrayValue) {
+    state = State.InArray
   }
 
   return tokens
