@@ -17,8 +17,7 @@ const createSingleMessageViewModel = (message: Message, maxLength: number, index
   }
 }
 
-export const createMessageViewModel = (messages: readonly Message[], selectedIndex: number): readonly MessageViewModel[] => {
-  const maxLength = 100
+export const createMessageViewModel = (messages: readonly Message[], selectedIndex: number, maxLength: number): readonly MessageViewModel[] => {
   return messages.map((message, index) => {
     return createSingleMessageViewModel(message, maxLength, index, selectedIndex)
   })
