@@ -22,7 +22,7 @@ const RE_ANYTHING_UNTIL_END = /^.+/s
 export const tokenizeJson = (input: string): readonly Token[] => {
   let next
   let index = 0
-  let token
+  let token: number
   let state = State.TopLevelContent
   const tokens: Token[] = []
   const stack: number[] = []
