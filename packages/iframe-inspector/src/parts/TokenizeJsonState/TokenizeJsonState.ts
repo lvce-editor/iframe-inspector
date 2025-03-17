@@ -1,7 +1,10 @@
-export const Initial = 0
-export const InObject = 1
-export const ExpectPropertyName = 2
-export const ExpectColon = 3
-export const ExpectValue = 4
-export const InArray = 5
-export const ExpectArrayValue = 6
+export const TopLevelContent = 1
+export const AfterCurlyOpen = 2
+export const InsideString = 3
+export const AfterPropertyName = 4
+export const AfterPropertyNameAfterColon = 5
+export const AfterPropertyValue = 6
+export const JsonPropertyKey = 7
+export const InsideLineComment = 8
+export const InsidePropertyNameString = 9
+export const InsideBlockComment = 10
