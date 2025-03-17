@@ -1,3 +1,4 @@
+import type { Token } from '../Token/Token.ts'
 import * as State from '../TokenizeJsonState/TokenizeJsonState.ts'
 import * as TokenType from '../TokenType/TokenType.ts'
 
@@ -18,12 +19,12 @@ const RE_STRING_ESCAPE = /^\\.?/
 const RE_WORD = /^\w+/
 const RE_ANYTHING_UNTIL_END = /^.+/s
 
-export const tokenizeJson = (input: string): readonly string[] => {
+export const tokenizeJson = (input: string): readonly Token[] => {
   let next
   let index = 0
   let token
   let state = State.TopLevelContent
-  const tokens: string[] = []
+  const tokens: Token[] = []
   const stack: number[] = []
 
   while (index < input.length) {
@@ -211,7 +212,7 @@ export const tokenizeJson = (input: string): readonly string[] => {
     const currentTokenText = next[0]
     const currentTokenLength = currentTokenText.length
     index += currentTokenLength
-    tokens.push(token, currentTokenText)
+    tokens.push({ tokenType: token, tokenText: currentTokenText })
   }
   return tokens
 }
