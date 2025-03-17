@@ -1,7 +1,7 @@
 import { expect, test } from '@jest/globals'
+import type { Token } from '../src/parts/Token/Token.ts'
 import { getMessagePreviewVirtualDom } from '../src/parts/GetMessagePreviewVirtualDom/GetMessagePreviewVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
-import { Token } from '../src/parts/Token/Token.ts'
 
 test('getMessagePreviewVirtualDom - not selected', () => {
   const messageTokens: readonly Token[] = [
