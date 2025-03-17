@@ -4,7 +4,6 @@ import * as TokenType from '../src/parts/TokenType/TokenType.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
 test('getMessagePreviewVirtualDom - with tokens', () => {
-  const messagePreview = '{"id":1}'
   const messageTokens = [
     TokenType.Punctuation,
     '{',
@@ -17,7 +16,7 @@ test('getMessagePreviewVirtualDom - with tokens', () => {
     TokenType.Punctuation,
     '}',
   ]
-  expect(GetMessagePreviewVirtualDom.getMessagePreviewVirtualDom(messagePreview, messageTokens)).toEqual([
+  expect(GetMessagePreviewVirtualDom.getMessagePreviewVirtualDom(messageTokens)).toEqual([
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
@@ -77,9 +76,8 @@ test('getMessagePreviewVirtualDom - with tokens', () => {
 })
 
 test('getMessagePreviewVirtualDom - empty tokens', () => {
-  const messagePreview = '{}'
   const messageTokens: string[] = []
-  expect(GetMessagePreviewVirtualDom.getMessagePreviewVirtualDom(messagePreview, messageTokens)).toEqual([
+  expect(GetMessagePreviewVirtualDom.getMessagePreviewVirtualDom(messageTokens)).toEqual([
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
