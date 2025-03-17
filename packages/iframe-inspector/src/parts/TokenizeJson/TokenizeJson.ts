@@ -248,11 +248,5 @@ export const tokenizeJson = (input: string): readonly string[] => {
     index += currentTokenLength
     tokens.push(token, currentTokenText)
   }
-  if (state === State.InsideLineComment) {
-    state = State.TopLevelContent
-  }
-  if (state === State.AfterPropertyValue) {
-    state = State.AfterCurlyOpen
-  }
   return tokens
 }
