@@ -7,12 +7,23 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 const parentNode: VirtualDomNode = {
   type: VirtualDomElements.Div,
   className: ClassNames.TableWrapper,
-  childCount: 1,
+  childCount: 2,
 }
 
 export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[], columnWidths: readonly string[]): readonly VirtualDomNode[] => {
   return [
     parentNode,
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.FilterSection,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Input,
+      className: ClassNames.FilterInput,
+      placeholder: 'Filter messages...',
+      onInput: 'handleFilterInput',
+    },
     {
       type: VirtualDomElements.Div,
       className: 'IframeInspectorGrid',
