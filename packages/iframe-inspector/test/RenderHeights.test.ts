@@ -21,7 +21,9 @@ test('renderHeights', () => {
     expandedPaths: [],
     selectedContentItemHeight: 20,
     columnWidths: [],
+    isFocused: false,
   }
+
   const newState: IframeInspectorState = {
     messageVersion: 1,
     messages: [],
@@ -40,6 +42,8 @@ test('renderHeights', () => {
     expandedPaths: [],
     selectedContentItemHeight: 20,
     columnWidths: [],
+    isFocused: false,
   }
+
   expect(RenderHeights.renderHeights(oldState, newState)).toEqual(['Viewlet.setMessagesHeight', 200])
 })

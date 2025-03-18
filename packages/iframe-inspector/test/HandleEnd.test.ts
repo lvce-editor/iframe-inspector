@@ -24,6 +24,7 @@ beforeEach(() => {
     expandedPaths: [],
     selectedContentItemHeight: 20,
     columnWidths: [],
+    isFocused: false,
   }
   IframeInspectorViewStates.set(1, state, state)
 })
