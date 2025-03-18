@@ -1,5 +1,6 @@
 import * as Create from '../Create/Create.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
+import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
 import * as HandleArrowDown from '../HandleArrowDown/HandleArrowDown.ts'
 import * as HandleArrowUp from '../HandleArrowUp/HandleArrowUp.ts'
 import * as HandleBlur from '../HandleBlur/HandleBlur.ts'
@@ -23,6 +24,7 @@ export const commandMap = {
   'IframeInspector.handleArrowUp': HandleArrowUp.handleArrowUp,
   'IframeInspector.handleHome': HandleHome.handleHome,
   'IframeInspector.handleEnd': HandleEnd.handleEnd,
+  'IframeInspector.getKeyBindings': GetKeyBindings.getKeyBindings,
   'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,
   'IframeInspector.render': Render.doRender,
   'IframeInspector.selectIndex': SelectIndex.selectIndex,
