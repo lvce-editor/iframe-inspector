@@ -19,4 +19,5 @@ export interface IframeInspectorState {
   readonly selectedContentItemHeight: number
   readonly columnWidths: readonly string[]
   readonly isFocused: boolean
+  readonly filterText?: string
 }
