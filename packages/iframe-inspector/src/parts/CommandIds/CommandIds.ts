@@ -1,12 +1,14 @@
 export const commandIds = [
-  'handleClick',
   'handleArrowDown',
   'handleArrowUp',
-  'handleHome',
+  'handleBlur',
+  'handleClick',
   'handleEnd',
+  'handleFocus',
+  'handleHome',
   'handleResizerMouseDown',
   'handleResizerMouseMove',
   'handleResizerMouseUp',
-  'selectIndex',
   'handleSelectedContentClick',
+  'selectIndex',
 ]

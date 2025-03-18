@@ -3,15 +3,17 @@ import * as GetCommandIds from '../src/parts/GetCommandIds/GetCommandIds.ts'
 
 test('getCommandIds', () => {
   expect(GetCommandIds.getCommandIds()).toEqual([
-    'handleClick',
     'handleArrowDown',
     'handleArrowUp',
-    'handleHome',
+    'handleBlur',
+    'handleClick',
     'handleEnd',
+    'handleFocus',
+    'handleHome',
     'handleResizerMouseDown',
     'handleResizerMouseMove',
     'handleResizerMouseUp',
-    'selectIndex',
     'handleSelectedContentClick',
+    'selectIndex',
   ])
 })
