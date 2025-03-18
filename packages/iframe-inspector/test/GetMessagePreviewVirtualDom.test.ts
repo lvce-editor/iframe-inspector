@@ -25,7 +25,12 @@ test('getMessageVirtualDom - not selected', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
+      childCount: 1,
+    },
+    {
       childCount: 14,
+      className: 'IframeInspectorCode',
+      type: VirtualDomElements.Code,
     },
     {
       type: VirtualDomElements.Span,
@@ -191,7 +196,12 @@ test('getMessageVirtualDom - selected', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
+      childCount: 1,
+    },
+    {
       childCount: 14,
+      className: 'IframeInspectorCode',
+      type: VirtualDomElements.Code,
     },
     {
       type: VirtualDomElements.Span,
@@ -357,7 +367,12 @@ test('getMessageVirtualDom - long message', () => {
     {
       type: VirtualDomElements.Td,
       className: 'TableCell',
+      childCount: 1,
+    },
+    {
       childCount: 13,
+      className: 'IframeInspectorCode',
+      type: VirtualDomElements.Code,
     },
     {
       type: VirtualDomElements.Span,

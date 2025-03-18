@@ -9,6 +9,11 @@ export const getMessagePreviewVirtualDom = (messageTokens: readonly Token[]): re
     {
       type: VirtualDomElements.Td,
       className: ClassNames.TableCell,
+      childCount: 1,
+    },
+    {
+      type: VirtualDomElements.Code,
+      className: 'IframeInspectorCode',
       childCount: messageTokens.length,
     },
     ...GetTokensVirtualDom.getTokensVirtualDom(messageTokens),
