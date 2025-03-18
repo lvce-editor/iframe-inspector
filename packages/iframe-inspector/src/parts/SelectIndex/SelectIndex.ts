@@ -6,6 +6,7 @@ export const selectIndex = (uid: number, index: number): void => {
   const updatedState: IframeInspectorState = {
     ...newState,
     selectedIndex: index,
+    isFocused: true,
   }
   IframeInspectorViewStates.set(uid, newState, updatedState)
 }
