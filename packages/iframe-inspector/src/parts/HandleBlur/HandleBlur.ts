@@ -1,4 +1,4 @@
-export const handleBlur = () => {
+export const handleBlur = (): void => {
   // TODO: Implement blur handling
   return
 }
