@@ -11,5 +11,15 @@ const parentNode: VirtualDomNode = {
 }
 
 export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[], columnWidths: readonly string[]): readonly VirtualDomNode[] => {
-  return [parentNode, ...GetTableVirtualDom.getTableVirtualDom(messages, columnWidths)]
+  return [
+    parentNode,
+    {
+      type: VirtualDomElements.Div,
+      className: 'Grid',
+      role: 'application',
+      tabIndex: 0,
+      childCount: 1,
+    },
+    ...GetTableVirtualDom.getTableVirtualDom(messages, columnWidths),
+  ]
 }
