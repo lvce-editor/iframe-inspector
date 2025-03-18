@@ -15,10 +15,12 @@ export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[],
     parentNode,
     {
       type: VirtualDomElements.Div,
-      className: 'Grid',
+      className: 'IframeInspectorGrid',
       role: 'application',
       tabIndex: 0,
       childCount: 1,
+      onFocusIn: 'handleFocus',
+      onBlur: 'handleBlur',
     },
     ...GetTableVirtualDom.getTableVirtualDom(messages, columnWidths),
   ]
