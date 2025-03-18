@@ -28,5 +28,13 @@ test('renderEventListeners', () => {
       params: ['handleSelectedContentClick', 'event.clientX', 'event.clientY'],
       preventDefault: true,
     },
+    {
+      name: 'handleFocus',
+      params: ['handleFocus'],
+    },
+    {
+      name: 'handleBlur',
+      params: ['handleBlur'],
+    },
   ])
 })
