@@ -26,7 +26,9 @@ test('isEqual - same height', () => {
     expandedPaths: [],
     selectedContentItemHeight: 20,
     columnWidths: [],
+    isFocused: false,
   }
+
   const newState: IframeInspectorState = {
     messageVersion: 1,
     messages: [],
@@ -45,7 +47,9 @@ test('isEqual - same height', () => {
     expandedPaths: [],
     selectedContentItemHeight: 20,
     columnWidths: [],
+    isFocused: false,
   }
+
   expect(DiffHeights.isEqual(oldState, newState)).toBe(true)
 })
 
@@ -68,7 +72,9 @@ test('isEqual - different height', () => {
     expandedPaths: [],
     selectedContentItemHeight: 20,
     columnWidths: [],
+    isFocused: false,
   }
+
   const newState: IframeInspectorState = {
     messageVersion: 1,
     messages: [],
@@ -87,6 +93,8 @@ test('isEqual - different height', () => {
     expandedPaths: [],
     selectedContentItemHeight: 20,
     columnWidths: [],
+    isFocused: false,
   }
+
   expect(DiffHeights.isEqual(oldState, newState)).toBe(false)
 })

@@ -18,4 +18,5 @@ export interface IframeInspectorState {
   readonly expandedPaths: readonly string[]
   readonly selectedContentItemHeight: number
   readonly columnWidths: readonly string[]
+  readonly isFocused: boolean
 }
