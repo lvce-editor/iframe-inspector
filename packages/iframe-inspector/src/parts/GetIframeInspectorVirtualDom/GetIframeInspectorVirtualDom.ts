@@ -19,6 +19,8 @@ export const getIframeInspectorVirtualDom = (
       type: VirtualDomElements.Div,
       className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.IFrameInspector),
       childCount: 3,
+      onFocus: 'handleFocus',
+      onBlur: 'handleBlur',
     },
     ...GetTableWrapperVirtualDom.getTableWrapperVirtualDom(messages, columnWidths),
     ...GetResizerVirtualDom.getResizerVirtualDom(),
