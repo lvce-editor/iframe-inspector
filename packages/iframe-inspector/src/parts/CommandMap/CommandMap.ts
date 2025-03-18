@@ -2,8 +2,10 @@ import * as Create from '../Create/Create.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as HandleArrowDown from '../HandleArrowDown/HandleArrowDown.ts'
 import * as HandleArrowUp from '../HandleArrowUp/HandleArrowUp.ts'
+import * as HandleBlur from '../HandleBlur/HandleBlur.ts'
 import * as HandleClick from '../HandleClick/HandleClick.ts'
 import * as HandleEnd from '../HandleEnd/HandleEnd.ts'
+import * as HandleFocus from '../HandleFocus/HandleFocus.ts'
 import * as HandleHome from '../HandleHome/HandleHome.ts'
 import * as HandleResizer from '../HandleResizer/HandleResizer.ts'
 import * as HandleSelectedContentClick from '../HandleSelectedContentClick/HandleSelectedContentClick.ts'
@@ -28,4 +30,6 @@ export const commandMap = {
   'IframeInspector.handleResizerMouseMove': HandleResizer.handleResizerMouseMove,
   'IframeInspector.handleSelectedContentClick': HandleSelectedContentClick.handleSelectedContentClick,
   'IframeInspector.handleResizerMouseUp': HandleResizer.handleResizerMouseUp,
+  'IframeInspector.handleFocus': HandleFocus.handleFocus,
+  'IframeInspector.handleBlur': HandleBlur.handleBlur,
 }
