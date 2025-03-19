@@ -25,6 +25,7 @@ beforeEach(() => {
     selectedContentItemHeight: 20,
     columnWidths: [],
     isFocused: false,
+    filterText: '',
   }
   IframeInspectorViewStates.set(1, state, state)
 })
