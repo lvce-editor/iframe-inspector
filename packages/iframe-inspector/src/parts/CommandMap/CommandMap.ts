@@ -6,6 +6,7 @@ import * as HandleArrowUp from '../HandleArrowUp/HandleArrowUp.ts'
 import * as HandleBlur from '../HandleBlur/HandleBlur.ts'
 import * as HandleClick from '../HandleClick/HandleClick.ts'
 import * as HandleEnd from '../HandleEnd/HandleEnd.ts'
+import * as HandleFilterInput from '../HandleFilterInput/HandleFilterInput.ts'
 import * as HandleFocus from '../HandleFocus/HandleFocus.ts'
 import * as HandleHome from '../HandleHome/HandleHome.ts'
 import * as HandleResizer from '../HandleResizer/HandleResizer.ts'
@@ -19,25 +20,26 @@ import * as SelectIndex from '../SelectIndex/SelectIndex.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
-  'IframeInspector.getCommandIds': GetCommandIds.getCommandIds,
   'IframeInspector.create': Create.create,
-  'IframeInspector.loadContent': LoadContent.loadContent,
-  'IframeInspector.handleClick': HandleClick.handleClick,
+  'IframeInspector.getCommandIds': GetCommandIds.getCommandIds,
+  'IframeInspector.getKeyBindings': GetKeyBindings.getKeyBindings,
   'IframeInspector.handleArrowDown': HandleArrowDown.handleArrowDown,
   'IframeInspector.handleArrowUp': HandleArrowUp.handleArrowUp,
-  'IframeInspector.handleHome': HandleHome.handleHome,
+  'IframeInspector.handleBlur': HandleBlur.handleBlur,
+  'IframeInspector.handleClick': HandleClick.handleClick,
   'IframeInspector.handleEnd': HandleEnd.handleEnd,
-  'IframeInspector.terminate': Terminate.terminate,
-  'IframeInspector.getKeyBindings': GetKeyBindings.getKeyBindings,
-  'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,
-  'IframeInspector.render': Render.doRender,
-  'IframeInspector.selectIndex': SelectIndex.selectIndex,
+  'IframeInspector.handleFilterInput': HandleFilterInput.handleFilterInput,
+  'IframeInspector.handleFocus': HandleFocus.handleFocus,
+  'IframeInspector.handleHome': HandleHome.handleHome,
   'IframeInspector.handleResizerMouseDown': HandleResizer.handleResizerMouseDown,
   'IframeInspector.handleResizerMouseMove': HandleResizer.handleResizerMouseMove,
-  'IframeInspector.handleSelectedContentClick': HandleSelectedContentClick.handleSelectedContentClick,
   'IframeInspector.handleResizerMouseUp': HandleResizer.handleResizerMouseUp,
-  'IframeInspector.handleFocus': HandleFocus.handleFocus,
-  'IframeInspector.handleBlur': HandleBlur.handleBlur,
+  'IframeInspector.handleSelectedContentClick': HandleSelectedContentClick.handleSelectedContentClick,
+  'IframeInspector.loadContent': LoadContent.loadContent,
+  'IframeInspector.render': Render.doRender,
+  'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,
   'IframeInspector.restoreState': RestoreState.restoreState,
   'IframeInspector.saveState': SaveState.saveState,
+  'IframeInspector.selectIndex': SelectIndex.selectIndex,
+  'IframeInspector.terminate': Terminate.terminate,
 }
