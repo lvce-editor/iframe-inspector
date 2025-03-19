@@ -26,6 +26,7 @@ beforeEach(() => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
 
   IframeInspectorViewStates.set(1, state, state)
