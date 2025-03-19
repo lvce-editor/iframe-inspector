@@ -21,6 +21,7 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     selectedContentItemHeight: 20,
     columnWidths: ['auto', '50px'],
     isFocused: false,
+    filterText: '',
   }
   IframeInspectorViewStates.set(uid, state, state)
 }
