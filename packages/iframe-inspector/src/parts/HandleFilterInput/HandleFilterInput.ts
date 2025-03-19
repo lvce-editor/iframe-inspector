@@ -3,7 +3,6 @@ import * as IframeInspectorViewStates from '../IframeInspectorViewStates/IframeI
 
 export const handleFilterInput = (uid: number, filterText: string): void => {
   const { newState } = IframeInspectorViewStates.get(uid)
-  console.log({ filterText })
   const updatedState: IframeInspectorState = {
     ...newState,
     filterText,
