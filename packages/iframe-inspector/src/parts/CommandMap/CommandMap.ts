@@ -14,6 +14,7 @@ import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render from '../Render/Render.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
 import * as RestoreState from '../RestoreState/RestoreState.ts'
+import * as SaveState from '../SaveState/SaveState.ts'
 import * as SelectIndex from '../SelectIndex/SelectIndex.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
 
@@ -38,4 +39,5 @@ export const commandMap = {
   'IframeInspector.handleFocus': HandleFocus.handleFocus,
   'IframeInspector.handleBlur': HandleBlur.handleBlur,
   'IframeInspector.restoreState': RestoreState.restoreState,
+  'IframeInspector.saveState': SaveState.saveState,
 }

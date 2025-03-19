@@ -6,7 +6,8 @@ test('GetIndex - basic calculation', () => {
   const y = 0
   const eventY = 100
   const itemHeight = 25
-  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight)
+  const filterHeight = 0
+  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight, filterHeight)
   expect(result).toBe(2)
 })
 
@@ -15,7 +16,9 @@ test('GetIndex - with y offset', () => {
   const y = 20
   const eventY = 120
   const itemHeight = 25
-  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight)
+  const filterHeight = 0
+
+  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight, filterHeight)
   expect(result).toBe(2)
 })
 
@@ -24,7 +27,9 @@ test('GetIndex - first item', () => {
   const y = 0
   const eventY = 60
   const itemHeight = 25
-  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight)
+  const filterHeight = 0
+
+  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight, filterHeight)
   expect(result).toBe(0)
 })
 
@@ -33,7 +38,9 @@ test('GetIndex - negative index', () => {
   const y = 0
   const eventY = 40
   const itemHeight = 25
-  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight)
+  const filterHeight = 0
+
+  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight, filterHeight)
   expect(result).toBe(-1)
 })
 
@@ -42,7 +49,9 @@ test('GetIndex - with fractional result', () => {
   const y = 0
   const eventY = 87
   const itemHeight = 25
-  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight)
+  const filterHeight = 0
+
+  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight, filterHeight)
   expect(result).toBe(1)
 })
 
@@ -51,6 +60,8 @@ test('GetIndex - large values', () => {
   const y = 50
   const eventY = 1050
   const itemHeight = 50
-  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight)
+  const filterHeight = 0
+
+  const result = GetIndex.getIndex(headerHeight, y, eventY, itemHeight, filterHeight)
   expect(result).toBe(18)
 })
