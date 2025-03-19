@@ -14,6 +14,7 @@ import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render from '../Render/Render.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
 import * as SelectIndex from '../SelectIndex/SelectIndex.ts'
+import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
   'IframeInspector.getCommandIds': GetCommandIds.getCommandIds,
@@ -24,6 +25,7 @@ export const commandMap = {
   'IframeInspector.handleArrowUp': HandleArrowUp.handleArrowUp,
   'IframeInspector.handleHome': HandleHome.handleHome,
   'IframeInspector.handleEnd': HandleEnd.handleEnd,
+  'IframeInspector.terminate': Terminate.terminate,
   'IframeInspector.getKeyBindings': GetKeyBindings.getKeyBindings,
   'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,
   'IframeInspector.render': Render.doRender,
