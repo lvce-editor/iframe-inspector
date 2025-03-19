@@ -8,6 +8,7 @@ test('getCommandIds', () => {
     'handleBlur',
     'handleClick',
     'handleEnd',
+    'handleFilterInput',
     'handleFocus',
     'handleHome',
     'handleResizerMouseDown',

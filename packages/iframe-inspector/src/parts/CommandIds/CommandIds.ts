@@ -4,6 +4,7 @@ export const commandIds = [
   'handleBlur',
   'handleClick',
   'handleEnd',
+  'handleFilterInput',
   'handleFocus',
   'handleHome',
   'handleResizerMouseDown',
