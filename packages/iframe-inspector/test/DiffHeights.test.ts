@@ -27,6 +27,7 @@ test('isEqual - same height', () => {
     selectedContentItemHeight: 20,
     columnWidths: [],
     isFocused: false,
+    filterText: '',
   }
 
   const newState: IframeInspectorState = {
@@ -48,6 +49,7 @@ test('isEqual - same height', () => {
     selectedContentItemHeight: 20,
     columnWidths: [],
     isFocused: false,
+    filterText: '',
   }
 
   expect(DiffHeights.isEqual(oldState, newState)).toBe(true)
@@ -73,6 +75,7 @@ test('isEqual - different height', () => {
     selectedContentItemHeight: 20,
     columnWidths: [],
     isFocused: false,
+    filterText: '',
   }
 
   const newState: IframeInspectorState = {
@@ -94,6 +97,7 @@ test('isEqual - different height', () => {
     selectedContentItemHeight: 20,
     columnWidths: [],
     isFocused: false,
+    filterText: '',
   }
 
   expect(DiffHeights.isEqual(oldState, newState)).toBe(false)
