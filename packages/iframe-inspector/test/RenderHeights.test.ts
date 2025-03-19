@@ -23,6 +23,7 @@ test('renderHeights', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
 
   const newState: IframeInspectorState = {
@@ -45,6 +46,7 @@ test('renderHeights', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
 
   expect(RenderHeights.renderHeights(oldState, newState)).toEqual(['Viewlet.setMessagesHeight', 200])

@@ -28,6 +28,7 @@ test('isEqual - same version', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
   const newState: IframeInspectorState = {
     messageVersion: 1,
@@ -49,6 +50,7 @@ test('isEqual - same version', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(true)
 })
@@ -74,6 +76,7 @@ test('isEqual - different version', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
   const newState: IframeInspectorState = {
     messageVersion: 2,
@@ -95,6 +98,7 @@ test('isEqual - different version', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(false)
 })

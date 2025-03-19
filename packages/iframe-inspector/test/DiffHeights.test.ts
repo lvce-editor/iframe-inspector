@@ -28,6 +28,7 @@ test('isEqual - same height', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
 
   const newState: IframeInspectorState = {
@@ -50,6 +51,7 @@ test('isEqual - same height', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
 
   expect(DiffHeights.isEqual(oldState, newState)).toBe(true)
@@ -76,6 +78,7 @@ test('isEqual - different height', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
 
   const newState: IframeInspectorState = {
@@ -98,6 +101,7 @@ test('isEqual - different height', () => {
     columnWidths: [],
     isFocused: false,
     filterText: '',
+    filterHeight: 0,
   }
 
   expect(DiffHeights.isEqual(oldState, newState)).toBe(false)
