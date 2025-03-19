@@ -8,7 +8,7 @@ import * as MessageState from '../MessageState/MessageState.ts'
 export const renderMessage = (oldState: IframeInspectorState, newState: IframeInspectorState): readonly any[] => {
   const messages = MessageState.getMessages()
   const maxLength = 100
-  const filteredMessages = GetFilteredMessages.getFilteredMessages(newState.messages, newState.filterText)
+  const filteredMessages = GetFilteredMessages.getFilteredMessages(messages, newState.filterText)
   const viewModels = CreateMessageViewModels.createMessageViewModels(filteredMessages, newState.selectedIndex, maxLength, newState.filterText)
   const selectedModel = CreateSelectedMessageViewModel.createSelectedMessageViewModel(messages, newState.selectedIndex, newState.expandedPaths)
   const dom = GetIframeInspectorVirtualDom.getIframeInspectorVirtualDom(viewModels, selectedModel, newState.selectedIndex, newState.columnWidths)
