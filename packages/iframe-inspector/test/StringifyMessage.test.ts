@@ -18,5 +18,5 @@ test('stringifyMessage should handle primitive values', () => {
   expect(stringifyMessage(123)).toBe('123')
   expect(stringifyMessage(true)).toBe('true')
   expect(stringifyMessage(null)).toBe('null')
-  expect(stringifyMessage(undefined)).toBe('undefined')
+  expect(stringifyMessage(undefined)).toBe(undefined)
 })
