@@ -35,5 +35,9 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       name: 'handleBlur',
       params: ['handleBlur'],
     },
+    {
+      name: 'handleFilterInput',
+      params: ['handleFilterInput', 'event.target.value'],
+    },
   ]
 }
