@@ -21,4 +21,5 @@ export interface IframeInspectorState {
   readonly isFocused: boolean
   readonly filterText: string
   readonly filterHeight: number
+  readonly inputSource?: number
 }
