@@ -1,6 +1,7 @@
 import type { SelectedMessageViewModel } from '../SelectedMessageViewModel/SelectedMessageViewModel.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as DomEventListeners from '../DomEventListeners/DomEventListeners.ts'
 import * as GetKeyValuePairVirtualDom from '../GetKeyValuePairVirtualDom/GetKeyValuePairVirtualDom.ts'
 import * as UiStrings from '../UiStrings/UiStrings.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
@@ -28,7 +29,7 @@ export const getSelectedContentVirtualDom = (viewModel: SelectedMessageViewModel
       type: VirtualDomElements.Ol,
       className: ClassNames.IframeInspectorSelectedContentList,
       childCount: viewModel.pairs.length,
-      onPointerDown: 'handleSelectedContentClick',
+      onPointerDown: DomEventListeners.HandleSelectedContentClick,
     },
     ...viewModel.pairs.flatMap(GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom),
   ]
