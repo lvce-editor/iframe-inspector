@@ -1,10 +1,11 @@
+import type { MessageViewModel } from '../MessageViewModel/MessageViewModel.ts'
+import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as DomEventListeners from '../DomEventListeners/DomEventListeners.ts'
 import { getNoMessagesFoundVirtualDom } from '../GetNoMessagesFoundVirtualDom/GetNoMessagesFoundVirtualDom.ts'
 import * as GetTableVirtualDom from '../GetTableVirtualDom/GetTableVirtualDom.ts'
-import type { MessageViewModel } from '../MessageViewModel/MessageViewModel.ts'
 import * as Role from '../Role/Role.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
-import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 
 const parentNode: VirtualDomNode = {
   type: VirtualDomElements.Div,
@@ -25,8 +26,8 @@ export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[],
       role: Role.Application,
       tabIndex: 0,
       childCount: 1,
-      onFocusIn: 'handleFocus',
-      onBlur: 'handleBlur',
+      onFocusIn: DomEventListeners.HandleFocus,
+      onBlur: DomEventListeners.HandleBlur,
     },
     ...GetTableVirtualDom.getTableVirtualDom(messages, columnWidths),
   ]

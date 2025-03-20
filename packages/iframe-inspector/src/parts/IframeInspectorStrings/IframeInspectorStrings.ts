@@ -5,14 +5,14 @@ export const noMessagesAvailable = (): string => {
   return I18nString.i18nString(UiStrings.NoMessagesFound)
 }
 
-export const data = () => {
+export const data = (): string => {
   return I18nString.i18nString(UiStrings.Data)
 }
 
-export const length = () => {
+export const length = (): string => {
   return I18nString.i18nString(UiStrings.Length)
 }
 
-export const noMessageSelected = () => {
+export const noMessageSelected = (): string => {
   return I18nString.i18nString(UiStrings.NoMessageSelected)
 }
