@@ -1,10 +1,10 @@
-import type { MessageViewModel } from '../MessageViewModel/MessageViewModel.ts'
-import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import { getNoMessagesFoundVirtualDom } from '../GetNoMessagesFoundVirtualDom/GetNoMessagesFoundVirtualDom.ts'
 import * as GetTableVirtualDom from '../GetTableVirtualDom/GetTableVirtualDom.ts'
+import type { MessageViewModel } from '../MessageViewModel/MessageViewModel.ts'
 import * as Role from '../Role/Role.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
-import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
+import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 
 const parentNode: VirtualDomNode = {
   type: VirtualDomElements.Div,
@@ -12,15 +12,9 @@ const parentNode: VirtualDomNode = {
   childCount: 1,
 }
 
-const emptyMessagesNode: VirtualDomNode = {
-  type: VirtualDomElements.Div,
-  className: '',
-  childCount: 1,
-}
-
 export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[], columnWidths: readonly string[]): readonly VirtualDomNode[] => {
   if (messages.length === 0) {
-    return [emptyMessagesNode, text('No messages available')]
+    return getNoMessagesFoundVirtualDom()
   }
 
   return [
