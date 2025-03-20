@@ -1,42 +1,43 @@
 import type { DomEventListener } from '../DomEventListener/DomEventListener.ts'
+import * as DomEventListeners from '../DomEventListeners/DomEventListeners.ts'
 
 export const renderEventListeners = (): readonly DomEventListener[] => {
   return [
     {
-      name: 'handleClick',
+      name: DomEventListeners.HandleClick,
       params: ['handleClick', 'event.clientX', 'event.clientY'],
       preventDefault: true,
     },
     {
-      name: 'handleResizerMouseDown',
+      name: DomEventListeners.HandleResizerMouseDown,
       params: ['handleResizerMouseDown', 'event.clientY'],
       preventDefault: true,
     },
     {
-      name: 'handleResizerMouseMove',
+      name: DomEventListeners.HandleResizerMouseMove,
       params: ['handleResizerMouseMove', 'event.clientY'],
       preventDefault: true,
     },
     {
-      name: 'handleResizerMouseUp',
+      name: DomEventListeners.HandleResizerMouseUp,
       params: ['handleResizerMouseUp'],
       preventDefault: true,
     },
     {
-      name: 'handleSelectedContentClick',
+      name: DomEventListeners.HandleSelectedContentClick,
       params: ['handleSelectedContentClick', 'event.clientX', 'event.clientY'],
       preventDefault: true,
     },
     {
-      name: 'handleFocus',
+      name: DomEventListeners.HandleFocus,
       params: ['handleFocus'],
     },
     {
-      name: 'handleBlur',
+      name: DomEventListeners.HandleBlur,
       params: ['handleBlur'],
     },
     {
-      name: 'handleFilterInput',
+      name: DomEventListeners.HandleFilterInput,
       params: ['handleFilterInput', 'event.target.value'],
     },
   ]
