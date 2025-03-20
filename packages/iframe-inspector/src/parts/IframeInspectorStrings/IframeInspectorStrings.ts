@@ -4,3 +4,15 @@ import * as UiStrings from '../UiStrings/UiStrings.ts'
 export const noMessagesAvailable = (): string => {
   return I18nString.i18nString(UiStrings.NoMessagesFound)
 }
+
+export const data = () => {
+  return I18nString.i18nString(UiStrings.Data)
+}
+
+export const length = () => {
+  return I18nString.i18nString(UiStrings.Length)
+}
+
+export const noMessageSelected = () => {
+  return I18nString.i18nString(UiStrings.NoMessageSelected)
+}
