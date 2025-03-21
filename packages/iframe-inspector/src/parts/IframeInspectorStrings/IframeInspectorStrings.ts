@@ -16,3 +16,7 @@ export const length = (): string => {
 export const noMessageSelected = (): string => {
   return I18nString.i18nString(UiStrings.NoMessageSelected)
 }
+
+export const filterMessages = (): string => {
+  return I18nString.i18nString(UiStrings.FilterMessages)
+}
