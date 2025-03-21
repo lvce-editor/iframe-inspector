@@ -14,6 +14,11 @@ export const getFilterVirtualDom = (): readonly VirtualDomNode[] => {
       childCount: 1,
     },
     {
+      type: VirtualDomElements.Div,
+      className: ClassNames.SearchField,
+      childCount: 1,
+    },
+    {
       type: VirtualDomElements.Input,
       className: ClassNames.FilterInput,
       placeholder,
