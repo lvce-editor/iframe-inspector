@@ -1,52 +1,20 @@
 import { expect, test } from '@jest/globals'
 import type { IframeInspectorState } from '../src/parts/IframeInspectorState/IframeInspectorState.ts'
+import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as RenderHeights from '../src/parts/RenderHeights/RenderHeights.ts'
 
 test('renderHeights', () => {
+  const defaultState = CreateDefaultState.createDefaultState()
   const oldState: IframeInspectorState = {
+    ...defaultState,
     messageVersion: 1,
-    messages: [],
-    uid: 1,
-    selectedIndex: -1,
-    x: 0,
-    y: 0,
-    width: 0,
-    height: 0,
-    headerHeight: 0,
-    itemHeight: 0,
     messagesHeight: 100,
-    isResizing: false,
-    resizeStartY: 0,
-    resizeStartHeight: 0,
-    expandedPaths: [],
-    selectedContentItemHeight: 20,
-    columnWidths: [],
-    isFocused: false,
-    filterText: '',
-    filterHeight: 0,
   }
 
   const newState: IframeInspectorState = {
+    ...defaultState,
     messageVersion: 1,
-    messages: [],
-    uid: 1,
-    selectedIndex: -1,
-    x: 0,
-    y: 0,
-    width: 0,
-    height: 0,
-    headerHeight: 0,
-    itemHeight: 0,
     messagesHeight: 200,
-    isResizing: false,
-    resizeStartY: 0,
-    resizeStartHeight: 0,
-    expandedPaths: [],
-    selectedContentItemHeight: 20,
-    columnWidths: [],
-    isFocused: false,
-    filterText: '',
-    filterHeight: 0,
   }
 
   expect(RenderHeights.renderHeights(oldState, newState)).toEqual(['Viewlet.setMessagesHeight', 200])
