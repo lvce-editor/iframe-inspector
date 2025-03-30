@@ -26,7 +26,7 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   await expect(messages).toHaveCount(6)
 
   const firstMessage = messages.nth(1)
-  await expect(firstMessage).toHaveText('{"jsonrpc": "2.0","method":"ready","params":[]}30')
+  await expect(firstMessage).toHaveText('{"jsonrpc": "2.0","method":"ready","params":[]}46')
 
   await Command.execute('IframeInspector.selectIndex', 0)
 
