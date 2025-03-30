@@ -1,14 +1,8 @@
 import type { RestoredState } from '../RestoredState/RestoredState.ts'
-
-const getFilterText = (state: unknown): string => {
-  if (state && typeof state === 'object' && 'filterText' in state && typeof state['filterText'] === 'string') {
-    return state.filterText
-  }
-  return ''
-}
+import * as GetSavedFilterText from '../GetSavedFilterText/GetSavedFilterText.ts'
 
 export const restoreState = (state: unknown): RestoredState => {
-  const filterText = getFilterText(state)
+  const filterText = GetSavedFilterText.getSavedFilterText(state)
   return {
     filterText,
   }
