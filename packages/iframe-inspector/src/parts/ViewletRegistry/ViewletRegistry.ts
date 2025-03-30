@@ -16,7 +16,7 @@ export const create = <T>(): IViewletRegistry<T> => {
     },
     getKeys(): readonly number[] {
       return Object.keys(states).map((key) => {
-        return parseInt(key)
+        return Number.parseInt(key)
       })
     },
   }
