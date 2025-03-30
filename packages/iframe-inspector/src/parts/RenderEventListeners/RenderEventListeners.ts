@@ -40,5 +40,10 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       name: DomEventListeners.HandleFilterInput,
       params: ['handleFilterInput', 'event.target.value'],
     },
+    {
+      name: DomEventListeners.HandleWheel,
+      params: ['handleWheel', 'event.deltaY'],
+      preventDefault: true,
+    },
   ]
 }
