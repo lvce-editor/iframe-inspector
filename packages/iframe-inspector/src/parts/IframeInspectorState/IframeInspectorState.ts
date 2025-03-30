@@ -22,4 +22,5 @@ export interface IframeInspectorState {
   readonly filterText: string
   readonly filterHeight: number
   readonly inputSource?: number
+  readonly maxMessageLength: number
 }

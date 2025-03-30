@@ -23,6 +23,7 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     isFocused: false,
     filterText: '',
     filterHeight: 50,
+    maxMessageLength: 100,
   }
   IframeInspectorViewStates.set(uid, state, state)
 }
