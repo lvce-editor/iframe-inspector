@@ -40,5 +40,10 @@ test('renderEventListeners', () => {
       name: 'handleFilterInput',
       params: ['handleFilterInput', 'event.target.value'],
     },
+    {
+      name: 'handleWheel',
+      params: ['handleWheel', 'event.deltaY'],
+      preventDefault: true,
+    },
   ])
 })
