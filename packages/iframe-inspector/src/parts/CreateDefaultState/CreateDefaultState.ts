@@ -23,6 +23,10 @@ export const createDefaultState = (): IframeInspectorState => {
     filterText: '',
     filterHeight: 0,
     maxMessageLength: 100,
+    minLineY: 0,
+    maxLineY: 0,
+    deltaY: 0,
+    finalDeltaY: 0,
   }
 
   return state
