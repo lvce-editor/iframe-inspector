@@ -24,6 +24,10 @@ export const create = (uid: number, x: number, y: number, width: number, height:
     filterText: '',
     filterHeight: 50,
     maxMessageLength: 100,
+    minLineY: 0,
+    maxLineY: 0,
+    deltaY: 0,
+    finalyDeltaY: 0,
   }
   IframeInspectorViewStates.set(uid, state, state)
 }
