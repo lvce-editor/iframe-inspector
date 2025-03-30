@@ -1,4 +1,6 @@
 import * as Create from '../Create/Create.ts'
+import * as Diff2 from '../Diff2/Diff2.ts'
+import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
 import * as HandleArrowDown from '../HandleArrowDown/HandleArrowDown.ts'
@@ -14,6 +16,7 @@ import * as HandleSelectedContentClick from '../HandleSelectedContentClick/Handl
 import * as HandleWheel from '../HandleWheel/HandleWheel.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render from '../Render/Render.ts'
+import * as Render2 from '../Render2/Render2.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
 import * as RestoreState from '../RestoreState/RestoreState.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
@@ -22,6 +25,9 @@ import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
   'IframeInspector.create': Create.create,
+  'IframeInspector.diff2': Diff2.diff2,
+  'IframeInspector.dispose': Dispose.dispose,
+  'IframeInspector.render2': Render2.render2,
   'IframeInspector.getCommandIds': GetCommandIds.getCommandIds,
   'IframeInspector.getKeyBindings': GetKeyBindings.getKeyBindings,
   'IframeInspector.handleArrowDown': HandleArrowDown.handleArrowDown,
@@ -38,10 +44,12 @@ export const commandMap = {
   'IframeInspector.handleSelectedContentClick': HandleSelectedContentClick.handleSelectedContentClick,
   'IframeInspector.handleWheel': HandleWheel.handleWheel,
   'IframeInspector.loadContent': LoadContent.loadContent,
-  'IframeInspector.render': Render.doRender,
   'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,
   'IframeInspector.restoreState': RestoreState.restoreState,
   'IframeInspector.saveState': SaveState.saveState,
   'IframeInspector.selectIndex': SelectIndex.selectIndex,
   'IframeInspector.terminate': Terminate.terminate,
+
+  // deprecated
+  'IframeInspector.render': Render.doRender,
 }
