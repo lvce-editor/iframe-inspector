@@ -14,5 +14,10 @@ export const create = <T>(): IViewletRegistry<T> => {
     dispose(uid: number): void {
       delete states[uid]
     },
+    getKeys(): readonly number[] {
+      return Object.keys(states).map((key) => {
+        return Number.parseInt(key)
+      })
+    },
   }
 }
