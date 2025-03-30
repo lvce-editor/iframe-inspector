@@ -31,5 +31,5 @@ export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect,
   await Command.execute('IframeInspector.selectIndex', 0)
 
   const content = Locator('.IframeInspectorSelectedContent')
-  await expect(content).toHaveText(`method: "ready"▶params: []`)
+  await expect(content).toHaveText(`jsonrpc: "2.0"method: "ready"▶params: []`)
 }
