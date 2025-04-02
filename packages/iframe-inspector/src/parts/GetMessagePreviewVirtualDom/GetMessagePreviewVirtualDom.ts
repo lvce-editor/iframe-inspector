@@ -13,7 +13,7 @@ export const getMessagePreviewVirtualDom = (messageTokens: readonly Token[]): re
     },
     {
       type: VirtualDomElements.Code,
-      className: 'IframeInspectorCode',
+      className: ClassNames.IframeInspectorCode,
       childCount: messageTokens.length,
     },
     ...GetTokensVirtualDom.getTokensVirtualDom(messageTokens),
