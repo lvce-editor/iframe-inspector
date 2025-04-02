@@ -22,7 +22,7 @@ export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[],
     parentNode,
     {
       type: VirtualDomElements.Div,
-      className: 'IframeInspectorGrid',
+      className: ClassNames.IframeInspectorGrid,
       role: Role.Application,
       tabIndex: 0,
       childCount: 1,
