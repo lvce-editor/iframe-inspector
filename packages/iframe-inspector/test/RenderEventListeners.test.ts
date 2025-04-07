@@ -37,7 +37,7 @@ test('renderEventListeners', () => {
       params: ['handleBlur'],
     },
     {
-      name: 'handleBlur',
+      name: 'handleListBlur',
       params: ['handleListBlur'],
     },
     {
