@@ -33,6 +33,10 @@ test('renderEventListeners', () => {
       params: ['handleFocus'],
     },
     {
+      name: 'handleListFocus',
+      params: ['handleListFocus'],
+    },
+    {
       name: 'handleBlur',
       params: ['handleBlur'],
     },
