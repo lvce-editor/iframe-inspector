@@ -1,7 +1,7 @@
 import { beforeEach, expect, test } from '@jest/globals'
+import type { IframeInspectorState } from '../src/parts/IframeInspectorState/IframeInspectorState.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as HandleEnd from '../src/parts/HandleEnd/HandleEnd.ts'
-import type { IframeInspectorState } from '../src/parts/IframeInspectorState/IframeInspectorState.ts'
 import * as MessageState from '../src/parts/MessageState/MessageState.ts'
 
 beforeEach(() => {

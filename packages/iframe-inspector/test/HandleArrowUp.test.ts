@@ -1,7 +1,7 @@
 import { beforeEach, expect, test } from '@jest/globals'
+import type { IframeInspectorState } from '../src/parts/IframeInspectorState/IframeInspectorState.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as HandleArrowUp from '../src/parts/HandleArrowUp/HandleArrowUp.ts'
-import type { IframeInspectorState } from '../src/parts/IframeInspectorState/IframeInspectorState.ts'
 import * as IframeInspectorViewStates from '../src/parts/IframeInspectorViewStates/IframeInspectorViewStates.ts'
 import * as MessageState from '../src/parts/MessageState/MessageState.ts'
 
