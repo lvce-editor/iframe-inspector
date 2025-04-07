@@ -1,5 +1,5 @@
 import type { IframeInspectorState } from '../IframeInspectorState/IframeInspectorState.ts'
 
-export const handleBlur = (newState: IframeInspectorState): IframeInspectorState => {
+export const handleListBlur = (newState: IframeInspectorState): IframeInspectorState => {
   return newState
 }
