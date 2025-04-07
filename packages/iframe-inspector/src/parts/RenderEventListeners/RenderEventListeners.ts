@@ -30,11 +30,19 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     },
     {
       name: DomEventListeners.HandleFocus,
-      params: ['handleFocus'],
+      params: ['handleFocus', 'event.target.name'],
+    },
+    {
+      name: DomEventListeners.HandleListFocus,
+      params: ['handleListFocus'],
     },
     {
       name: DomEventListeners.HandleBlur,
       params: ['handleBlur'],
+    },
+    {
+      name: DomEventListeners.HandleBlur,
+      params: ['handleListBlur'],
     },
     {
       name: DomEventListeners.HandleFilterInput,

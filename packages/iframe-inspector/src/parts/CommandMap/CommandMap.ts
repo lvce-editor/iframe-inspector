@@ -11,6 +11,8 @@ import * as HandleEnd from '../HandleEnd/HandleEnd.ts'
 import * as HandleFilterInput from '../HandleFilterInput/HandleFilterInput.ts'
 import * as HandleFocus from '../HandleFocus/HandleFocus.ts'
 import * as HandleHome from '../HandleHome/HandleHome.ts'
+import * as HandleListBlur from '../HandleListBlur/HandleListBlur.ts'
+import * as HandleListFocus from '../HandleListFocus/HandleListFocus.ts'
 import * as HandleResizer from '../HandleResizer/HandleResizer.ts'
 import * as HandleSelectedContentClick from '../HandleSelectedContentClick/HandleSelectedContentClick.ts'
 import * as HandleWheel from '../HandleWheel/HandleWheel.ts'
@@ -37,6 +39,8 @@ export const commandMap = {
   'IframeInspector.handleFilterInput': WrapCommand.wrapCommand(HandleFilterInput.handleFilterInput),
   'IframeInspector.handleFocus': WrapCommand.wrapCommand(HandleFocus.handleFocus),
   'IframeInspector.handleHome': WrapCommand.wrapCommand(HandleHome.handleHome),
+  'IframeInspector.handleListBlur': WrapCommand.wrapCommand(HandleListBlur.handleListBlur),
+  'IframeInspector.handleListFocus': WrapCommand.wrapCommand(HandleListFocus.handleListFocus),
   'IframeInspector.handleResizerMouseDown': WrapCommand.wrapCommand(HandleResizer.handleResizerMouseDown),
   'IframeInspector.handleResizerMouseMove': WrapCommand.wrapCommand(HandleResizer.handleResizerMouseMove),
   'IframeInspector.handleResizerMouseUp': WrapCommand.wrapCommand(HandleResizer.handleResizerMouseUp),

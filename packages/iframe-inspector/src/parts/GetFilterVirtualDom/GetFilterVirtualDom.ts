@@ -23,6 +23,7 @@ export const getFilterVirtualDom = (): readonly VirtualDomNode[] => {
       className: ClassNames.FilterInput,
       placeholder,
       onInput: DomEventListeners.HandleFilterInput,
+      onFocus: DomEventListeners.HandleFocus,
       name: InputName.IframeInspectorFilterInput,
     },
   ]
