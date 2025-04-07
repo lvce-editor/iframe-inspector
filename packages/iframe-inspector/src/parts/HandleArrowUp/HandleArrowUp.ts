@@ -1,8 +1,7 @@
-import * as IframeInspectorViewStates from '../IframeInspectorViewStates/IframeInspectorViewStates.ts'
+import type { IframeInspectorState } from '../IframeInspectorState/IframeInspectorState.ts'
 import * as SelectIndex from '../SelectIndex/SelectIndex.ts'
 
-export const handleArrowUp = (uid: number): void => {
-  const { newState } = IframeInspectorViewStates.get(uid)
+export const handleArrowUp = (newState: IframeInspectorState): IframeInspectorState => {
   const nextIndex = Math.max(0, newState.selectedIndex - 1)
-  SelectIndex.selectIndex(uid, nextIndex)
+  return SelectIndex.selectIndex(newState, nextIndex)
 }

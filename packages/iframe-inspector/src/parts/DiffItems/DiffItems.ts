@@ -8,6 +8,7 @@ export const isEqual = (oldState: IframeInspectorState, newState: IframeInspecto
     oldState.messageVersion === newState.messageVersion &&
     oldState.selectedIndex === newState.selectedIndex &&
     oldState.expandedPaths === newState.expandedPaths &&
-    oldState.filterText === newState.filterText
+    oldState.filterText === newState.filterText &&
+    oldState.focusId === newState.focusId
   )
 }
