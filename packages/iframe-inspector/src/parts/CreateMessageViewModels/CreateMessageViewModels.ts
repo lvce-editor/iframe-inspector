@@ -7,11 +7,12 @@ export const createMessageViewModels = (
   selectedIndex: number,
   maxLength: number,
   filterText: string,
+  isListFocused: boolean,
 ): readonly MessageViewModel[] => {
   const viewModels: MessageViewModel[] = []
   for (let i = 0; i < messages.length; i++) {
     const message = messages[i]
-    viewModels.push(CreateMessageViewModel.createMessageViewModel(message, maxLength, i, selectedIndex))
+    viewModels.push(CreateMessageViewModel.createMessageViewModel(message, maxLength, i, selectedIndex, isListFocused))
   }
   return viewModels
 }
