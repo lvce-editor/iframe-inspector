@@ -6,6 +6,7 @@ export const handleFilterInput = (uid: number, filterText: string): void => {
   const updatedState: IframeInspectorState = {
     ...newState,
     filterText,
+    inputSource: 1,
   }
   IframeInspectorViewStates.set(uid, newState, updatedState)
 }

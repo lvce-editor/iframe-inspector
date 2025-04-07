@@ -27,6 +27,7 @@ export const createDefaultState = (): IframeInspectorState => {
     maxLineY: 0,
     deltaY: 0,
     finalDeltaY: 0,
+    focusId: 0,
   }
 
   return state

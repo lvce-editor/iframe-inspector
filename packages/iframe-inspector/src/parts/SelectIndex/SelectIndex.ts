@@ -1,4 +1,5 @@
 import type { IframeInspectorState } from '../IframeInspectorState/IframeInspectorState.ts'
+import * as FocusId from '../FocusId/FocusId.ts'
 import * as IframeInspectorViewStates from '../IframeInspectorViewStates/IframeInspectorViewStates.ts'
 
 export const selectIndex = (uid: number, index: number): void => {
@@ -7,6 +8,7 @@ export const selectIndex = (uid: number, index: number): void => {
     ...newState,
     selectedIndex: index,
     isFocused: true,
+    focusId: FocusId.List,
   }
   IframeInspectorViewStates.set(uid, newState, updatedState)
 }

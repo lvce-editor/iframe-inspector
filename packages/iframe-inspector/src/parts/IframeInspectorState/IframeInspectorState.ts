@@ -27,4 +27,5 @@ export interface IframeInspectorState {
   readonly maxLineY: number
   readonly deltaY: number
   readonly finalDeltaY: number
+  readonly focusId: number
 }
