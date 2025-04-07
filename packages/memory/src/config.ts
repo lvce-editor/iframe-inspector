@@ -3,7 +3,7 @@ import { root } from './root.ts'
 
 export const threshold = 400_000
 
-export const instantiations = 4000
+export const instantiations = 3500
 
 export const instantiationsPath = join(root, 'packages', 'iframe-inspector')
 
