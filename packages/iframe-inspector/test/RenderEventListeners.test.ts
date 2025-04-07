@@ -37,6 +37,10 @@ test('renderEventListeners', () => {
       params: ['handleBlur'],
     },
     {
+      name: 'handleBlur',
+      params: ['handleListBlur'],
+    },
+    {
       name: 'handleFilterInput',
       params: ['handleFilterInput', 'event.target.value'],
     },

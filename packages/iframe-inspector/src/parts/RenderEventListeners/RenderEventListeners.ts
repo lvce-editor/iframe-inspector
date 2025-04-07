@@ -30,7 +30,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     },
     {
       name: DomEventListeners.HandleFocus,
-      params: ['handleFocus', 'event.target.name'],
+      params: ['handleFocus'],
     },
     {
       name: DomEventListeners.HandleListFocus,
@@ -41,7 +41,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleBlur'],
     },
     {
-      name: DomEventListeners.HandleBlur,
+      name: DomEventListeners.HandleListBlur,
       params: ['handleListBlur'],
     },
     {
