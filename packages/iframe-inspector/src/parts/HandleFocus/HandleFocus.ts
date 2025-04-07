@@ -1,5 +1,5 @@
-import * as FocusId from '../FocusId/FocusId.ts'
 import type { IframeInspectorState } from '../IframeInspectorState/IframeInspectorState.ts'
+import * as FocusId from '../FocusId/FocusId.ts'
 import * as ParentRpc from '../ParentRpc/ParentRpc.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
