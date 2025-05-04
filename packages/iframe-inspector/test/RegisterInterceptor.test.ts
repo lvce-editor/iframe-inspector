@@ -1,7 +1,6 @@
 import { beforeEach, expect, jest, test } from '@jest/globals'
+import * as ParentRpc from '../src/parts/ParentRpc/ParentRpc.ts'
 import * as RegisterInterceptor from '../src/parts/RegisterInterceptor/RegisterInterceptor.ts'
-import * as RpcId from '../src/parts/RpcId/RpcId.ts'
-import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 
 const mockRpc = {
   // @ts-ignore
@@ -10,7 +9,7 @@ const mockRpc = {
   invokeAndTransfer: jest.fn().mockResolvedValue(undefined),
 } as any
 
-RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+ParentRpc.set(mockRpc)
 
 beforeEach(() => {
   jest.resetAllMocks()
