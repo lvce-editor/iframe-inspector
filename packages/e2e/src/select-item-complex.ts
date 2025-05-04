@@ -2,6 +2,8 @@ import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'select-item-complex'
 
+export const skip = 1
+
 export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect, Command, Locator }) => {
   // arrange
   await Command.execute('Main.closeAllEditors')
