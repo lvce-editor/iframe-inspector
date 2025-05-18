@@ -15,6 +15,5 @@ export const register = async (handleMessage: (data: any) => void): Promise<void
 }
 
 export const unregister = async (id: number): Promise<void> => {
-  // @ts-ignore todo
   await ParentRpc.invoke('WebView.unregisterInterceptor', id)
 }
