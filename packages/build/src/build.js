@@ -65,6 +65,7 @@ delete packageJson.jest
 delete packageJson.xo
 delete packageJson.directories
 delete packageJson.nodemonConfig
+delete packageJson.dependencies
 packageJson.version = version
 packageJson.main = 'dist/iframeInspectorWorkerMain.js'
 
