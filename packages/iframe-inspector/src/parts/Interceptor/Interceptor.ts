@@ -1,4 +1,4 @@
-import * as ParentRpc from '../ParentRpc/ParentRpc.ts'
+import * as ParentRpc from '../RendererWorker/RendererWorker.ts'
 
 export const register = async (handleMessage: (data: any) => void): Promise<void> => {
   const id = 1
