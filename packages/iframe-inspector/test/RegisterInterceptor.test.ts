@@ -1,6 +1,6 @@
 import { beforeEach, expect, jest, test } from '@jest/globals'
-import * as ParentRpc from '../src/parts/ParentRpc/ParentRpc.ts'
 import * as RegisterInterceptor from '../src/parts/RegisterInterceptor/RegisterInterceptor.ts'
+import * as ParentRpc from '../src/parts/RendererWorker/RendererWorker.ts'
 
 const mockRpc = {
   // @ts-ignore
