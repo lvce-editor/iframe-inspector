@@ -1,9 +1,9 @@
-import * as ParentRpc from '../RendererWorker/RendererWorker.ts'
+import * as RendererWorker from '../RendererWorker/RendererWorker.ts'
 
 export const register = async (handleMessage: (data: any) => void): Promise<void> => {
   const id = 1
   const { port1, port2 } = new MessageChannel()
-  await ParentRpc.invokeAndTransfer('WebView.registerInterceptor', id, port1)
+  await RendererWorker.invokeAndTransfer('WebView.registerInterceptor', id, port1)
   // TODO create rpc with port2
   // TODO remove event listener on dispose
   const wrappedHandleMessage = (event: any): void => {
@@ -14,5 +14,5 @@ export const register = async (handleMessage: (data: any) => void): Promise<void
 }
 
 export const unregister = async (id: number): Promise<void> => {
-  await ParentRpc.invoke('WebView.unregisterInterceptor', id)
+  await RendererWorker.invoke('WebView.unregisterInterceptor', id)
 }
