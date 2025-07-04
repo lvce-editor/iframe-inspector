@@ -1,5 +1,3 @@
-import * as ParentRpc from '../RendererWorker/RendererWorker.ts'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 
-export const setFocus = async (focusId: number): Promise<void> => {
-  await ParentRpc.invoke('Focus.setFocus', focusId)
-}
+export const {setFocus} = RendererWorker
