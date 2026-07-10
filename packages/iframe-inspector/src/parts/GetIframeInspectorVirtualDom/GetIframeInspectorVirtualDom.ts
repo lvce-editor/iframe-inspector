@@ -17,9 +17,9 @@ export const getIframeInspectorVirtualDom = (
   const hasMessages = messages.length > 0
   return [
     {
-      type: VirtualDomElements.Div,
-      className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.IFrameInspector),
       childCount: hasMessages ? 4 : 2,
+      className: MergeClassNames.mergeClassNames(ClassNames.Viewlet, ClassNames.IFrameInspector),
+      type: VirtualDomElements.Div,
     },
     ...GetFilterVirtualDom.getFilterVirtualDom(),
     ...GetTableWrapperVirtualDom.getTableWrapperVirtualDom(messages, columnWidths),

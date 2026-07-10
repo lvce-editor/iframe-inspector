@@ -8,9 +8,9 @@ export const getNoMessagesFoundVirtualDom = (): readonly VirtualDomNode[] => {
   const noMessagesFound = IframeInspectorStrings.noMessagesAvailable()
   return [
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.IframeInspectorNoMessagesFound,
       childCount: 1,
+      className: ClassNames.IframeInspectorNoMessagesFound,
+      type: VirtualDomElements.Div,
     },
     text(noMessagesFound),
   ]

@@ -10,15 +10,22 @@ const createPairs = (value: any, parentPath: string, depth: number, expandedPath
     const path = parentPath ? `${parentPath}.${key}` : key
     const expandable = IsExpandable.isExpandable(childValue)
     const expanded = expandedPaths.includes(path)
+    let stringifiedValue: string
+
+    if (expandable) {
+      stringifiedValue = Array.isArray(childValue) ? '[]' : '{}'
+    } else {
+      stringifiedValue = JSON.stringify(childValue)
+    }
 
     pairs.push({
-      key,
-      value: childValue,
-      stringifiedValue: expandable ? (Array.isArray(childValue) ? '[]' : '{}') : JSON.stringify(childValue),
-      path,
+      depth,
       isExpandable: expandable,
       isExpanded: expanded,
-      depth,
+      key,
+      path,
+      stringifiedValue,
+      value: childValue,
     })
 
     if (expandable && expanded) {

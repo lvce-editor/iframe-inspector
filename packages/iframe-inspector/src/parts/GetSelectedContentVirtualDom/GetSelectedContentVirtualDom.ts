@@ -11,9 +11,9 @@ export const getSelectedContentVirtualDom = (viewModel: SelectedMessageViewModel
   if (selectedIndex === -1) {
     return [
       {
-        type: VirtualDomElements.Div,
-        className: ClassNames.IframeInspectorSelectedContent,
         childCount: 1,
+        className: ClassNames.IframeInspectorSelectedContent,
+        type: VirtualDomElements.Div,
       },
       text(UiStrings.NoMessageSelected),
     ]
@@ -21,15 +21,15 @@ export const getSelectedContentVirtualDom = (viewModel: SelectedMessageViewModel
 
   return [
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.IframeInspectorSelectedContent,
       childCount: 1,
+      className: ClassNames.IframeInspectorSelectedContent,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Ol,
-      className: ClassNames.IframeInspectorSelectedContentList,
       childCount: viewModel.pairs.length,
+      className: ClassNames.IframeInspectorSelectedContentList,
       onPointerDown: DomEventListeners.HandleSelectedContentClick,
+      type: VirtualDomElements.Ol,
     },
     ...viewModel.pairs.flatMap(GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom),
   ]

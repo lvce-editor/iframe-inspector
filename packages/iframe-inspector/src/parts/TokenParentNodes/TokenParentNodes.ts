@@ -3,9 +3,9 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 
 const createTokenNode = (className: string): VirtualDomNode => {
   return {
-    type: VirtualDomElements.Span,
-    className: `Token ${className}`,
     childCount: 1,
+    className: `Token ${className}`,
+    type: VirtualDomElements.Span,
   }
 }
 

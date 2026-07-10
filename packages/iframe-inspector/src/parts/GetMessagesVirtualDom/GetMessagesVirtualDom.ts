@@ -8,10 +8,10 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 export const getMessagesVirtualDom = (messages: readonly MessageViewModel[]): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.TBody,
-      className: ClassNames.TableBody,
       childCount: messages.length,
+      className: ClassNames.TableBody,
       onPointerDown: DomEventListeners.HandleClick,
+      type: VirtualDomElements.TBody,
     },
     ...messages.flatMap(GetMessageVirtualDom.getMessageVirtualDom),
   ]

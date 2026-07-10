@@ -6,25 +6,25 @@ import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 export const getHeaderVirtualDom = (): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.THead,
+      childCount: 1,
       className: ClassNames.TableHead,
-      childCount: 1,
+      type: VirtualDomElements.THead,
     },
     {
-      type: VirtualDomElements.Tr,
-      className: ClassNames.TableRow,
       childCount: 2,
+      className: ClassNames.TableRow,
+      type: VirtualDomElements.Tr,
     },
     {
-      type: VirtualDomElements.Th,
-      className: ClassNames.TableCell,
       childCount: 1,
+      className: ClassNames.TableCell,
+      type: VirtualDomElements.Th,
     },
     text('Data'),
     {
-      type: VirtualDomElements.Th,
-      className: ClassNames.TableCell,
       childCount: 1,
+      className: ClassNames.TableCell,
+      type: VirtualDomElements.Th,
     },
     text('Length'),
   ]

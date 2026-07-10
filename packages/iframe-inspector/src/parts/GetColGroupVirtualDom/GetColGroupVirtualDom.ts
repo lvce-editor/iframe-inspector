@@ -4,19 +4,19 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 
 const getColVirtualDom = (width: string): VirtualDomNode => {
   return {
-    type: VirtualDomElements.Col,
-    className: ClassNames.Col,
-    width,
     childCount: 0,
+    className: ClassNames.Col,
+    type: VirtualDomElements.Col,
+    width,
   }
 }
 
 export const getColGroupVirtualDom = (columnWidths: readonly string[]): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.ColGroup,
-      className: ClassNames.ColGroup,
       childCount: columnWidths.length,
+      className: ClassNames.ColGroup,
+      type: VirtualDomElements.ColGroup,
     },
     ...columnWidths.map(getColVirtualDom),
   ]

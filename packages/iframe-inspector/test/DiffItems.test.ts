@@ -16,8 +16,8 @@ test('isEqual - same version', () => {
   }
   const newState: IframeInspectorState = {
     ...defaultState,
-    messageVersion: 1,
     expandedPaths: oldState.expandedPaths,
+    messageVersion: 1,
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(true)
 })
@@ -30,8 +30,8 @@ test('isEqual - different version', () => {
   }
   const newState: IframeInspectorState = {
     ...defaultState,
-    messageVersion: 2,
     expandedPaths: oldState.expandedPaths,
+    messageVersion: 2,
   }
   expect(DiffItems.isEqual(oldState, newState)).toBe(false)
 })

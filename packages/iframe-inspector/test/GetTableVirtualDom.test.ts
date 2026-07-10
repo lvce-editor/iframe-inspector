@@ -4,19 +4,18 @@ import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as GetTableVirtualDom from '../src/parts/GetTableVirtualDom/GetTableVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
-test.skip('getTableVirtualDom', () => {
-  // Setup
+test('getTableVirtualDom', () => {
   const mockMessages: MessageViewModel[] = [
     {
+      isEven: true,
       isSelected: false,
       messagePreviewLength: '10',
-      isEven: true,
       messageTokens: [],
     },
     {
+      isEven: false,
       isSelected: true,
       messagePreviewLength: '20',
-      isEven: false,
       messageTokens: [],
     },
   ]
@@ -24,24 +23,41 @@ test.skip('getTableVirtualDom', () => {
   const columnWidths = ['auto', '50px']
   expect(GetTableVirtualDom.getTableVirtualDom(mockMessages, columnWidths)).toEqual([
     {
-      type: VirtualDomElements.Table,
+      childCount: 3,
       className: ClassNames.Table,
-      childCount: 2,
+      type: VirtualDomElements.Table,
     },
     {
-      type: VirtualDomElements.THead,
+      childCount: 2,
+      className: ClassNames.ColGroup,
+      type: VirtualDomElements.ColGroup,
+    },
+    {
+      childCount: 0,
+      className: ClassNames.Col,
+      type: VirtualDomElements.Col,
+      width: 'auto',
+    },
+    {
+      childCount: 0,
+      className: ClassNames.Col,
+      type: VirtualDomElements.Col,
+      width: '50px',
+    },
+    {
+      childCount: 1,
       className: ClassNames.TableHead,
-      childCount: 1,
+      type: VirtualDomElements.THead,
     },
     {
-      type: VirtualDomElements.Tr,
-      className: ClassNames.TableRow,
       childCount: 2,
+      className: ClassNames.TableRow,
+      type: VirtualDomElements.Tr,
     },
     {
-      type: VirtualDomElements.Th,
-      className: ClassNames.TableCell,
       childCount: 1,
+      className: ClassNames.TableCell,
+      type: VirtualDomElements.Th,
     },
     {
       childCount: 0,
@@ -49,9 +65,9 @@ test.skip('getTableVirtualDom', () => {
       type: 12,
     },
     {
-      type: VirtualDomElements.Th,
-      className: ClassNames.TableCell,
       childCount: 1,
+      className: ClassNames.TableCell,
+      type: VirtualDomElements.Th,
     },
     {
       childCount: 0,
@@ -61,7 +77,7 @@ test.skip('getTableVirtualDom', () => {
     {
       childCount: 2,
       className: 'TableBody',
-      onClick: 'handleClick',
+      onPointerDown: 'handleClick',
       type: 10,
     },
     {
@@ -71,18 +87,23 @@ test.skip('getTableVirtualDom', () => {
     },
     {
       childCount: 1,
-      className: 'TableCell',
+      className: ClassNames.TableCell,
       type: 11,
     },
     {
       childCount: 0,
-      text: 'Message 1',
-      type: 12,
+      className: ClassNames.IframeInspectorCode,
+      type: 65,
     },
     {
       childCount: 1,
-      className: 'TableCell',
+      className: ClassNames.TableCell,
       type: 11,
+    },
+    {
+      childCount: 1,
+      className: 'Token Numeric',
+      type: 8,
     },
     {
       childCount: 0,
@@ -96,18 +117,23 @@ test.skip('getTableVirtualDom', () => {
     },
     {
       childCount: 1,
-      className: 'TableCell',
+      className: ClassNames.TableCell,
       type: 11,
     },
     {
       childCount: 0,
-      text: 'Message 2',
-      type: 12,
+      className: ClassNames.IframeInspectorCode,
+      type: 65,
     },
     {
       childCount: 1,
-      className: 'TableCell',
+      className: ClassNames.TableCell,
       type: 11,
+    },
+    {
+      childCount: 1,
+      className: 'Token Numeric',
+      type: 8,
     },
     {
       childCount: 0,
