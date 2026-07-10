@@ -1,12 +1,30 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
 
+type TestContext = Readonly<{
+  Command: any
+  expect: any
+  Extension: any
+  FileSystem: any
+  Locator: any
+  Main: any
+  WebView: any
+}>
+
 export const name = 'select-item'
 
-export const test: Test = async ({ Extension, Main, FileSystem, WebView, expect, Command, Locator }) => {
+export const test: Test = async ({
+  Command,
+  expect,
+  Extension,
+  FileSystem,
+  Locator,
+  Main,
+  WebView,
+}: TestContext) => {
   // arrange
   await Command.execute('Main.closeAllEditors')
   await Command.execute('Developer.openIframeInspector')
-  await Extension.addWebExtension(new URL(`../fixtures/basic-webview`, import.meta.url).toString())
+  await Extension.addWebExtension(new URL(`../fixtures/basic-webview`, import.meta.url).href)
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(`${tmpDir}/test.xyz`, `a`)
 

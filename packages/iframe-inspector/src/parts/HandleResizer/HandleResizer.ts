@@ -5,8 +5,8 @@ export const handleResizerMouseDown = (uid: number, clientY: number): void => {
   const updatedState = {
     ...newState,
     isResizing: true,
-    resizeStartY: clientY,
     resizeStartHeight: newState.messagesHeight,
+    resizeStartY: clientY,
   }
   IframeInspectorViewStates.set(uid, newState, updatedState)
 }
@@ -30,8 +30,8 @@ export const handleResizerMouseUp = (uid: number): void => {
   const updatedState = {
     ...newState,
     isResizing: false,
-    resizeStartY: 0,
     resizeStartHeight: 0,
+    resizeStartY: 0,
   }
   IframeInspectorViewStates.set(uid, newState, updatedState)
 }

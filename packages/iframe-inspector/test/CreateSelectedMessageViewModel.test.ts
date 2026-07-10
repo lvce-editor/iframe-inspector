@@ -15,31 +15,31 @@ test('CreateSelectedMessageViewModel - empty message', () => {
   expect(result).toEqual({
     pairs: [
       {
+        depth: 0,
+        isExpandable: false,
+        isExpanded: false,
         key: 'id',
-        value: 1,
-        stringifiedValue: '1',
         path: 'id',
+        stringifiedValue: '1',
+        value: 1,
+      },
+      {
         depth: 0,
         isExpandable: false,
         isExpanded: false,
-      },
-      {
         key: 'method',
-        value: 'test',
-        stringifiedValue: '"test"',
         path: 'method',
-        depth: 0,
-        isExpandable: false,
-        isExpanded: false,
+        stringifiedValue: '"test"',
+        value: 'test',
       },
       {
-        key: 'params',
-        value: [],
-        stringifiedValue: '[]',
-        path: 'params',
         depth: 0,
         isExpandable: true,
         isExpanded: false,
+        key: 'params',
+        path: 'params',
+        stringifiedValue: '[]',
+        value: [],
       },
     ],
   })
@@ -56,15 +56,15 @@ test('CreateSelectedMessageViewModel - message with additional properties', () =
   const selectedIndex = 0
   const expandedPaths: string[] = []
   const result = CreateSelectedMessageViewModel.createSelectedMessageViewModel(messages, selectedIndex, expandedPaths)
-  expect(result.pairs.length).toBe(4)
+  expect(result.pairs).toHaveLength(4)
   expect(result.pairs[3]).toEqual({
-    key: 'type',
-    value: 'test-type',
-    stringifiedValue: '"test-type"',
-    path: 'type',
     depth: 0,
     isExpandable: false,
     isExpanded: false,
+    key: 'type',
+    path: 'type',
+    stringifiedValue: '"test-type"',
+    value: 'test-type',
   })
 })
 
@@ -77,29 +77,29 @@ test('CreateSelectedMessageViewModel - nested objects', () => {
   }
 
   const message: Message & { data: UserData } = {
+    data: {
+      user: {
+        age: 30,
+        name: 'John',
+      },
+    },
     id: 3,
     method: 'test',
     params: [],
-    data: {
-      user: {
-        name: 'John',
-        age: 30,
-      },
-    },
   }
   const messages = [message]
   const selectedIndex = 0
   const expandedPaths: string[] = []
   const result = CreateSelectedMessageViewModel.createSelectedMessageViewModel(messages, selectedIndex, expandedPaths)
-  expect(result.pairs.length).toBe(4)
-  expect(result.pairs[3]).toEqual({
-    key: 'data',
-    value: message.data,
-    stringifiedValue: '{}',
-    path: 'data',
+  expect(result.pairs).toHaveLength(4)
+  expect(result.pairs.find((pair) => pair.key === 'data')).toEqual({
     depth: 0,
     isExpandable: true,
     isExpanded: false,
+    key: 'data',
+    path: 'data',
+    stringifiedValue: '{}',
+    value: message.data,
   })
 })
 
@@ -112,61 +112,61 @@ test('CreateSelectedMessageViewModel - expanded nested objects', () => {
   }
 
   const message: Message & { data: UserData } = {
+    data: {
+      user: {
+        age: 30,
+        name: 'John',
+      },
+    },
     id: 4,
     method: 'test',
     params: [],
-    data: {
-      user: {
-        name: 'John',
-        age: 30,
-      },
-    },
   }
   const messages = [message]
   const selectedIndex = 0
   const expandedPaths = ['data']
   const result = CreateSelectedMessageViewModel.createSelectedMessageViewModel(messages, selectedIndex, expandedPaths)
-  expect(result.pairs.length).toBe(5)
-  expect(result.pairs[3]).toEqual({
-    key: 'data',
-    value: message.data,
-    stringifiedValue: '{}',
-    path: 'data',
+  expect(result.pairs).toHaveLength(5)
+  expect(result.pairs.find((pair) => pair.key === 'data')).toEqual({
     depth: 0,
     isExpandable: true,
     isExpanded: true,
-  })
-  expect(result.pairs[4]).toEqual({
-    key: 'user',
-    value: message.data.user,
+    key: 'data',
+    path: 'data',
     stringifiedValue: '{}',
-    path: 'data.user',
+    value: message.data,
+  })
+  expect(result.pairs.find((pair) => pair.key === 'user')).toEqual({
     depth: 1,
     isExpandable: true,
     isExpanded: false,
+    key: 'user',
+    path: 'data.user',
+    stringifiedValue: '{}',
+    value: message.data.user,
   })
 })
 
 test('CreateSelectedMessageViewModel - array values', () => {
   const message: Message & { items: string[] } = {
     id: 5,
+    items: ['a', 'b', 'c'],
     method: 'test',
     params: [],
-    items: ['a', 'b', 'c'],
   }
   const messages = [message]
   const selectedIndex = 0
   const expandedPaths: string[] = []
   const result = CreateSelectedMessageViewModel.createSelectedMessageViewModel(messages, selectedIndex, expandedPaths)
-  expect(result.pairs.length).toBe(4)
-  expect(result.pairs[3]).toEqual({
-    key: 'items',
-    value: message.items,
-    stringifiedValue: '[]',
-    path: 'items',
+  expect(result.pairs).toHaveLength(4)
+  expect(result.pairs.find((pair) => pair.key === 'items')).toEqual({
     depth: 0,
     isExpandable: true,
     isExpanded: false,
+    key: 'items',
+    path: 'items',
+    stringifiedValue: '[]',
+    value: message.items,
   })
 })
 
@@ -182,72 +182,72 @@ test('CreateSelectedMessageViewModel - mixed types', () => {
     items: number[]
     config: Config
   } = {
-    id: 6,
-    method: 'test',
-    params: [],
-    count: 42,
     active: true,
-    data: null,
-    items: [1, 2, 3],
     config: {
       theme: 'dark',
     },
+    count: 42,
+    data: null,
+    id: 6,
+    items: [1, 2, 3],
+    method: 'test',
+    params: [],
   }
   const messages = [message]
   const selectedIndex = 0
   const expandedPaths: string[] = []
   const result = CreateSelectedMessageViewModel.createSelectedMessageViewModel(messages, selectedIndex, expandedPaths)
-  expect(result.pairs.length).toBe(8)
+  expect(result.pairs).toHaveLength(8)
 
   // Check additional values
-  expect(result.pairs[3]).toEqual({
+  expect(result.pairs.find((pair) => pair.key === 'count')).toEqual({
+    depth: 0,
+    isExpandable: false,
+    isExpanded: false,
     key: 'count',
-    value: 42,
-    stringifiedValue: '42',
     path: 'count',
+    stringifiedValue: '42',
+    value: 42,
+  })
+
+  expect(result.pairs.find((pair) => pair.key === 'active')).toEqual({
     depth: 0,
     isExpandable: false,
     isExpanded: false,
-  })
-
-  expect(result.pairs[4]).toEqual({
     key: 'active',
-    value: true,
-    stringifiedValue: 'true',
     path: 'active',
+    stringifiedValue: 'true',
+    value: true,
+  })
+
+  expect(result.pairs.find((pair) => pair.key === 'data')).toEqual({
     depth: 0,
     isExpandable: false,
     isExpanded: false,
-  })
-
-  expect(result.pairs[5]).toEqual({
     key: 'data',
-    value: null,
-    stringifiedValue: 'null',
     path: 'data',
-    depth: 0,
-    isExpandable: false,
-    isExpanded: false,
+    stringifiedValue: 'null',
+    value: null,
   })
 
-  expect(result.pairs[6]).toEqual({
+  expect(result.pairs.find((pair) => pair.key === 'items')).toEqual({
+    depth: 0,
+    isExpandable: true,
+    isExpanded: false,
     key: 'items',
-    value: message.items,
-    stringifiedValue: '[]',
     path: 'items',
-    depth: 0,
-    isExpandable: true,
-    isExpanded: false,
+    stringifiedValue: '[]',
+    value: message.items,
   })
 
-  expect(result.pairs[7]).toEqual({
-    key: 'config',
-    value: message.config,
-    stringifiedValue: '{}',
-    path: 'config',
+  expect(result.pairs.find((pair) => pair.key === 'config')).toEqual({
     depth: 0,
     isExpandable: true,
     isExpanded: false,
+    key: 'config',
+    path: 'config',
+    stringifiedValue: '{}',
+    value: message.config,
   })
 })
 

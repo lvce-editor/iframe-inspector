@@ -11,8 +11,8 @@ export const handleFocus = async (newState: IframeInspectorState, inputName: str
   }
   const updatedState: IframeInspectorState = {
     ...newState,
-    isFocused: true,
     focusId: FocusId.Input,
+    isFocused: true,
   }
   return updatedState
 }

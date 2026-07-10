@@ -7,14 +7,14 @@ test('renderHeights', () => {
   const defaultState = CreateDefaultState.createDefaultState()
   const oldState: IframeInspectorState = {
     ...defaultState,
-    messageVersion: 1,
     messagesHeight: 100,
+    messageVersion: 1,
   }
 
   const newState: IframeInspectorState = {
     ...defaultState,
-    messageVersion: 1,
     messagesHeight: 200,
+    messageVersion: 1,
   }
 
   expect(RenderHeights.renderHeights(oldState, newState)).toEqual(['Viewlet.setMessagesHeight', 200])

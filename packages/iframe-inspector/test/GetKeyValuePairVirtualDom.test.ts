@@ -6,13 +6,13 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 
 test('GetKeyValuePairVirtualDom - empty object', () => {
   const pair: SelectedMessageKeyValuePair = {
-    key: '',
-    value: '',
-    stringifiedValue: '',
-    path: '',
     depth: 0,
     isExpandable: false,
     isExpanded: false,
+    key: '',
+    path: '',
+    stringifiedValue: '',
+    value: '',
   }
   const result = GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom(pair)
   expect(result).toHaveLength(6)
@@ -26,13 +26,13 @@ test('GetKeyValuePairVirtualDom - empty object', () => {
 
 test('GetKeyValuePairVirtualDom - simple key-value pairs', () => {
   const pair: SelectedMessageKeyValuePair = {
-    key: 'id',
-    value: 'test-id',
-    stringifiedValue: '"test-id"',
-    path: 'id',
     depth: 0,
     isExpandable: false,
     isExpanded: false,
+    key: 'id',
+    path: 'id',
+    stringifiedValue: '"test-id"',
+    value: 'test-id',
   }
   const result = GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom(pair)
   expect(result).toHaveLength(6)
@@ -71,16 +71,16 @@ test('GetKeyValuePairVirtualDom - simple key-value pairs', () => {
 
 test('GetKeyValuePairVirtualDom - expandable collapsed item', () => {
   const pair: SelectedMessageKeyValuePair = {
-    key: 'style',
-    value: {
-      color: 'red',
-      backgroundColor: 'blue',
-    },
-    stringifiedValue: '{...}',
-    path: 'style',
     depth: 0,
     isExpandable: true,
     isExpanded: false,
+    key: 'style',
+    path: 'style',
+    stringifiedValue: '{...}',
+    value: {
+      backgroundColor: 'blue',
+      color: 'red',
+    },
   }
   const result = GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom(pair)
   expect(result).toHaveLength(8)
@@ -104,16 +104,16 @@ test('GetKeyValuePairVirtualDom - expandable collapsed item', () => {
 
 test('GetKeyValuePairVirtualDom - expandable expanded item', () => {
   const pair: SelectedMessageKeyValuePair = {
-    key: 'data',
-    value: {
-      number: 42,
-      boolean: true,
-    },
-    stringifiedValue: '{...}',
-    path: 'data',
     depth: 0,
     isExpandable: true,
     isExpanded: true,
+    key: 'data',
+    path: 'data',
+    stringifiedValue: '{...}',
+    value: {
+      boolean: true,
+      number: 42,
+    },
   }
   const result = GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom(pair)
   expect(result).toHaveLength(8)
@@ -137,13 +137,13 @@ test('GetKeyValuePairVirtualDom - expandable expanded item', () => {
 
 test('GetKeyValuePairVirtualDom - array values', () => {
   const pair: SelectedMessageKeyValuePair = {
-    key: 'items',
-    value: ['a', 'b', 'c'],
-    stringifiedValue: '[...]',
-    path: 'items',
     depth: 1,
     isExpandable: true,
     isExpanded: false,
+    key: 'items',
+    path: 'items',
+    stringifiedValue: '[...]',
+    value: ['a', 'b', 'c'],
   }
   const result = GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom(pair)
   expect(result).toHaveLength(8)
@@ -162,13 +162,13 @@ test('GetKeyValuePairVirtualDom - array values', () => {
 
 test('GetKeyValuePairVirtualDom - with depth', () => {
   const pair: SelectedMessageKeyValuePair = {
-    key: 'nested',
-    value: { a: 1 },
-    stringifiedValue: '{...}',
-    path: 'nested',
     depth: 2,
     isExpandable: true,
     isExpanded: false,
+    key: 'nested',
+    path: 'nested',
+    stringifiedValue: '{...}',
+    value: { a: 1 },
   }
   const result = GetKeyValuePairVirtualDom.getKeyValuePairVirtualDom(pair)
   expect(result).toHaveLength(8)

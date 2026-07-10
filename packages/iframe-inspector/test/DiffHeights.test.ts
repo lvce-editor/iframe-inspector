@@ -12,14 +12,14 @@ test('isEqual - same height', () => {
   const defaultState = CreateDefaultState.createDefaultState()
   const oldState: IframeInspectorState = {
     ...defaultState,
-    messageVersion: 1,
     messagesHeight: 100,
+    messageVersion: 1,
   }
 
   const newState: IframeInspectorState = {
     ...defaultState,
-    messageVersion: 1,
     messagesHeight: 100,
+    messageVersion: 1,
   }
 
   expect(DiffHeights.isEqual(oldState, newState)).toBe(true)
@@ -29,14 +29,14 @@ test('isEqual - different height', () => {
   const defaultState = CreateDefaultState.createDefaultState()
   const oldState: IframeInspectorState = {
     ...defaultState,
-    messageVersion: 1,
     messagesHeight: 100,
+    messageVersion: 1,
   }
 
   const newState: IframeInspectorState = {
     ...defaultState,
-    messageVersion: 1,
     messagesHeight: 200,
+    messageVersion: 1,
   }
 
   expect(DiffHeights.isEqual(oldState, newState)).toBe(false)

@@ -6,12 +6,12 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 test('getResizerVirtualDom', () => {
   expect(GetResizerVirtualDom.getResizerVirtualDom()).toEqual([
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.IframeInspectorResizer,
       childCount: 0,
+      className: ClassNames.IframeInspectorResizer,
       onPointerDown: 'handleResizerMouseDown',
       onPointerMove: 'handleResizerMouseMove',
       onPointerUp: 'handleResizerMouseUp',
+      type: VirtualDomElements.Div,
     },
   ])
 })

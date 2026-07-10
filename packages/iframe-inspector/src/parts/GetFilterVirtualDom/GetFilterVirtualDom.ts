@@ -9,22 +9,22 @@ export const getFilterVirtualDom = (): readonly VirtualDomNode[] => {
   const placeholder = IframeInspectorStrings.filterMessages()
   return [
     {
-      type: VirtualDomElements.Div,
+      childCount: 1,
       className: ClassNames.FilterSection,
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Div,
-      className: ClassNames.SearchField,
-      childCount: 1,
     },
     {
-      type: VirtualDomElements.Input,
+      childCount: 1,
+      className: ClassNames.SearchField,
+      type: VirtualDomElements.Div,
+    },
+    {
       className: ClassNames.FilterInput,
-      placeholder,
-      onInput: DomEventListeners.HandleFilterInput,
-      onFocus: DomEventListeners.HandleFocus,
       name: InputName.IframeInspectorFilterInput,
+      onFocus: DomEventListeners.HandleFocus,
+      onInput: DomEventListeners.HandleFilterInput,
+      placeholder,
+      type: VirtualDomElements.Input,
     },
   ]
 }

@@ -4,6 +4,6 @@ import * as TokenParentNodes from '../TokenParentNodes/TokenParentNodes.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const getTokenVirtualDom = (token: Token): readonly VirtualDomNode[] => {
-  const { tokenType, tokenText } = token
+  const { tokenText, tokenType } = token
   return [TokenParentNodes.tokenParentNodes[tokenType], text(tokenText)]
 }

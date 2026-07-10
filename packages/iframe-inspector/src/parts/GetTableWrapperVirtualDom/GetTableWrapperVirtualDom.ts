@@ -8,9 +8,9 @@ import * as Role from '../Role/Role.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
 const parentNode: VirtualDomNode = {
-  type: VirtualDomElements.Div,
-  className: ClassNames.TableWrapper,
   childCount: 1,
+  className: ClassNames.TableWrapper,
+  type: VirtualDomElements.Div,
 }
 
 export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[], columnWidths: readonly string[]): readonly VirtualDomNode[] => {
@@ -21,13 +21,13 @@ export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[],
   return [
     parentNode,
     {
-      type: VirtualDomElements.Div,
+      childCount: 1,
       className: ClassNames.IframeInspectorGrid,
+      onBlur: DomEventListeners.HandleListBlur,
+      onFocusIn: DomEventListeners.HandleListFocus,
       role: Role.Application,
       tabIndex: 0,
-      childCount: 1,
-      onFocusIn: DomEventListeners.HandleListFocus,
-      onBlur: DomEventListeners.HandleListBlur,
+      type: VirtualDomElements.Div,
     },
     ...GetTableVirtualDom.getTableVirtualDom(messages, columnWidths),
   ]
