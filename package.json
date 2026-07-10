@@ -38,6 +38,6 @@
     "lerna": "^8.2.3",
     "nx": "^21.6.11",
     "prettier": "^3.6.2",
-    "typescript": "^5.9.2"
+    "typescript": "^6.0.0"
   }
 }
