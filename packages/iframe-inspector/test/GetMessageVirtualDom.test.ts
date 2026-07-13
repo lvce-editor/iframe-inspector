@@ -6,36 +6,36 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 
 test('getMessageVirtualDom - not selected', () => {
   const message: MessageViewModel = {
+    isEven: false,
     isSelected: false,
     messagePreviewLength: '36',
-    isEven: false,
     messageTokens: [
-      { tokenType: TokenType.Punctuation, tokenText: '{' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.Numeric, tokenText: '1' },
-      { tokenType: TokenType.Punctuation, tokenText: ',' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"method"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"test"' },
-      { tokenType: TokenType.Punctuation, tokenText: ',' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"params"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.Punctuation, tokenText: '[' },
-      { tokenType: TokenType.Punctuation, tokenText: ']' },
-      { tokenType: TokenType.Punctuation, tokenText: '}' },
+      { tokenText: '{', tokenType: TokenType.Punctuation },
+      { tokenText: '"id"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '1', tokenType: TokenType.Numeric },
+      { tokenText: ',', tokenType: TokenType.Punctuation },
+      { tokenText: '"method"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '"test"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ',', tokenType: TokenType.Punctuation },
+      { tokenText: '"params"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '[', tokenType: TokenType.Punctuation },
+      { tokenText: ']', tokenType: TokenType.Punctuation },
+      { tokenText: '}', tokenType: TokenType.Punctuation },
     ],
   }
   expect(getMessageVirtualDom(message)).toEqual([
     {
-      type: VirtualDomElements.Tr,
-      className: 'TableRow TableRowOdd',
       childCount: 2,
+      className: 'TableRow TableRowOdd',
+      type: VirtualDomElements.Tr,
     },
     {
-      type: VirtualDomElements.Td,
-      className: 'TableCell',
       childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
     },
     {
       childCount: 14,
@@ -43,149 +43,149 @@ test('getMessageVirtualDom - not selected', () => {
       type: VirtualDomElements.Code,
     },
     {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
       childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: '{',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"id"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
-      text: ':',
-      childCount: 0,
     },
     {
+      childCount: 1,
+      className: 'Token Punctuation',
       type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
+      text: ':',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
       className: 'Token Numeric',
-      childCount: 1,
+      type: VirtualDomElements.Span,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: '1',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
-      type: VirtualDomElements.Text,
-      text: ',',
-      childCount: 0,
-    },
-    {
       type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
     },
     {
+      childCount: 0,
+      text: ',',
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"method"',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
-      type: VirtualDomElements.Text,
-      text: ':',
-      childCount: 0,
-    },
-    {
       type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
     },
     {
+      childCount: 0,
+      text: ':',
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"test"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: ',',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token JsonPropertyValueString',
-      childCount: 1,
+      type: VirtualDomElements.Span,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: '"params"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: ':',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '[',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: ']',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
-      text: '}',
-      childCount: 0,
     },
     {
-      type: VirtualDomElements.Td,
-      className: 'TableCell',
       childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
+      text: '}',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
     },
     {
       childCount: 1,
@@ -193,45 +193,45 @@ test('getMessageVirtualDom - not selected', () => {
       type: 8,
     },
     {
-      type: VirtualDomElements.Text,
-      text: '36',
       childCount: 0,
+      text: '36',
+      type: VirtualDomElements.Text,
     },
   ])
 })
 
 test('getMessageVirtualDom - selected', () => {
   const message: MessageViewModel = {
+    isEven: false,
     isSelected: true,
     messagePreviewLength: '36',
-    isEven: false,
     messageTokens: [
-      { tokenType: TokenType.Punctuation, tokenText: '{' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.Numeric, tokenText: '1' },
-      { tokenType: TokenType.Punctuation, tokenText: ',' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"method"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"test"' },
-      { tokenType: TokenType.Punctuation, tokenText: ',' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"params"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.Punctuation, tokenText: '[' },
-      { tokenType: TokenType.Punctuation, tokenText: ']' },
-      { tokenType: TokenType.Punctuation, tokenText: '}' },
+      { tokenText: '{', tokenType: TokenType.Punctuation },
+      { tokenText: '"id"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '1', tokenType: TokenType.Numeric },
+      { tokenText: ',', tokenType: TokenType.Punctuation },
+      { tokenText: '"method"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '"test"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ',', tokenType: TokenType.Punctuation },
+      { tokenText: '"params"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '[', tokenType: TokenType.Punctuation },
+      { tokenText: ']', tokenType: TokenType.Punctuation },
+      { tokenText: '}', tokenType: TokenType.Punctuation },
     ],
   }
   expect(getMessageVirtualDom(message)).toEqual([
     {
-      type: VirtualDomElements.Tr,
-      className: 'TableRow TableRowSelected TableRowOdd',
       childCount: 2,
+      className: 'TableRow TableRowSelected TableRowOdd',
+      type: VirtualDomElements.Tr,
     },
     {
-      type: VirtualDomElements.Td,
-      className: 'TableCell',
       childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
     },
     {
       childCount: 14,
@@ -239,149 +239,149 @@ test('getMessageVirtualDom - selected', () => {
       type: VirtualDomElements.Code,
     },
     {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
       childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: '{',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"id"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
-      text: ':',
-      childCount: 0,
     },
     {
+      childCount: 1,
+      className: 'Token Punctuation',
       type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
+      text: ':',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
       className: 'Token Numeric',
-      childCount: 1,
+      type: VirtualDomElements.Span,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: '1',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
-      type: VirtualDomElements.Text,
-      text: ',',
-      childCount: 0,
-    },
-    {
       type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
     },
     {
+      childCount: 0,
+      text: ',',
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"method"',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
-      type: VirtualDomElements.Text,
-      text: ':',
-      childCount: 0,
-    },
-    {
       type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
     },
     {
+      childCount: 0,
+      text: ':',
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"test"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: ',',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token JsonPropertyValueString',
-      childCount: 1,
+      type: VirtualDomElements.Span,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: '"params"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: ':',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '[',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: ']',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
-      text: '}',
-      childCount: 0,
     },
     {
-      type: VirtualDomElements.Td,
-      className: 'TableCell',
       childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
+      text: '}',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
     },
     {
       childCount: 1,
@@ -389,9 +389,9 @@ test('getMessageVirtualDom - selected', () => {
       type: 8,
     },
     {
-      type: VirtualDomElements.Text,
-      text: '36',
       childCount: 0,
+      text: '36',
+      type: VirtualDomElements.Text,
     },
   ])
 })
@@ -399,35 +399,35 @@ test('getMessageVirtualDom - selected', () => {
 test('getMessageVirtualDom - long message', () => {
   const longString = 'a'.repeat(65)
   const message: MessageViewModel = {
+    isEven: false,
     isSelected: false,
     messagePreviewLength: '103',
-    isEven: false,
     messageTokens: [
-      { tokenType: TokenType.Punctuation, tokenText: '{' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"id"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.Numeric, tokenText: '1' },
-      { tokenType: TokenType.Punctuation, tokenText: ',' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"method"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"test"' },
-      { tokenType: TokenType.Punctuation, tokenText: ',' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: '"params"' },
-      { tokenType: TokenType.Punctuation, tokenText: ':' },
-      { tokenType: TokenType.Punctuation, tokenText: '[' },
-      { tokenType: TokenType.JsonPropertyValueString, tokenText: `"${longString}...` },
+      { tokenText: '{', tokenType: TokenType.Punctuation },
+      { tokenText: '"id"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '1', tokenType: TokenType.Numeric },
+      { tokenText: ',', tokenType: TokenType.Punctuation },
+      { tokenText: '"method"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '"test"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ',', tokenType: TokenType.Punctuation },
+      { tokenText: '"params"', tokenType: TokenType.JsonPropertyValueString },
+      { tokenText: ':', tokenType: TokenType.Punctuation },
+      { tokenText: '[', tokenType: TokenType.Punctuation },
+      { tokenText: `"${longString}...`, tokenType: TokenType.JsonPropertyValueString },
     ],
   }
   expect(getMessageVirtualDom(message)).toEqual([
     {
-      type: VirtualDomElements.Tr,
-      className: 'TableRow TableRowOdd',
       childCount: 2,
+      className: 'TableRow TableRowOdd',
+      type: VirtualDomElements.Tr,
     },
     {
-      type: VirtualDomElements.Td,
-      className: 'TableCell',
       childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
     },
     {
       childCount: 13,
@@ -435,139 +435,139 @@ test('getMessageVirtualDom - long message', () => {
       type: VirtualDomElements.Code,
     },
     {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
       childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: '{',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"id"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
-      text: ':',
-      childCount: 0,
     },
     {
+      childCount: 1,
+      className: 'Token Punctuation',
       type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
+      text: ':',
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
       className: 'Token Numeric',
-      childCount: 1,
+      type: VirtualDomElements.Span,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: '1',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
-      type: VirtualDomElements.Text,
-      text: ',',
-      childCount: 0,
-    },
-    {
       type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
     },
     {
+      childCount: 0,
+      text: ',',
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"method"',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
-      type: VirtualDomElements.Text,
-      text: ':',
-      childCount: 0,
-    },
-    {
       type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
     },
     {
+      childCount: 0,
+      text: ':',
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"test"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: ',',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: '"params"',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Span,
-      className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'Token Punctuation',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
       text: ':',
-      childCount: 0,
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Span,
+      childCount: 1,
       className: 'Token Punctuation',
-      childCount: 1,
-    },
-    {
-      type: VirtualDomElements.Text,
-      text: '[',
-      childCount: 0,
-    },
-    {
       type: VirtualDomElements.Span,
-      className: 'Token JsonPropertyValueString',
-      childCount: 1,
     },
     {
-      type: VirtualDomElements.Text,
-      text: `"${longString}...`,
       childCount: 0,
+      text: '[',
+      type: VirtualDomElements.Text,
     },
     {
-      type: VirtualDomElements.Td,
-      className: 'TableCell',
       childCount: 1,
+      className: 'Token JsonPropertyValueString',
+      type: VirtualDomElements.Span,
+    },
+    {
+      childCount: 0,
+      text: `"${longString}...`,
+      type: VirtualDomElements.Text,
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Td,
     },
     {
       childCount: 1,
@@ -575,9 +575,9 @@ test('getMessageVirtualDom - long message', () => {
       type: 8,
     },
     {
-      type: VirtualDomElements.Text,
-      text: '103',
       childCount: 0,
+      text: '103',
+      type: VirtualDomElements.Text,
     },
   ])
 })

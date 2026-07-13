@@ -6,12 +6,12 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 export const getResizerVirtualDom = (): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.IframeInspectorResizer,
       childCount: 0,
+      className: ClassNames.IframeInspectorResizer,
       onPointerDown: DomEventListeners.HandleResizerMouseDown,
       onPointerMove: DomEventListeners.HandleResizerMouseMove,
       onPointerUp: DomEventListeners.HandleResizerMouseUp,
+      type: VirtualDomElements.Div,
     },
   ]
 }

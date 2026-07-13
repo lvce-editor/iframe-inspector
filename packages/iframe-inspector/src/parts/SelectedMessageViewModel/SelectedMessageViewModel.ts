@@ -1,11 +1,11 @@
 export interface SelectedMessageKeyValuePair {
-  readonly key: string
-  readonly value: any
-  readonly stringifiedValue: string
-  readonly path: string
+  readonly depth: number
   readonly isExpandable: boolean
   readonly isExpanded: boolean
-  readonly depth: number
+  readonly key: string
+  readonly path: string
+  readonly stringifiedValue: string
+  readonly value: any
 }
 
 export interface SelectedMessageViewModel {

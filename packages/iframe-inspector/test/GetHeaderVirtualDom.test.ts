@@ -5,34 +5,34 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 test('getHeaderVirtualDom', () => {
   expect(GetHeaderVirtualDom.getHeaderVirtualDom()).toEqual([
     {
-      type: VirtualDomElements.THead,
+      childCount: 1,
       className: 'TableHead',
-      childCount: 1,
+      type: VirtualDomElements.THead,
     },
     {
-      type: VirtualDomElements.Tr,
-      className: 'TableRow',
       childCount: 2,
+      className: 'TableRow',
+      type: VirtualDomElements.Tr,
     },
     {
-      type: VirtualDomElements.Th,
-      className: 'TableCell',
       childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Th,
     },
     {
-      type: VirtualDomElements.Text,
+      childCount: 0,
       text: 'Data',
-      childCount: 0,
-    },
-    {
-      type: VirtualDomElements.Th,
-      className: 'TableCell',
-      childCount: 1,
-    },
-    {
       type: VirtualDomElements.Text,
-      text: 'Length',
+    },
+    {
+      childCount: 1,
+      className: 'TableCell',
+      type: VirtualDomElements.Th,
+    },
+    {
       childCount: 0,
+      text: 'Length',
+      type: VirtualDomElements.Text,
     },
   ])
 })

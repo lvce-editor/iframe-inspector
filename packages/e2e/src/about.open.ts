@@ -1,8 +1,18 @@
 import type { Test } from '@lvce-editor/test-with-playwright'
 
+type TestContext = Readonly<{
+  About: any
+  expect: any
+  Locator: any
+}>
+
 export const name = 'about.open'
 
-export const test: Test = async ({ Locator, expect, About }) => {
+export const test: Test = async ({
+  About,
+  expect,
+  Locator,
+}: TestContext) => {
   // act
   await About.show()
 

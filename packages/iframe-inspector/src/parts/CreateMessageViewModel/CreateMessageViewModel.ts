@@ -14,9 +14,9 @@ export const createMessageViewModel = (
   const preview = GetMessagePreview.getMessagePreview(stringified, maxLength)
   const tokens = TokenizeJson.tokenizeJson(preview)
   return {
+    isEven: index % 2 === 0,
     isSelected: isListFocused && index === selectedIndex,
     messagePreviewLength: String(preview.length),
-    isEven: index % 2 === 0,
     messageTokens: tokens,
   }
 }

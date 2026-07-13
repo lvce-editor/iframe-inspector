@@ -7,14 +7,14 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 export const getMessagePreviewVirtualDom = (messageTokens: readonly Token[]): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.Td,
-      className: ClassNames.TableCell,
       childCount: 1,
+      className: ClassNames.TableCell,
+      type: VirtualDomElements.Td,
     },
     {
-      type: VirtualDomElements.Code,
-      className: ClassNames.IframeInspectorCode,
       childCount: messageTokens.length,
+      className: ClassNames.IframeInspectorCode,
+      type: VirtualDomElements.Code,
     },
     ...GetTokensVirtualDom.getTokensVirtualDom(messageTokens),
   ]

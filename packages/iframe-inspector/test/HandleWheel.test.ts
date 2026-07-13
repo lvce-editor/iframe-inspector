@@ -1,21 +1,13 @@
 import { expect, test } from '@jest/globals'
-import type { IframeInspectorState } from '../src/parts/IframeInspectorState/IframeInspectorState.ts'
 import * as CreateDefaultState from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as HandleWheel from '../src/parts/HandleWheel/HandleWheel.ts'
+import * as IframeInspectorViewStates from '../src/parts/IframeInspectorViewStates/IframeInspectorViewStates.ts'
 
-test.skip('handleWheel', () => {
+test('handleWheel', () => {
   const defaultState = CreateDefaultState.createDefaultState()
-  // @ts-ignore
-  const oldState: IframeInspectorState = {
-    ...defaultState,
-    y: 0,
-  }
+  IframeInspectorViewStates.set(defaultState.uid, defaultState, defaultState)
 
-  const newState: IframeInspectorState = {
-    ...defaultState,
-    y: 100,
-  }
-
-  HandleWheel.handleWheel(1, 50)
+  HandleWheel.handleWheel(defaultState.uid, 50)
+  const { newState } = IframeInspectorViewStates.get(defaultState.uid)
   expect(newState.y).toBe(50)
 })

@@ -5,23 +5,23 @@ import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 export const getKeyBindings = (): readonly KeyBinding[] => {
   return [
     {
-      key: KeyCode.DownArrow,
       command: 'IframeInspector.handleArrowDown',
+      key: KeyCode.DownArrow,
       when: WhenExpression.FocusIframeInspector,
     },
     {
-      key: KeyCode.UpArrow,
       command: 'IframeInspector.handleArrowUp',
+      key: KeyCode.UpArrow,
       when: WhenExpression.FocusIframeInspector,
     },
     {
-      key: KeyCode.Home,
       command: 'IframeInspector.handleHome',
+      key: KeyCode.Home,
       when: WhenExpression.FocusIframeInspector,
     },
     {
-      key: KeyCode.End,
       command: 'IframeInspector.handleEnd',
+      key: KeyCode.End,
       when: WhenExpression.FocusIframeInspector,
     },
   ]

@@ -9,9 +9,9 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 export const getTableVirtualDom = (messages: readonly MessageViewModel[], columnWidths: readonly string[]): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.Table,
-      className: ClassNames.Table,
       childCount: 3,
+      className: ClassNames.Table,
+      type: VirtualDomElements.Table,
     },
     ...GetColGroupVirtualDom.getColGroupVirtualDom(columnWidths),
     ...GetHeaderVirtualDom.getHeaderVirtualDom(),

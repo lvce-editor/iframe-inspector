@@ -4,10 +4,10 @@ import * as InputName from '../InputName/InputName.ts'
 
 const getSelector = (focusId: number): string => {
   switch (focusId) {
-    case FocusId.List:
-      return '.IframeInspectorGrid'
     case FocusId.Input:
       return InputName.IframeInspectorFilterInput
+    case FocusId.List:
+      return '.IframeInspectorGrid'
     default:
       return ''
   }

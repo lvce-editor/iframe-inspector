@@ -8,8 +8,10 @@
     "type-check": "tsc"
   },
   "type": "module",
-  "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Le Vivilet",
+    "email": "levivilet@pm.me"
+  },
   "license": "MIT",
   "devDependencies": {
     "@lvce-editor/extension-host-sub-worker": "^3.14.0",

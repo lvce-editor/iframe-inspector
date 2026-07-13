@@ -7,19 +7,19 @@ import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 export const getKeyValuePairVirtualDom = (pair: SelectedMessageKeyValuePair): readonly VirtualDomNode[] => {
   const nodes: VirtualDomNode[] = [
     {
-      type: VirtualDomElements.Li,
+      childCount: pair.isExpandable ? 4 : 3,
       className: ClassNames.IframeInspectorSelectedContentItem,
       paddingLeft: `${pair.depth * 20}px`,
-      childCount: pair.isExpandable ? 4 : 3,
+      type: VirtualDomElements.Li,
     },
   ]
 
   if (pair.isExpandable) {
     nodes.push(
       {
-        type: VirtualDomElements.Span,
-        className: ClassNames.IframeInspectorExpandIcon,
         childCount: 1,
+        className: ClassNames.IframeInspectorExpandIcon,
+        type: VirtualDomElements.Span,
       },
       text(pair.isExpanded ? '▼' : '▶'),
     )
@@ -27,16 +27,16 @@ export const getKeyValuePairVirtualDom = (pair: SelectedMessageKeyValuePair): re
 
   nodes.push(
     {
-      type: VirtualDomElements.Span,
-      className: ClassNames.IframeInspectorSelectedContentKey,
       childCount: 1,
+      className: ClassNames.IframeInspectorSelectedContentKey,
+      type: VirtualDomElements.Span,
     },
     text(pair.key),
     text(': '),
     {
-      type: VirtualDomElements.Span,
-      className: ClassNames.IframeInspectorSelectedContentValue,
       childCount: 1,
+      className: ClassNames.IframeInspectorSelectedContentValue,
+      type: VirtualDomElements.Span,
     },
     text(pair.stringifiedValue),
   )

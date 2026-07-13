@@ -7,7 +7,6 @@
   "license": "MIT",
   "author": "Lvce Editor",
   "type": "module",
-  "main": "",
   "scripts": {
     "build": "node packages/build/src/build.js",
     "build:static": "node packages/build/src/build-static.js",
@@ -37,7 +36,8 @@
     "@lvce-editor/eslint-config": "^16.3.0",
     "eslint": "^10.7.0",
     "lerna": "^8.2.3",
+    "nx": "^21.6.11",
     "prettier": "^3.6.2",
-    "typescript": "^5.9.2"
+    "typescript": "^6.0.0"
   }
 }

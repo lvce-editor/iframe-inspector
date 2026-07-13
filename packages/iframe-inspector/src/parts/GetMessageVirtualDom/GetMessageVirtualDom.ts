@@ -6,12 +6,12 @@ import * as GetMessagePreviewVirtualDom from '../GetMessagePreviewVirtualDom/Get
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
 export const getMessageVirtualDom = (message: MessageViewModel): readonly VirtualDomNode[] => {
-  const { isSelected, messagePreviewLength, isEven, messageTokens } = message
+  const { isEven, isSelected, messagePreviewLength, messageTokens } = message
   return [
     {
-      type: VirtualDomElements.Tr,
-      className: GetMessageClassName.getMessageClassName(isSelected, isEven),
       childCount: 2,
+      className: GetMessageClassName.getMessageClassName(isSelected, isEven),
+      type: VirtualDomElements.Tr,
     },
     ...GetMessagePreviewVirtualDom.getMessagePreviewVirtualDom(messageTokens),
     ...GetMessageLengthVirtualDom.getMessageLengthVirtualDom(messagePreviewLength),
