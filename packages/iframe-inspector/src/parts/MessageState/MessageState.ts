@@ -7,11 +7,13 @@ const state: State = {
 }
 
 export const addMessage = (message: any): void => {
-  state.messages = [...state.messages, message]
+  const { messages } = state
+  state.messages = [...messages, message]
 }
 
 export const getMessages = (): readonly any[] => {
-  return state.messages
+  const { messages } = state
+  return messages
 }
 
 export const reset = (): void => {
