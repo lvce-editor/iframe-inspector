@@ -5,6 +5,7 @@ import * as DomEventListeners from '../DomEventListeners/DomEventListeners.ts'
 import * as GetNoMessagesFoundVirtualDom from '../GetNoMessagesFoundVirtualDom/GetNoMessagesFoundVirtualDom.ts'
 import * as GetTableVirtualDom from '../GetTableVirtualDom/GetTableVirtualDom.ts'
 import * as Role from '../Role/Role.ts'
+import * as TabIndex from '../TabIndex/TabIndex.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
 const parentNode: VirtualDomNode = {
@@ -26,7 +27,7 @@ export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[],
       onBlur: DomEventListeners.HandleListBlur,
       onFocusIn: DomEventListeners.HandleListFocus,
       role: Role.Application,
-      tabIndex: 0,
+      tabIndex: TabIndex.Focusable,
       type: VirtualDomElements.Div,
     },
     ...GetTableVirtualDom.getTableVirtualDom(messages, columnWidths),

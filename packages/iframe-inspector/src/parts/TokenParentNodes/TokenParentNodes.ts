@@ -1,10 +1,11 @@
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
 const createTokenNode = (className: string): VirtualDomNode => {
   return {
     childCount: 1,
-    className: `Token ${className}`,
+    className: MergeClassNames.mergeClassNames('Token', className),
     type: VirtualDomElements.Span,
   }
 }
