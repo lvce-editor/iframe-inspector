@@ -4,14 +4,13 @@ import * as IframeInspectorStrings from '../IframeInspectorStrings/IframeInspect
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const noMessagesFoundNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.IframeInspectorNoMessagesFound,
+  type: VirtualDomElements.Div,
+}
+
 export const getNoMessagesFoundVirtualDom = (): readonly VirtualDomNode[] => {
   const noMessagesFound = IframeInspectorStrings.noMessagesAvailable()
-  return [
-    {
-      childCount: 1,
-      className: ClassNames.IframeInspectorNoMessagesFound,
-      type: VirtualDomElements.Div,
-    },
-    text(noMessagesFound),
-  ]
+  return [noMessagesFoundNode, text(noMessagesFound)]
 }

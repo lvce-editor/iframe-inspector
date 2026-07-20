@@ -5,19 +5,23 @@ import * as IframeInspectorStrings from '../IframeInspectorStrings/IframeInspect
 import * as InputName from '../InputName/InputName.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
+const filterSectionNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.FilterSection,
+  type: VirtualDomElements.Div,
+}
+
+const searchFieldNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.SearchField,
+  type: VirtualDomElements.Div,
+}
+
 export const getFilterVirtualDom = (): readonly VirtualDomNode[] => {
   const placeholder = IframeInspectorStrings.filterMessages()
   return [
-    {
-      childCount: 1,
-      className: ClassNames.FilterSection,
-      type: VirtualDomElements.Div,
-    },
-    {
-      childCount: 1,
-      className: ClassNames.SearchField,
-      type: VirtualDomElements.Div,
-    },
+    filterSectionNode,
+    searchFieldNode,
     {
       className: ClassNames.FilterInput,
       name: InputName.IframeInspectorFilterInput,

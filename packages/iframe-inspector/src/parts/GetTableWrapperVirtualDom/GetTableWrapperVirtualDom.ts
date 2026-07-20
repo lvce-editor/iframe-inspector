@@ -14,6 +14,16 @@ const parentNode: VirtualDomNode = {
   type: VirtualDomElements.Div,
 }
 
+const gridNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.IframeInspectorGrid,
+  onBlur: DomEventListeners.HandleListBlur,
+  onFocusIn: DomEventListeners.HandleListFocus,
+  role: Role.Application,
+  tabIndex: TabIndex.Focusable,
+  type: VirtualDomElements.Div,
+}
+
 export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[], columnWidths: readonly string[]): readonly VirtualDomNode[] => {
   if (messages.length === 0) {
     return GetNoMessagesFoundVirtualDom.getNoMessagesFoundVirtualDom()
@@ -21,15 +31,7 @@ export const getTableWrapperVirtualDom = (messages: readonly MessageViewModel[],
 
   return [
     parentNode,
-    {
-      childCount: 1,
-      className: ClassNames.IframeInspectorGrid,
-      onBlur: DomEventListeners.HandleListBlur,
-      onFocusIn: DomEventListeners.HandleListFocus,
-      role: Role.Application,
-      tabIndex: TabIndex.Focusable,
-      type: VirtualDomElements.Div,
-    },
+    gridNode,
     ...GetTableVirtualDom.getTableVirtualDom(messages, columnWidths),
   ]
 }
