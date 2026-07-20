@@ -4,6 +4,24 @@ import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const expandIconNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.IframeInspectorExpandIcon,
+  type: VirtualDomElements.Span,
+}
+
+const keyNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.IframeInspectorSelectedContentKey,
+  type: VirtualDomElements.Span,
+}
+
+const valueNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.IframeInspectorSelectedContentValue,
+  type: VirtualDomElements.Span,
+}
+
 export const getKeyValuePairVirtualDom = (pair: SelectedMessageKeyValuePair): readonly VirtualDomNode[] => {
   const nodes: VirtualDomNode[] = [
     {
@@ -15,29 +33,14 @@ export const getKeyValuePairVirtualDom = (pair: SelectedMessageKeyValuePair): re
   ]
 
   if (pair.isExpandable) {
-    nodes.push(
-      {
-        childCount: 1,
-        className: ClassNames.IframeInspectorExpandIcon,
-        type: VirtualDomElements.Span,
-      },
-      text(pair.isExpanded ? '▼' : '▶'),
-    )
+    nodes.push(expandIconNode, text(pair.isExpanded ? '▼' : '▶'))
   }
 
   nodes.push(
-    {
-      childCount: 1,
-      className: ClassNames.IframeInspectorSelectedContentKey,
-      type: VirtualDomElements.Span,
-    },
+    keyNode,
     text(pair.key),
     text(': '),
-    {
-      childCount: 1,
-      className: ClassNames.IframeInspectorSelectedContentValue,
-      type: VirtualDomElements.Span,
-    },
+    valueNode,
     text(pair.stringifiedValue),
   )
 

@@ -7,24 +7,19 @@ import * as UiStrings from '../UiStrings/UiStrings.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const selectedContentNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.IframeInspectorSelectedContent,
+  type: VirtualDomElements.Div,
+}
+
 export const getSelectedContentVirtualDom = (viewModel: SelectedMessageViewModel, selectedIndex: number): readonly VirtualDomNode[] => {
   if (selectedIndex === -1) {
-    return [
-      {
-        childCount: 1,
-        className: ClassNames.IframeInspectorSelectedContent,
-        type: VirtualDomElements.Div,
-      },
-      text(UiStrings.NoMessageSelected),
-    ]
+    return [selectedContentNode, text(UiStrings.NoMessageSelected)]
   }
 
   return [
-    {
-      childCount: 1,
-      className: ClassNames.IframeInspectorSelectedContent,
-      type: VirtualDomElements.Div,
-    },
+    selectedContentNode,
     {
       childCount: viewModel.pairs.length,
       className: ClassNames.IframeInspectorSelectedContentList,

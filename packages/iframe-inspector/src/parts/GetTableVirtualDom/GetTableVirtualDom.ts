@@ -6,13 +6,15 @@ import * as GetHeaderVirtualDom from '../GetHeaderVirtualDom/GetHeaderVirtualDom
 import * as GetMessagesVirtualDom from '../GetMessagesVirtualDom/GetMessagesVirtualDom.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
+const tableNode: VirtualDomNode = {
+  childCount: 3,
+  className: ClassNames.Table,
+  type: VirtualDomElements.Table,
+}
+
 export const getTableVirtualDom = (messages: readonly MessageViewModel[], columnWidths: readonly string[]): readonly VirtualDomNode[] => {
   return [
-    {
-      childCount: 3,
-      className: ClassNames.Table,
-      type: VirtualDomElements.Table,
-    },
+    tableNode,
     ...GetColGroupVirtualDom.getColGroupVirtualDom(columnWidths),
     ...GetHeaderVirtualDom.getHeaderVirtualDom(),
     ...GetMessagesVirtualDom.getMessagesVirtualDom(messages),
