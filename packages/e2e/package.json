@@ -14,14 +14,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@lvce-editor/assert": "1.4.0",
     "@lvce-editor/extension-host-sub-worker": "^3.14.0",
-    "@lvce-editor/ipc": "14.5.0",
-    "@lvce-editor/json-rpc": "7.0.0",
     "@lvce-editor/test-with-playwright": "^4.0.0",
     "@lvce-editor/test-worker": "5.2.0",
     "@playwright/test": "1.55.0",
-    "get-port": "7.1.0",
-    "ws": "8.18.3"
+    "get-port": "7.1.0"
   }
 }

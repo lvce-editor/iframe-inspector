@@ -21,8 +21,10 @@ function updateDependencies {
     -x eslint \
     -x typescript \
     -x @lvce-editor/assert \
+    -x @lvce-editor/constants \
     -x @lvce-editor/ipc \
     -x @lvce-editor/json-rpc \
+    -x @lvce-editor/rpc \
     -x @lvce-editor/test-worker \
     -x @playwright/test \
     -x get-port \
