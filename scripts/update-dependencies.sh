@@ -16,7 +16,17 @@ fi
 
 function updateDependencies {
   echo "updating dependencies..."
-  ncu -u -x @types/node -x eslint -x typescript
+  ncu -u \
+    -x @types/node \
+    -x eslint \
+    -x typescript \
+    -x @lvce-editor/assert \
+    -x @lvce-editor/ipc \
+    -x @lvce-editor/json-rpc \
+    -x @lvce-editor/test-worker \
+    -x @playwright/test \
+    -x get-port \
+    -x ws
 }
 
 updateDependencies
