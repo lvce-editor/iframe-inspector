@@ -1,3 +1,3 @@
 import { RendererWorker } from '@lvce-editor/rpc-registry'
 
-export const { invoke, invokeAndTransfer, set, setFocus } = RendererWorker
+export const { invokeAndTransfer, set } = RendererWorker
