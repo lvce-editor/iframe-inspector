@@ -12,7 +12,3 @@ export const register = async (handleMessage: (data: any) => void): Promise<void
   port2.addEventListener('message', wrappedHandleMessage)
   port2.start()
 }
-
-export const unregister = async (id: number): Promise<void> => {
-  await RendererWorker.invoke('WebView.unregisterInterceptor', id)
-}
