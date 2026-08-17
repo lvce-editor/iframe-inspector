@@ -15,6 +15,6 @@
   "license": "MIT",
   "devDependencies": {
     "@lvce-editor/extension-host-sub-worker": "^3.14.0",
-    "@lvce-editor/test-with-playwright": "^4.0.0"
+    "@lvce-editor/test-with-playwright": "^22.23.0"
   }
 }
