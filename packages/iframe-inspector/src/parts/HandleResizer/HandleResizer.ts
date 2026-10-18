@@ -1,18 +1,18 @@
 import * as IframeInspectorViewStates from '../IframeInspectorViewStates/IframeInspectorViewStates.ts'
 
 export const handleResizerMouseDown = (uid: number, clientY: number): void => {
-  const { newState } = IframeInspectorViewStates.get(uid)
+  const { newState, oldState } = IframeInspectorViewStates.get(uid)
   const updatedState = {
     ...newState,
     isResizing: true,
     resizeStartHeight: newState.messagesHeight,
     resizeStartY: clientY,
   }
-  IframeInspectorViewStates.set(uid, newState, updatedState)
+  IframeInspectorViewStates.set(uid, oldState, updatedState)
 }
 
 export const handleResizerMouseMove = (uid: number, clientY: number): void => {
-  const { newState } = IframeInspectorViewStates.get(uid)
+  const { newState, oldState } = IframeInspectorViewStates.get(uid)
   if (!newState.isResizing) {
     return
   }
@@ -22,16 +22,16 @@ export const handleResizerMouseMove = (uid: number, clientY: number): void => {
     ...newState,
     messagesHeight: newHeight,
   }
-  IframeInspectorViewStates.set(uid, newState, updatedState)
+  IframeInspectorViewStates.set(uid, oldState, updatedState)
 }
 
 export const handleResizerMouseUp = (uid: number): void => {
-  const { newState } = IframeInspectorViewStates.get(uid)
+  const { newState, oldState } = IframeInspectorViewStates.get(uid)
   const updatedState = {
     ...newState,
     isResizing: false,
     resizeStartHeight: 0,
     resizeStartY: 0,
   }
-  IframeInspectorViewStates.set(uid, newState, updatedState)
+  IframeInspectorViewStates.set(uid, oldState, updatedState)
 }
