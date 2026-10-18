@@ -13,6 +13,7 @@ import * as HandleFocus from '../HandleFocus/HandleFocus.ts'
 import * as HandleHome from '../HandleHome/HandleHome.ts'
 import * as HandleListBlur from '../HandleListBlur/HandleListBlur.ts'
 import * as HandleListFocus from '../HandleListFocus/HandleListFocus.ts'
+import * as HandleMessagePort from '../HandleMessagePort/HandleMessagePort.ts'
 import * as HandleResizer from '../HandleResizer/HandleResizer.ts'
 import * as HandleSelectedContentClick from '../HandleSelectedContentClick/HandleSelectedContentClick.ts'
 import * as HandleWheel from '../HandleWheel/HandleWheel.ts'
@@ -36,16 +37,17 @@ export const commandMap = {
   'IframeInspector.handleBlur': WrapCommand.wrapCommand(HandleBlur.handleBlur),
   'IframeInspector.handleClick': WrapCommand.wrapCommand(HandleClick.handleClick),
   'IframeInspector.handleEnd': WrapCommand.wrapCommand(HandleEnd.handleEnd),
-  'IframeInspector.handleFilterInput': WrapCommand.wrapCommand(HandleFilterInput.handleFilterInput),
+  'IframeInspector.handleFilterInput': WrapCommand.wrapUidCommand(HandleFilterInput.handleFilterInput),
   'IframeInspector.handleFocus': WrapCommand.wrapCommand(HandleFocus.handleFocus),
   'IframeInspector.handleHome': WrapCommand.wrapCommand(HandleHome.handleHome),
   'IframeInspector.handleListBlur': WrapCommand.wrapCommand(HandleListBlur.handleListBlur),
   'IframeInspector.handleListFocus': WrapCommand.wrapCommand(HandleListFocus.handleListFocus),
-  'IframeInspector.handleResizerMouseDown': WrapCommand.wrapCommand(HandleResizer.handleResizerMouseDown),
-  'IframeInspector.handleResizerMouseMove': WrapCommand.wrapCommand(HandleResizer.handleResizerMouseMove),
-  'IframeInspector.handleResizerMouseUp': WrapCommand.wrapCommand(HandleResizer.handleResizerMouseUp),
-  'IframeInspector.handleSelectedContentClick': WrapCommand.wrapCommand(HandleSelectedContentClick.handleSelectedContentClick),
-  'IframeInspector.handleWheel': WrapCommand.wrapCommand(HandleWheel.handleWheel),
+  'IframeInspector.handleMessagePort': HandleMessagePort.handleMessagePort,
+  'IframeInspector.handleResizerMouseDown': WrapCommand.wrapUidCommand(HandleResizer.handleResizerMouseDown),
+  'IframeInspector.handleResizerMouseMove': WrapCommand.wrapUidCommand(HandleResizer.handleResizerMouseMove),
+  'IframeInspector.handleResizerMouseUp': WrapCommand.wrapUidCommand(HandleResizer.handleResizerMouseUp),
+  'IframeInspector.handleSelectedContentClick': WrapCommand.wrapUidCommand(HandleSelectedContentClick.handleSelectedContentClick),
+  'IframeInspector.handleWheel': WrapCommand.wrapUidCommand(HandleWheel.handleWheel),
   'IframeInspector.loadContent': LoadContent.loadContent,
   'IframeInspector.render2': Render2.render2,
   'IframeInspector.renderEventListeners': RenderEventListeners.renderEventListeners,

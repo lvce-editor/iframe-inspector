@@ -2,7 +2,7 @@ import type { IframeInspectorState } from '../IframeInspectorState/IframeInspect
 import * as IframeInspectorViewStates from '../IframeInspectorViewStates/IframeInspectorViewStates.ts'
 
 export const selectContentIndex = (uid: number, path: string): void => {
-  const { newState } = IframeInspectorViewStates.get(uid)
+  const { newState, oldState } = IframeInspectorViewStates.get(uid)
   const newExpandedPaths = newState.expandedPaths.includes(path)
     ? newState.expandedPaths.filter((expandedPath) => expandedPath !== path)
     : [...newState.expandedPaths, path]
@@ -11,5 +11,5 @@ export const selectContentIndex = (uid: number, path: string): void => {
     ...newState,
     expandedPaths: newExpandedPaths,
   }
-  IframeInspectorViewStates.set(uid, newState, updatedState)
+  IframeInspectorViewStates.set(uid, oldState, updatedState)
 }

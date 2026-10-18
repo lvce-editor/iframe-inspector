@@ -1,4 +1,5 @@
+import * as ViewletRegistry from '@lvce-editor/viewlet-registry'
 import type { IframeInspectorState } from '../IframeInspectorState/IframeInspectorState.ts'
-import * as ViewletRegistry from '../ViewletRegistry/ViewletRegistry.ts'
 
-export const { dispose, get, getKeys, set } = ViewletRegistry.create<IframeInspectorState>()
+export const { createDirectEventCommandMap, dispose, get, getKeys, registerCommands, set, wrapSerialCommand } =
+  ViewletRegistry.create<IframeInspectorState>()
